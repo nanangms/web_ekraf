@@ -36,7 +36,7 @@ Tambah Berita
                             <div class=" form-group row">
                                 <div class="col-md-12">
                                     <label class="control-label">Judul<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="judul" value="{{old('judul')}}"/>
+                                    <input type="text" class="form-control" name="judul" value="{{old('judul')}}" required/>
                                     @if($errors->has('judul'))
                                     <span class="text-danger">{{$errors->first('judul')}}</span>
                                     @endif
@@ -56,7 +56,7 @@ Tambah Berita
                             <div class=" form-group row">
                                 <div class="col-md-12">
                                     <label>Gambar<span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" name="gambar" onchange="readURL(this);"/>
+                                    <input type="file" class="form-control" name="gambar" onchange="readURL(this);" required />
                                     @if($errors->has('gambar'))
                                     <span class="text-danger">{{$errors->first('gambar')}}</span>
                                     @endif

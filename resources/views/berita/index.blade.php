@@ -44,7 +44,7 @@ Berita
 </div>
 <div class="card-body">
     <p align="right">
-        <button data-toggle="modal" data-target="#ShowTambah" class="btn btn-info" title="Tambah"><i class="fa fa-plus"></i> Tambah Berita</button>
+        <a href="/berita/tambah" class="btn btn-info" title="Tambah"><i class="fa fa-plus"></i> Tambah Berita</a>
     </p>
     <table id="datatable" class="table table-bordered table-hover">
         <thead>

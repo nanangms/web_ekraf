@@ -84,7 +84,6 @@ class BeritaController extends Controller
     public function delete(Berita $berita){  
         DB::table('berita')->where('id', $berita)->delete();      
         $berita->delete();
-        File::delete('images/berita/'.$berita->gambar);
         return redirect('/berita')->with('hapus','Data Berhasil dihapus');
     }
 
