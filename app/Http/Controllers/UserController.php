@@ -51,10 +51,10 @@ class UserController extends Controller
                 return '<img src="'.$user->getAvatarProfil().'" alt="avatar" style="object-fit: cover; position: relative; width: 40px; height: 40px; overflow: hidden; border-radius: 50%;"> | '.$user->name;
             })
             ->addColumn('status', function ($user) {
-                if($user->aktif == 'Y'){
-                    return '<span class="label label-success">Aktif</span>';
+                if($user->is_active == 'Y'){
+                    return '<span class="badge badge-success">Aktif</span>';
                 }else{
-                    return '<span class="label label-danger">Non Aktif</span>';
+                    return '<span class="badge badge-danger">Tidak Aktif</span>'; 
                 }
                 
             })

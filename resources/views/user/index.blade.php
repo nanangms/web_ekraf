@@ -187,7 +187,7 @@ User
             {data: 'nama', name: 'nama'},
             {data: 'email', name: 'jml_submenu'},
             {data: 'nama_role', name: 'nama_role'},
-            {data: 'verifikasi', name: 'urutan'},
+            {data: 'status', name: 'status'},
             {data: 'action', name: 'action'}
         ]
     });
