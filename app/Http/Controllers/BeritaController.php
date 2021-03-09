@@ -8,6 +8,7 @@ use App\Models\Berita;
 use DataTables;
 use DB;
 use Jenssegers\Date\Date;
+use File;
 
 class BeritaController extends Controller
 {
@@ -82,7 +83,8 @@ class BeritaController extends Controller
     }
 
     public function delete(Berita $berita){  
-        DB::table('berita')->where('id', $berita)->delete();      
+        DB::table('berita')->where('id', $berita)->delete(); 
+        File::delete('images/berita/'.$berita->gambar);     
         $berita->delete();
         return redirect('/berita')->with('hapus','Data Berhasil dihapus');
     }
