@@ -84,9 +84,9 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4" href="/">
-      <img class="navbar-floating-logo d-none d-lg-block" src="{{ asset('homepage/images/logo-ekraf.png') }}" alt="Logo ekraf" width="153">
-      <img class="navbar-stuck-logo" src="{{ asset('homepage/images/logo-ekraf.png') }}" alt="Logo ekraf" width="153">
-      <img class="d-lg-none" src="{{ asset('homepage/images/logo-ekraf.png') }}" alt="Logo ekraf" width="108">
+      <img class="navbar-floating-logo d-none d-lg-block logo-ekraf" alt="Logo ekraf">
+      <img class="navbar-stuck-logo logo-ekraf" alt="Logo ekraf">
+      <img class="d-lg-none logo-ekraf-mobile" alt="Logo ekraf">
     </a>
     <div class="d-flex align-items-center order-lg-3 ms-lg-auto">
       <a class="nav-link-style text-nowrap" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signin-view">
@@ -97,7 +97,7 @@
     </div>
     <div class="offcanvas offcanvas-collapse order-lg-2" id="primaryMenu">
       <div class="offcanvas-cap navbar-shadow">
-        <img class="d-lg-none" src="{{ asset('homepage/images/logo-ekraf.png') }}" alt="Logo ekraf" width="125">
+        <img class="d-lg-none logo-ekraf-mobile" alt="Logo ekraf">
         <button class="btn-close lead" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">

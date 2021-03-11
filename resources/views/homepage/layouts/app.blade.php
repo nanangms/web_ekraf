@@ -25,9 +25,12 @@
   <link rel="stylesheet" media="screen" href="{{ asset('homepage/vendor/simplebar/dist/simplebar.min.css') }}"/>
   <link rel="stylesheet" media="screen" href="{{ asset('homepage/vendor/tiny-slider/dist/tiny-slider.css') }}"/>
   <link rel="stylesheet" media="screen" href="{{ asset('homepage/vendor/flatpickr/dist/flatpickr.min.css') }}"/>
+
   <!-- Main Theme Styles + Bootstrap-->
   <link rel="stylesheet" media="screen" href="{{ asset('homepage/css/theme.min.css') }}">
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" media="screen" href="{{ asset('homepage/css/custom.css') }}">
 
 </head>
 

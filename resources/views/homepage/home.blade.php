@@ -41,17 +41,17 @@ Homepage | EKRAF Jambi
 		        <div class="col-lg-6 order-lg-1">
 		          <div class="row">
 		            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-		              <div class="px-2 text-center"><img class="bg-light rounded-circle mb-2" src="{{ asset('homepage/images/daftar-1.png') }}" alt="Daftar" width="105">
+		              <div class="px-3 text-center"><img class="bg-light rounded-circle mb-2 daftar-img" alt="Daftar">
 		                <p class="fs-sm fw-medium text-light mb-0 pt-1">Pendaftaran pemilik usaha sebagai pelaku Ekraf</p>
 		              </div>
 		            </div>
 		            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-		              <div class="px-2 text-center"><img class="bg-light rounded-circle mb-2" src="{{ asset('homepage/images/cari-1.png') }}" alt="Cari" width="105">
+		              <div class="px-3 text-center"><img class="bg-light rounded-circle mb-2 cari-img" alt="Cari">
 		                <p class="fs-sm fw-medium text-light mb-0 pt-1">Direktori dan pencarian data pelaku Ekraf</p>
 		              </div>
 		            </div>
 		            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-		              <div class="px-2 text-center"><img class="bg-light rounded-circle mb-2" src="{{ asset('homepage/images/event-1.png') }}" alt="Event" width="105">
+		              <div class="px-3 text-center"><img class="bg-light rounded-circle mb-2 event-img" alt="Event">
 		                <p class="fs-sm fw-medium text-light mb-0 pt-1">Informasi event Ekonomi kreatif</p>
 		              </div>
 		            </div>
