@@ -12,8 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'App\Http\Controllers\IndexController@index');
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('auth.login');
 });
 Route::get('/akses_terbatas', function () {

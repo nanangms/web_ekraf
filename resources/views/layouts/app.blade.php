@@ -6,7 +6,7 @@
   <meta name="description" content="Aplikasi Pendataan Pembinaan Sosial Kota Jambi">
   <meta name="keywords" content="Dinsos, Sosial, Pembinaan">
   <meta name="author" content="NMS Project">
-  <title>@yield('title') | EKRAF Jambi</title>
+  <title>@yield('title') | Admin - EKRAF Jambi</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
-  <link rel="icon" href="{{asset('images/favicon.png')}}">
+  <link rel="icon" href="{{asset('favicon.png')}}">
   @yield('header')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -26,8 +26,10 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-image: url({{asset('images/bg_admin2.jpg')}});background-repeat: no-repeat; background-color: #004c7d; background-position:left bottom;">
     <!-- Brand Logo -->
     <a href="/dashboard" class="brand-link">
-      <img src="{{asset('images/LOGO_EKRAF-02.jpg')}}" alt="Logo" class="brand-image img-circle"> 
-      <span class="brand-text font-weight-light">EKRAF Jambi</span>
+      <img src="{{asset('homepage/images/emblem-logo.png')}}" alt="Logo" class="brand-image"> 
+      <span class="brand-text font-weight-light">
+        <img src="{{asset('homepage/images/text-logo.png')}}" width="52px">
+      </span>
     </a>
     <!-- Sidebar -->
     <div class="sidebar" >
