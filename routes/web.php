@@ -20,6 +20,9 @@ Route::get('/login', function () {
 Route::get('/akses_terbatas', function () {
     return view('akses_terbatas');
 });
+
+Route::get('/akun', 'App\Http\Controllers\AkunController@index');
+
 Auth::routes();
 
 
@@ -33,6 +36,7 @@ Route::group(['middleware'=>['auth']],function(){
         Route::get('/{id}/edit', [App\Http\Controllers\UserController::class, 'edit']);
         Route::post('/{id}/update', [App\Http\Controllers\UserController::class, 'update']);
     });
+
     Route::group(['prefix'=>'data-master'], function(){
         Route::resource('/sektor','\App\Http\Controllers\SektorController');
         Route::resource('/menu','\App\Http\Controllers\MenuController');

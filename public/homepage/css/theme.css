@@ -14006,7 +14006,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .dropdown-toggle::after {
   margin-left: 0.25rem;
   font-weight: 900;
-  content: "f105";
+  content: "url(data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZm9jdXNhYmxlPSJmYWxzZSIgZGF0YS1wcmVmaXg9ImZhcyIgZGF0YS1pY29uPSJhbmdsZS1yaWdodCIgY2xhc3M9InN2Zy1pbmxpbmUtLWZhIGZhLWFuZ2xlLXJpZ2h0IGZhLXctOCIgcm9sZT0iaW1nIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgNTEyIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0yMjQuMyAyNzNsLTEzNiAxMzZjLTkuNCA5LjQtMjQuNiA5LjQtMzMuOSAwbC0yMi42LTIyLjZjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45bDk2LjQtOTYuNC05Ni40LTk2LjRjLTkuNC05LjQtOS40LTI0LjYgMC0zMy45TDU0LjMgMTAzYzkuNC05LjQgMjQuNi05LjQgMzMuOSAwbDEzNiAxMzZjOS41IDkuNCA5LjUgMjQuNi4xIDM0eiI+PC9wYXRoPjwvc3ZnPg==)";
 }
 .dropdown-toggle::before {
   margin-right: 0.25rem;

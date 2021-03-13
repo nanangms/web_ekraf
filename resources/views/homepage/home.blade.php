@@ -29,7 +29,7 @@ Homepage | EKRAF Jambi
 	        </div>
 	    </div>
 	    <div class="carousel-item" style="height: 300px;">
-	      <div class="bg-dark px-4 px-lg-6 py-5">
+	      <div class="bg-dark px-4 px-lg-6 pt-5 py-6">
 		    <div class="position-relative container">
 		      <div class="row align-items-center">
 		        <div class="col-lg-5 offset-lg-1 order-lg-2 pb-6 pb-lg-0 text-center text-lg-start">
@@ -127,12 +127,14 @@ Homepage | EKRAF Jambi
               <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Selengkapnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
             </div>
         	<div class="tns-carousel-wrapper">
-        		<div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 3, &quot;controls&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;540&quot;:{&quot;items&quot;:2},&quot;900&quot;:{&quot;items&quot;:3}}}">
+        		<!-- <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 3, &quot;controls&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;540&quot;:{&quot;items&quot;:2},&quot;900&quot;:{&quot;items&quot;:3}}}"> -->
+
+        		<div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 3, &quot;nav&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;540&quot;:{&quot;items&quot;:2},&quot;900&quot;:{&quot;items&quot;:3}}}">
                     <div class="pb-1">
 			        	<a class="card border card-hover" href="#">
 				            <div class="card-img-top card-img-gradient">
 				            	<!-- <img src="{{ asset('images/rumah_bronis_2.jpg') }}" alt="Burano"> -->
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 25vh; background-position: center;">
+				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
 		    					</div>
 				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 				            </div>
@@ -145,7 +147,7 @@ Homepage | EKRAF Jambi
 				    <div class="pb-1">
 			        	<a class="card border card-hover" href="#">
 				            <div class="card-img-top card-img-gradient">
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 25vh; background-position: center;">
+				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
 		    					</div>
 				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 				            </div>
@@ -158,7 +160,7 @@ Homepage | EKRAF Jambi
 				    <div class="pb-1">
 			        	<a class="card border card-hover" href="#">
 				            <div class="card-img-top card-img-gradient">
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 25vh; background-position: center;">
+				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
 		    					</div>
 				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 				            </div>
@@ -171,7 +173,7 @@ Homepage | EKRAF Jambi
 				    <div class="pb-1">
 			        	<a class="card border card-hover" href="#">
 				            <div class="card-img-top card-img-gradient">
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 25vh; background-position: center;">
+				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
 		    					</div>
 				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 				            </div>
@@ -184,7 +186,7 @@ Homepage | EKRAF Jambi
 				    <div class="pb-1">
 			        	<a class="card border card-hover" href="#">
 				            <div class="card-img-top card-img-gradient">
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 25vh; background-position: center;">
+				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
 		    					</div>
 				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 				            </div>
@@ -259,7 +261,7 @@ Homepage | EKRAF Jambi
                 	<a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;2</a>
                 </div>
             </div>
-		    <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 25vh; background-position: center;">
+		    <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
 		    </div>
 		    <div class="mb-2">
 	            <p class="mb-0 fs-sm text-muted">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa…&nbsp;&nbsp;<a href="#" class="fancy-link">Selengkapnya</a></p>
@@ -280,7 +282,7 @@ Homepage | EKRAF Jambi
                 	<a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;2</a>
                 </div>
             </div>
-		    <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 25vh; background-position: center;">
+		    <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
 		    </div>
 		    <div class="mb-2">
 	            <p class="mb-0 fs-sm text-muted">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa…&nbsp;&nbsp;<a href="#" class="fancy-link">Selengkapnya</a></p>
@@ -301,7 +303,7 @@ Homepage | EKRAF Jambi
                 	<a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;2</a>
                 </div>
             </div>
-		    <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 25vh; background-position: center;">
+		    <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
 		    </div>
 		    <div class="mb-2">
 	            <p class="mb-0 fs-sm text-muted">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa…&nbsp;&nbsp;<a href="#" class="fancy-link">Selengkapnya</a></p>
@@ -353,13 +355,66 @@ Homepage | EKRAF Jambi
 		          <!-- <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p> -->
 		        </div>
 
+		        <div class="px-2">
+		        	<div class="row">
+	            		<div class="col-6 p-2">
+	            			<a href="#" style="text-decoration: none;">
+			            		<div class="card card-hover text-center" style="height: 8rem; padding: 20% 0;">
+			            			<div>
+			            				<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11</h1>
+			            				<div>
+				            				<h6 style="font-size: 15px">Wilayah</h6>
+				            			</div>
+			            			</div>
+			            		</div>
+			            	</a>
+	            		</div>
+	            		<div class="col-6 p-2">
+	            			<a href="#" style="text-decoration: none;">
+			            		<div class="card card-hover text-center" style="height: 8rem; padding: 20% 0;">
+			            			<div>
+			            				<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">17</h1>
+			            				<div>
+				            				<h6 style="font-size: 15px">Sub Sektor</h6>
+				            			</div>
+			            			</div>
+			            		</div>
+			            	</a>
+	            		</div>
+	            		<div class="col-6 p-2">
+	            			<a href="#" style="text-decoration: none;">
+			            		<div class="card card-hover text-center" style="height: 8rem; padding: 20% 0;">
+			            			<div>
+			            				<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">45</h1>
+			            				<div>
+				            				<h6 style="font-size: 15px">Usaha</h6>
+				            			</div>
+			            			</div>
+			            		</div>
+			            	</a>
+	            		</div>
+	            		<div class="col-6 p-2">
+	            			<a href="#" style="text-decoration: none;">
+			            		<div class="card card-hover text-center" style="height: 8rem; padding: 20% 0;">
+			            			<div>
+			            				<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">19</h1>
+			            				<div>
+				            				<h6 style="font-size: 15px">Produk / Jasa</h6>
+				            			</div>
+			            			</div>
+			            		</div>
+			            	</a>
+	            		</div>
+	            	</div>
+		        </div>
+
 		        <!-- <div style="background-color: white; border-radius: 50%; width: 105px; height: 105px;" class="position-relative">
 	          		<div class="position-absolute" style="top: 55%; left: 50%; -ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
 	          			<h1 class="display-4" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11</h1>
 	          		</div>
 	            </div> -->
 
-	            <div class="px-md-3">
+	            <div class="px-md-3" hidden>
 	            	<a href="#" style="text-decoration: none;">
 		            	<div class="card mb-3">
 			            	<div class="card-body text-center pb-3">
@@ -430,8 +485,58 @@ Homepage | EKRAF Jambi
           <h3 class="widget-title text-nowrap">Event yang akan datang</h3>
           <!-- <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p> -->
         </div>
-        
-      </div>
+
+        <div class="accordion" id="accordionExample">
+			<!-- Item -->
+		    <di class="accordion-item card card-hover">
+		    	<div class="d-flex">
+		    		<div class="fs-sm p-2 bg-secondary" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; min-width: 3.5rem">
+		    			<div class="text-center px-0 px-lg-1 py-1">
+							<span class="d-sm-block text-primary" style="font-size: 1.685rem; line-height: 1.675rem">15</span>
+							<span class="fs-sm text-muted text-uppercase">Mar</span>
+						</div>
+		    		</div>
+		    		<div class="p-2">
+		    			<div data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+		    				<h6 style="font-size: 0.95rem;" class="pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
+		    			</div>
+
+		    			<div class="accordion-collapse collapse" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+		    				This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+		    				<hr>
+		    				<a href="#" class="btn btn-primary btn-sm mb-2">Lihat event</a>
+		    			</div>
+		    		</div>
+		    	</div>
+		  	</div>
+
+		  	<!-- Item -->
+		    <div class="accordion-item card card-hover">
+		    	<div class="d-flex">
+		    		<div class="fs-sm p-2 bg-secondary" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; min-width: 3.5rem">
+		    			<div class="text-center px-0 px-lg-1 py-1">
+							<span class="d-sm-block text-primary" style="font-size: 1.685rem; line-height: 1.675rem">27</span>
+							<span class="fs-sm text-muted text-uppercase">Mar</span>
+						</div>
+		    		</div>
+		    		<div class="p-2">
+		    			<div data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+		    				<h6 style="font-size: 0.95rem;" class="pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
+		    			</div>
+
+		    			<div class="accordion-collapse collapse" id="collapseTwo" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+		    				This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+		    				<hr>
+		    				<button class="btn btn-primary btn-sm mb-2">Lihat event</button>
+		    			</div>
+		    		</div>
+		    	</div>
+		  	</div>
+
+			<div class="pt-3" style="float: right;">
+	          <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Semua event<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
+	        </div>
+    	</div>
     </div>
   </section>
 

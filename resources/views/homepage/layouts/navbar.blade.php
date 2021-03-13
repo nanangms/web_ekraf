@@ -110,7 +110,7 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Profil Ekraf Jambi</a></li>
               <li class="dropdown">
-                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Galeri</a>
+                <a class="dropdown-item" href="#" data-bs-toggle="dropdown">Galeri <span style="float: right;"><i class="fas fa-angle-right"></i></span></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="coming-soon-image.html">Foto</a></li>
                   <li><a class="dropdown-item" href="coming-soon-illustration.html">Video</a></li>
