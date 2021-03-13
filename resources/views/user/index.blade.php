@@ -181,6 +181,7 @@ User
         responsive: true,
         processing: true,
         serverSide: true,
+        autoWidth: false,
         ajax: "{{ route('table.user') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'id'},

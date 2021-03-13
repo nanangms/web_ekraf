@@ -8,13 +8,14 @@ use App\Models\User;
 use App\Models\Role;
 use DB;
 use Illuminate\Support\Facades\Hash;
+use File;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class UserController extends Controller
 {
     public function __construct()
     {
         date_default_timezone_set('Asia/Jakarta');
-        $this->middleware('checkRole:Super Admin');
     }
     
     public function index()
@@ -38,8 +39,8 @@ class UserController extends Controller
         
         return DataTables::of($user)
             ->addColumn('action', function ($user) {
-                return '<button data-toggle="modal" data-target-id="'.$user->uuid.'" data-target="#ShowEDIT" class="btn btn-info btn-sm" title="Edit"><i class="fa fa-edit"></i></button>
-                    <button class="btn btn-danger btn-sm hapus" user-name="'.$user->name.'" user-id="'.$user->uuid.'" title="Delete"><i class="fa fa-trash"></i></button>';
+                return '<button data-toggle="modal" data-target-id="'.$user->uuid.'" data-target="#ShowEDIT" class="btn btn-info btn-xs" title="Edit"><i class="fa fa-edit"></i></button>
+                    <button class="btn btn-danger btn-xs hapus" user-name="'.$user->name.'" user-id="'.$user->uuid.'" title="Delete"><i class="fa fa-trash"></i></button>';
             })
             ->addColumn('nama_role', function ($user) {
              
@@ -60,7 +61,7 @@ class UserController extends Controller
             })
             
             ->addIndexColumn()
-            ->rawColumns(['action','nama_role','status','nama','opd'])
+            ->rawColumns(['action','nama_role','status','nama'])
             ->make(true);
     }
 
@@ -127,5 +128,72 @@ class UserController extends Controller
                 return redirect()->back()->with('gagal','Data Gagal Diinput');
             }
         
+    }
+    public function profil($id){
+        $user = User::where('uuid',$id)->firstOrfail();
+        return view('user.profil',['user' => $user]);
+    }
+
+    public function update_profil(Request $request,$id){
+        $this->validate($request,[
+            'name'=>'required',
+            'email'=>'required|email',
+            'photo'=>'image|mimes:jpeg,png,jpg,gif|max:5048'
+        ]);
+        $user = User::where('uuid',$id)->firstOrfail();
+
+        if ($request->hasFile('photo')) {
+            $foto = $request->file('photo');
+            $image_name1 = str_replace(' ', '_', $request->name).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
+            if($user->photo != ""){
+                File::delete('images/profil/'.$user->photo);
+            }
+
+            $image_resize = Image::make($foto->getRealPath());
+            $image_resize->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
+            $image_resize->save(public_path('images/profil/'.$image_name1));
+
+            DB::beginTransaction();
+            try{
+                $user->name        = $request->name;
+                $user->email       = $request->email;
+                $user->photo       = $image_name1;
+                $user->save();
+
+                DB::commit();
+                return redirect('/profil/'.auth()->user()->uuid)->with('sukses','Profil Berhasil Di Update');
+            }catch (\Exception $e){
+                DB::rollback();
+                return redirect()->back()->with('gagal','Data Gagal Diinput');
+            }
+        }else{
+            DB::beginTransaction();
+            try{
+                $user->name        = $request->name;
+                $user->email       = $request->email;
+                $user->save();
+                DB::commit();
+                return redirect('/profil/'.auth()->user()->uuid)->with('sukses','Profil Berhasil Di Update');
+            }catch (\Exception $e){
+                DB::rollback();
+                return redirect()->back()->with('gagal','Data Gagal Diinput');
+            }
+        }
+
+
+    }
+
+    public function ganti_password_profil(Request $request,$id){
+        $user = User::where('uuid',$id)->firstOrfail();
+    
+        $this->validate($request,[
+            'password' => 'required|min:8',
+            'password_baru' => 'required|min:8|required_with:password|same:password',
+        ]);
+
+        $user->password = Hash::make($request->password_baru);
+        $user->update();
+        
+        return redirect('/profil/'.auth()->user()->uuid)->with('sukses','Password Berhasil dirubah');
     }
 }

@@ -30,50 +30,50 @@ Edit Berita
                 <div class="card">
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="/berita/{{$berita->id}}/update" class="form-horizontal" method="post" enctype="multipart/form-data">
+                        <form action="/berita/{{$berita->uuid}}/update" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
-                            <div class=" form-group row">
-                                <div class="col-md-12">
-                                    <label class="control-label">Judul</label>
-                                    <input type="text" class="form-control" name="judul" value="{{$berita->judul}}"/>
-                                </div>
-                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label>Judul <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="judul" value="{{$berita->judul}}"/>
+                                    </div>
 
-                            <div class=" form-group row">
-                                <div class="col-md-12">
-                                    <label class="control-label">Isi</label>
-                                    <textarea name="isi">{{$berita->isi}}</textarea>
+                                    <div class=" form-group">
+                                        <label class="control-label">Isi <span class="text-danger">*</span></label>
+                                        <textarea name="isi">{{$berita->isi}}</textarea>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class=" form-group row">
-                                <div class="col-md-12">
-                                    <label>Gambar</label>
-                                    <input type="file" class="form-control" name="gambar" onchange="readURL(this);"/>
-                                    @if($errors->has('gambar'))
-                                    <span class="help-block">{{$errors->first('gambar')}}</span>
-                                    @endif
-                                    @if($berita->gambar)
-                                    <img id="preview_gambar" style="margin-top:15px;max-width:100px;" src="/images/berita/{{$berita->gambar}}">
-                                    @else
-                                    <small style="color: red">Belum ada gambar yang diupload</small>
-                                    @endif
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Gambar</label>
+                                        <input type="file" class="form-control" name="gambar" onchange="readURL(this);"/>
+                                        @if($errors->has('gambar'))
+                                        <span class="help-block">{{$errors->first('gambar')}}</span>
+                                        @endif
+                                        @if($berita->gambar)
+                                        <img id="preview_gambar" style="margin-top:15px;max-width:100px;" src="/images/berita/{{$berita->gambar}}">
+                                        @else
+                                        <small style="color: red">Belum ada gambar yang diupload</small>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Publish <span class="text-danger">*</span></label><br>
+                                        @if($berita->published == 'Y')
+                                        <input type='radio' name='published' value='Y' required checked> Ya &nbsp; <input type='radio' name='published' value='N'> Tidak</td>
+                                        @else
+                                        <input type='radio' name='published' value='Y' required> Ya &nbsp; <input type='radio' name='published' value='N' checked> Tidak</td>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Simpan</button>
+                                    </div>
+
                                 </div>
-                            </div>
 
-                            <div class=" form-group row">
-                                <div class="col-md-12">
-                                    <label>Publish</label><br>
-                                    @if($berita->published == 'Y')
-                                    <input type='radio' name='published' value='Y' required checked> Ya &nbsp; <input type='radio' name='published' value='N'> Tidak</td>
-                                    @else
-                                    <input type='radio' name='published' value='Y' required> Ya &nbsp; <input type='radio' name='published' value='N' checked> Tidak</td>
-                                    @endif
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
                             </div>
                         </div>
                     </form> 
@@ -95,17 +95,6 @@ Edit Berita
     CKEDITOR.replace('isi');
 </script>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-@if(session('sukses'))
-<script type="text/javascript">
-    swal("Berhasil", "{{session('sukses')}}", "success");
-</script>
-@endif
-@if(session('hapus'))
-<script type="text/javascript">
-    swal("Berhasil", "{{session('hapus')}}", "success");
-</script>
-@endif
 <script>
   function readURL(input) { // Mulai membaca inputan gambar
     if (input.files && input.files[0]) {

@@ -75,3 +75,13 @@ if (! function_exists('TanggalID')) {
 }
 
 
+function kode_acak($panjang)
+{
+    $karakter= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789abcdefghijklmnopqrstuvwxyz';
+    $string = '';
+    for ($i = 0; $i < $panjang; $i++) {
+    $pos = rand(0, strlen($karakter)-1);
+    $string .= $karakter{$pos};
+    }
+    return $string;
+}

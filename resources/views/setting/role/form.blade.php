@@ -9,11 +9,11 @@
             {!! Form::text('nama_role', null, ['class' => 'form-control', 'id' => 'nama_role']) !!}
         </div>
     </div>
-    <div class="form-group row">
+<!--     <div class="form-group row">
         <label for="example-text-input-sm" class="col-sm-3 col-form-label">Inisial</label>
         <div class="col-sm-9">
             {!! Form::text('inisial', null, ['class' => 'form-control', 'id' => 'inisial']) !!}
         </div>
-    </div>
+    </div> -->
 
 {!! Form::close() !!}
