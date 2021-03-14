@@ -33,52 +33,63 @@ Tambah Berita
                     <div class="card-body">
                         <form action="/berita/create" class="form-horizontal" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
-                            <div class=" form-group row">
-                                <div class="col-md-12">
-                                    <label class="control-label">Judul<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="judul" value="{{old('judul')}}" required/>
-                                    @if($errors->has('judul'))
-                                    <span class="text-danger">{{$errors->first('judul')}}</span>
-                                    @endif
-                                </div>
-                            </div>
 
-                            <div class=" form-group row">
-                                <div class="col-md-12">
-                                    <label class="control-label">Isi<span class="text-danger">*</span></label>
-                                    <textarea name="isi">{{old('isi')}}</textarea>
-                                    @if($errors->has('isi'))
-                                    <span class="text-danger">{{$errors->first('isi')}}</span>
-                                    @endif
-                                </div>
-                            </div>
+                            <div class="row">
 
-                            <div class=" form-group row">
-                                <div class="col-md-12">
-                                    <label>Gambar<span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" name="gambar" onchange="readURL(this);" required />
-                                    @if($errors->has('gambar'))
-                                    <span class="text-danger">{{$errors->first('gambar')}}</span>
-                                    @endif
-                                    <img id="preview_gambar" src="" width="150"/>
-                                </div>
-                            </div>
+                                <div class="col-md-8">
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">Judul<span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" name="judul" value="{{old('judul')}}" required/>
+                                            @if($errors->has('judul'))
+                                            <span class="text-danger">{{$errors->first('judul')}}</span>
+                                            @endif
+                                        </div>
+                                    </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <label>Publish<span class="text-danger">*</span></label><br>
-                                    <input type='radio' name='published' value='Y' checked> Ya &nbsp; <input type='radio' name='published' value='N'> Tidak  <br>
-                                    @if($errors->has('published'))
-                                    <span class="text-danger">{{$errors->first('published')}}</span>
-                                    @endif                                  
+                                    <div class=" form-group row">
+                                        <div class="col-md-12">
+                                            <label class="control-label">Isi<span class="text-danger">*</span></label>
+                                            <textarea name="isi">{{old('isi')}}</textarea>
+                                            @if($errors->has('isi'))
+                                            <span class="text-danger">{{$errors->first('isi')}}</span>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="col-md-4">
+                                    <div class=" form-group row">
+                                        <div class="col-md-12">
+                                            <label>Gambar<span class="text-danger">*</span></label>
+                                            <input type="file" class="form-control" name="gambar" onchange="readURL(this);" required />
+                                            @if($errors->has('gambar'))
+                                            <span class="text-danger">{{$errors->first('gambar')}}</span>
+                                            @endif
+                                            <img id="preview_gambar" src="" width="150"/>
+                                        </div>
+                                    </div>
 
-                            <div class=" form-group row">
-                                <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <label>Publish<span class="text-danger">*</span></label><br>
+                                            <input type='radio' name='published' value='Y' checked> Ya &nbsp; <input type='radio' name='published' value='N'> Tidak  <br>
+                                            @if($errors->has('published'))
+                                            <span class="text-danger">{{$errors->first('published')}}</span>
+                                            @endif                                  
+                                        </div>
+                                    </div>
+                                    <div class=" form-group row">
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Simpan</button>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
+                            
+
+                            
+
+                            
                         </form>
                     </div>
                 </div>
@@ -112,16 +123,6 @@ reader.readAsDataURL(input.files[0]);
 }
 }
 </script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-@if(session('sukses'))
-<script type="text/javascript">
-    swal("Berhasil", "{{session('sukses')}}", "success");
-</script>
-@endif
-@if(session('hapus'))
-<script type="text/javascript">
-    swal("Berhasil", "{{session('hapus')}}", "success");
-</script>
-@endif
+
 
 @stop

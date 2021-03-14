@@ -9,6 +9,7 @@ use DataTables;
 use DB;
 use Jenssegers\Date\Date;
 use File;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class BeritaController extends Controller
 {
@@ -25,67 +26,119 @@ class BeritaController extends Controller
 
     public function create(Request $request)
     {
-        $user = auth()->user()->id;
-
         $this->validate($request,[
             'judul'=>'required',
             'isi'=>'required',
             'published'=>'required',
-            'gambar'=> 'mimes:jpg,png,jpeg'
+            'gambar'=>'image|mimes:jpeg,png,jpg,gif|max:5048'
         ]);
 
-        $berita = new \App\Models\Berita;
-        $berita->judul = $request->judul;
-        $berita->published = $request->published;
-        $berita->user_id = auth()->user()->id;
-        $berita->isi = $request->isi;                  
-
         if ($request->hasFile('gambar')) {
-            $request->file('gambar')->move('images/berita/',$request->file('gambar')->getClientOriginalName());
-            $berita->gambar = $request->file('gambar')->getClientOriginalName();
+            $foto = $request->file('gambar');
+            $image_name1 = str_replace(' ', '_', $request->judul).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
+            // for save original image
+            $ImageUpload = Image::make($foto);
+            $ImageUpload->save(public_path('images/berita/'.$image_name1));
+
+            // for save thumbnail image
+            $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
+            $ImageUpload->save(public_path('images/berita/thumb/'.$image_name1));
+
+
+            DB::beginTransaction();
+            try{
+                $berita = new \App\Models\Berita;
+                $berita->judul = $request->judul;
+                $berita->published = $request->published;
+                $berita->user_id = auth()->user()->id;
+                $berita->isi = $request->isi;  
+                $berita->gambar = $image_name1;     
+                $berita->save();
+                
+                DB::commit();
+                return redirect('/berita')->with('sukses','Data berhasil ditambah');
+            }catch (\Exception $e){
+                DB::rollback();
+                return redirect()->back()->with('gagal','Data Gagal Diinput');
+            }
         }
-        $berita->save();
-        
-        return redirect('/berita')->with('sukses','Data berhasil ditambah');
     }
 
     public function edit($id)
     {
-        $berita = Berita::find($id);
+        $berita = Berita::where('uuid',$id)->firstOrFail();
         return view('berita.edit',compact('berita'));   
     }
 
-    public function update(Request $request, Berita $berita)
+    public function update(Request $request,$id)
     {   
-        if ($request->hasFile('gambar')) {
-            if($berita->gambar != ""){
-                File::delete('images/berita/'.$berita->gambar);
-            }
-            $request->file('gambar')->move('images/berita/',$request->file('gambar')->getClientOriginalName());
+        $this->validate($request,[
+            'judul'=>'required',
+            'isi'=>'required',
+            'published'=>'required',
+            'gambar'=>'image|mimes:jpeg,png,jpg,gif|max:5048'
+        ]);
 
-            $berita->user_id = auth()->user()->id;
-            $berita->judul = $request->judul;
-            $berita->isi = $request->isi;
-            $berita->published = $request->published;
-            $berita->gambar = $request->file('gambar')->getClientOriginalName();
-            $berita->update();
+        $berita = Berita::where('uuid',$id)->firstOrFail();
+        if ($request->hasFile('gambar')) {
+            File::delete('images/berita/'.$berita->gambar);   
+            File::delete('images/berita/thumb/'.$berita->gambar);
+            $foto = $request->file('gambar');
+            $image_name1 = str_replace(' ', '_', $request->judul).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
+            // for save original image
+            $ImageUpload = Image::make($foto);
+            $ImageUpload->save(public_path('images/berita/'.$image_name1));
+
+            // for save thumbnail image
+            $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
+            $ImageUpload->save(public_path('images/berita/thumb/'.$image_name1));
+
+
+            DB::beginTransaction();
+            try{
+                
+                $berita->judul = $request->judul;
+                $berita->judul_seo       = null;
+                $berita->published = $request->published;
+                $berita->user_id = auth()->user()->id;
+                $berita->isi = $request->isi;  
+                $berita->gambar = $image_name1;     
+                $berita->save();
+                
+                DB::commit();
+                return redirect('/berita')->with('sukses','Data berhasil ditambah');
+            }catch (\Exception $e){
+                DB::rollback();
+                return redirect()->back()->with('gagal','Data Gagal Diinput');
+            }
             
         }else{
-            $berita->user_id = auth()->user()->id;
-            $berita->judul = $request->judul;
-            $berita->judul_seo = null;
-            $berita->isi = $request->isi;
-            $berita->published = $request->published;
-            $berita->update(); 
+            DB::beginTransaction();
+            try{
+                $berita->judul = $request->judul;
+                $berita->judul_seo       = null;
+                $berita->published = $request->published;
+                $berita->isi = $request->isi;  
+                $berita->save();
+                
+                DB::commit();
+                return redirect('/berita')->with('sukses','Data berhasil ditambah');
+            }catch (\Exception $e){
+                DB::rollback();
+                return redirect()->back()->with('gagal','Data Gagal Diinput');
+            }
         }
 
         return redirect('berita')->with('sukses','Data berhasil diubah');          
     }
 
-    public function delete(Berita $berita){  
-        DB::table('berita')->where('id', $berita)->delete(); 
-        File::delete('images/berita/'.$berita->gambar);     
+    public function delete($id){
+
+        $berita = Berita::where('uuid',$id)->firstOrFail();
         $berita->delete();
+        File::delete('images/berita/'.$berita->gambar);   
+        File::delete('images/berita/thumb/'.$berita->gambar);    
+        
         return redirect('/berita')->with('hapus','Data Berhasil dihapus');
     }
 
@@ -98,17 +151,17 @@ class BeritaController extends Controller
             return Date::parse($berita->created_at)->format('j F Y');
         })
         ->addColumn('action', function ($berita) {
-            return '<a href="berita/'.$berita->id.'/edit" class="btn btn-warning btn-xs" title="Edit"><i class="fa fa-edit"></i></a>
-            <button class="btn btn-danger btn-xs hapus" berita-name="'.$berita->judul.'" berita-id="'.$berita->id.'" title="Hapus"><i class="fas fa-trash-alt"></i></button>';
+            return '<a href="berita/'.$berita->uuid.'/edit" class="btn btn-warning btn-xs" title="Edit"><i class="fa fa-edit"></i></a>
+            <button class="btn btn-danger btn-xs hapus" berita-name="'.$berita->judul.'" berita-id="'.$berita->uuid.'" title="Hapus"><i class="fas fa-trash-alt"></i></button>';
         })
         ->addColumn('gambar', function ($berita) {
-            return '<a href="'.$berita->getImageBerita().'" target="_blank"><img src="'.$berita->getImageBerita().'" width="100px"></a>';
+            return '<a href="'.$berita->getImageBerita().'" target="_blank"><img src="'.asset('images/berita/thumb/'.$berita->gambar).'" width="100px"></a>';
         })
         ->addColumn('published',function($berita){
             if($berita->published == 'Y'){
-               return '<span class="badge badge-success">Aktif</span>';
+               return '<span class="badge badge-success">Ya</span>';
            }else{
-               return '<span class="badge badge-danger">Tidak Aktif</span>'; 
+               return '<span class="badge badge-danger">Draft</span>'; 
            }
 
        })

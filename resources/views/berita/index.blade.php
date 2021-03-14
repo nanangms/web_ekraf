@@ -50,10 +50,10 @@ Berita
         <thead>
             <tr>
                 <th>No</th>
-                <th>Gambar</th>
                 <th>Judul</th>
                 <th>Tanggal</th>
                 <th>Publish</th>
+                <th>Gambar</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -80,14 +80,16 @@ Berita
         responsive: true,
         processing: true,
         serverSide: true,
+        autoWidth: false,
+        lengthChange: false,
         order: [ [0,'desc']],
         ajax: "{{ route('table.berita') }}",
         columns: [
         {data: 'DT_RowIndex', name: 'id'},
-        {data: 'gambar', name: 'gambar'},
         {data: 'judul', name: 'judul'},
         {data: 'tgl_publish', name: 'tgl_publish'},
         {data: 'published', name: 'published'},
+        {data: 'gambar', name: 'gambar'},
         {data: 'action', name: 'action'}
         ]
     });

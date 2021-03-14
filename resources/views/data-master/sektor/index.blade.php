@@ -82,6 +82,8 @@ Sektor
         responsive: true,
         processing: true,
         serverSide: true,
+        autoWidth: false,
+        lengthChange: false,
         ajax: "{{ route('table.sektor') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'id'},

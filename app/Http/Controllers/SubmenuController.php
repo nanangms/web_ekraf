@@ -145,7 +145,7 @@ class SubmenuController extends Controller
             ->addColumn('action', function ($model) {
                 return '<button data-toggle="modal" data-target-id="'.$model->uuid.'" data-target="#ShowEDIT" class="btn btn-warning btn-xs" title="Edit"><i class="fa fa-edit"></i></button>
 
-                    <button class="btn btn-danger btn-sm hapus" submenu-name="'.$model->nama_menu.'" submenu-id="'.$model->uuid.'" title="Delete"><i class="fa fa-trash"></i></button>';
+                    <button class="btn btn-danger btn-xs hapus" submenu-name="'.$model->nama_menu.'" submenu-id="'.$model->uuid.'" title="Delete"><i class="fa fa-trash"></i></button>';
             })
             ->addIndexColumn()
             ->rawColumns(['action'])

@@ -84,6 +84,8 @@ Video
         responsive: true,
         processing: true,
         serverSide: true,
+        autoWidth: false,
+        lengthChange: false,
         ajax: "{{ route('table.video') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'id'},

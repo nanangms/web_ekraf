@@ -3,9 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Aplikasi Pendataan Pembinaan Sosial Kota Jambi">
-  <meta name="keywords" content="Dinsos, Sosial, Pembinaan">
-  <meta name="author" content="NMS Project">
+  <meta name="description" content="Aplikasi Pendataan Pelaku Kreatif Jambi">
+  <meta name="keywords" content="Ekraf Jambi, Ekonomi kreatif, Jambi">
   <title>@yield('title') | Admin - EKRAF Jambi</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -23,7 +22,7 @@
   @include('layouts.topbar')
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-image: url({{asset('images/bg_admin2.jpg')}});background-repeat: no-repeat; background-color: #004c7d; background-position:left bottom;">
+  <aside class="main-sidebar elevation-4 sidebar-dark-warning" style="background-image: url({{asset('images/bg_admin2.jpg')}});background-repeat: no-repeat; background-position:left bottom;">
     <!-- Brand Logo -->
     <a href="/dashboard" class="brand-link">
       <img src="{{asset('homepage/images/emblem-logo.png')}}" alt="Logo" class="brand-image"> 
@@ -68,7 +67,7 @@
 
 @yield('footer')
 <!-- Sweet alert -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{asset('sweetalert/sweetalert.min.js')}}"></script>
 <script>
 //flash message
         @if(session()->has('sukses'))
@@ -94,6 +93,8 @@
             buttons: false,
         });
 
+        @elseif(session()->has('info'))
+          swal("Pendaftaran Gagal!!", "{{ session('info') }}");
         @endif
 </script>
 

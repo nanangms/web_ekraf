@@ -8,10 +8,10 @@ use App\Traits\Uuid;
 
 class Berita extends Model
 {
-    protected $table = 'berita'; 
-    protected $fillable = ['judul','judul_seo','published','isi','gambar','dibaca','user_id']; 
-
+    use Uuid;
     use Sluggable;
+    protected $table = 'berita'; 
+    protected $fillable = ['judul','judul_seo','published','isi','gambar','dibaca','user_id','uuid']; 
 
     public function sluggable()
     {
