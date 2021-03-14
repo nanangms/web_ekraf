@@ -18,7 +18,7 @@ Homepage | EKRAF Jambi
 	    <!-- <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li> -->
 	  </ol>
 	  <div class="carousel-inner" style="border-radius: 1rem; overflow: hidden;">
-	  	<div class="carousel-item active" style="height: 300px">
+	  	<div class="carousel-item active" style="height: 18.75rem">
 	      	<div class="bg-gradient py-7">
 	      	  <div class="position-absolute top-0 start-0 w-100 h-100 bg-size-cover" style="background-image: url({{ asset('homepage/images/banner-1.jpg') }}); background-position: center;">
 		      </div>
@@ -28,17 +28,17 @@ Homepage | EKRAF Jambi
 	          </div>
 	        </div>
 	    </div>
-	    <div class="carousel-item" style="height: 300px;">
-	      <div class="bg-dark px-4 px-lg-6 pt-5 py-6">
-		    <div class="position-relative container">
+	    <div class="carousel-item">
+	      <div class="bg-dark" style="display: flex; flex-direction: column; justify-content: center; height: 18.75rem; resize: vertical; overflow: auto;">
+		    <div style="margin: 0; padding: 0 10vw;">
 		      <div class="row align-items-center">
-		        <div class="col-lg-5 offset-lg-1 order-lg-2 pb-6 pb-lg-0 text-center text-lg-start">
+		        <div class="col-lg-5 offset-lg-1 order-lg-2 text-center text-lg-start">
 		          <h2 class="text-light">Tentang EKRAF Jambi</h2>
 		          <p class="text-light mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 		          <br>
 		          <a href="#" class="fancy-link">Selengkapnya</a>
 		        </div>
-		        <div class="col-lg-6 order-lg-1">
+		        <div class="col-lg-6 order-lg-1 d-none d-lg-block">
 		          <div class="row">
 		            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
 		              <div class="px-3 text-center"><img class="bg-light rounded-circle mb-2 daftar-img" alt="Daftar">
@@ -80,7 +80,7 @@ Homepage | EKRAF Jambi
   <section class="container py-5 border-bottom">
   	<div class="row">
   		<div class="col-md-3 ps-md-3">
-  			<div class="p-3 border rounded-3" style="background-color: #f7f5ed">
+  			<div class="p-3 border rounded-3 bg-secondary">
 		  		<form>
 		  			<div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
 			          <label class="form-label" for="from-destination">Pelaku Ekraf</label>
@@ -127,73 +127,75 @@ Homepage | EKRAF Jambi
               <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Selengkapnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
             </div>
         	<div class="tns-carousel-wrapper">
-        		<!-- <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 3, &quot;controls&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;540&quot;:{&quot;items&quot;:2},&quot;900&quot;:{&quot;items&quot;:3}}}"> -->
+        		<div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 4, &quot;controls&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;300&quot;:{&quot;items&quot;:2},&quot;600&quot;:{&quot;items&quot;:3},&quot;900&quot;:{&quot;items&quot;:4}}}">
 
-        		<div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 3, &quot;nav&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;540&quot;:{&quot;items&quot;:2},&quot;900&quot;:{&quot;items&quot;:3}}}">
-                    <div class="pb-1">
-			        	<a class="card border card-hover" href="#">
-				            <div class="card-img-top card-img-gradient">
-				            	<!-- <img src="{{ asset('images/rumah_bronis_2.jpg') }}" alt="Burano"> -->
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
-		    					</div>
-				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-				            </div>
-				            <div class="card-body text-center">
-				              <h6>Rumah Bronis</h6>
-				              <p class="fs-sm text-muted mb-0">Kuliner</p>
-				            </div>
+        		<!-- <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 4, &quot;nav&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;300&quot;:{&quot;items&quot;:2},&quot;600&quot;:{&quot;items&quot;:3},&quot;900&quot;:{&quot;items&quot;:4}}}"> -->
+				    <div>
+			        	<a class="card-hover" href="#" style="text-decoration: none;">
+			        		<h6 class="nav-heading">
+				        		<div class="card border-0 bg-transparent">
+				        			<span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span>
+				        			<div class="card-img card-img-gradient border">
+						            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 21vh; background-position: center;">
+				    					</div>
+						            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
+						            </div>
+						            <div class="text-center pt-3">
+							        	Rumah Bronis
+						            </div>
+				        		</div>
+			        		</h6>
 				        </a>
 				    </div>
-				    <div class="pb-1">
-			        	<a class="card border card-hover" href="#">
-				            <div class="card-img-top card-img-gradient">
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
-		    					</div>
-				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-				            </div>
-				            <div class="card-body text-center">
-				              <h6>Rumah Bronis</h6>
-				              <p class="fs-sm text-muted mb-0">Kuliner</p>
-				            </div>
+				    <div>
+			        	<a class="card-hover" href="#" style="text-decoration: none;">
+			        		<h6 class="nav-heading">
+				        		<div class="card border-0 bg-transparent">
+				        			<span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span>
+				        			<div class="card-img card-img-gradient border">
+						            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 21vh; background-position: center;">
+				    					</div>
+						            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
+						            </div>
+						            <div class="text-center pt-3">
+							        	Khairi Kitchen & Collection
+						            </div>
+				        		</div>
+			        		</h6>
 				        </a>
 				    </div>
-				    <div class="pb-1">
-			        	<a class="card border card-hover" href="#">
-				            <div class="card-img-top card-img-gradient">
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
-		    					</div>
-				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-				            </div>
-				            <div class="card-body text-center">
-				              <h6>Rumah Bronis</h6>
-				              <p class="fs-sm text-muted mb-0">Kuliner</p>
-				            </div>
+				    <div>
+			        	<a class="card-hover" href="#" style="text-decoration: none;">
+			        		<h6 class="nav-heading">
+				        		<div class="card border-0 bg-transparent">
+				        			<span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span>
+				        			<div class="card-img card-img-gradient border">
+						            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 21vh; background-position: center;">
+				    					</div>
+						            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
+						            </div>
+						            <div class="text-center pt-3">
+							        	Qolby Collection
+						            </div>
+				        		</div>
+			        		</h6>
 				        </a>
 				    </div>
-				    <div class="pb-1">
-			        	<a class="card border card-hover" href="#">
-				            <div class="card-img-top card-img-gradient">
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
-		    					</div>
-				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-				            </div>
-				            <div class="card-body text-center">
-				              <h6>Rumah Bronis</h6>
-				              <p class="fs-sm text-muted mb-0">Kuliner</p>
-				            </div>
-				        </a>
-				    </div>
-				    <div class="pb-1">
-			        	<a class="card border card-hover" href="#">
-				            <div class="card-img-top card-img-gradient">
-				            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
-		    					</div>
-				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-				            </div>
-				            <div class="card-body text-center">
-				              <h6>Rumah Bronis</h6>
-				              <p class="fs-sm text-muted mb-0">Kuliner</p>
-				            </div>
+				    <div>
+			        	<a class="card-hover" href="#" style="text-decoration: none;">
+			        		<h6 class="nav-heading">
+				        		<div class="card border-0 bg-transparent">
+				        			<span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span>
+				        			<div class="card-img card-img-gradient border">
+						            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 21vh; background-position: center;">
+				    					</div>
+						            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
+						            </div>
+						            <div class="text-center pt-3">
+							        	2 RA Dawing TB
+						            </div>
+				        		</div>
+			        		</h6>
 				        </a>
 				    </div>
         		</div>
@@ -248,9 +250,9 @@ Homepage | EKRAF Jambi
         </div>
 
         <!-- Post-->
-        <article class="masonry-grid-item py-4 mb-4 border-bottom">
+        <article class="py-4 mb-4 border-bottom">
         	<h2 class="h4 nav-heading mb-2">
-        		<a href="blog-single-rs.html">Designers should always keep their users in mind</a>
+        		<a href="#">Designers should always keep their users in mind</a>
         	</h2>
         	<div class="d-flex meta-link fs-sm align-items-center my-3">
                 <div>
@@ -271,7 +273,7 @@ Homepage | EKRAF Jambi
         <!-- Post-->
         <article class="masonry-grid-item py-4 mb-4 border-bottom">
         	<h2 class="h4 nav-heading mb-2">
-        		<a href="blog-single-rs.html">Designers should always keep their users in mind</a>
+        		<a href="#">Designers should always keep their users in mind</a>
         	</h2>
         	<div class="d-flex meta-link fs-sm align-items-center my-3">
                 <div>
@@ -292,7 +294,7 @@ Homepage | EKRAF Jambi
 		<!-- Post-->
         <article class="masonry-grid-item py-4 mb-4 border-bottom">
         	<h2 class="h4 nav-heading mb-2">
-        		<a href="blog-single-rs.html">Designers should always keep their users in mind</a>
+        		<a href="#">Designers should always keep their users in mind</a>
         	</h2>
         	<div class="d-flex meta-link fs-sm align-items-center my-3">
                 <div>
@@ -488,21 +490,21 @@ Homepage | EKRAF Jambi
 
         <div class="accordion" id="accordionExample">
 			<!-- Item -->
-		    <di class="accordion-item card card-hover">
+		    <div class="accordion-item card card-hover">
 		    	<div class="d-flex">
-		    		<div class="fs-sm p-2 bg-secondary" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; min-width: 3.5rem">
+		    		<div class="fs-sm p-2 bg-secondary" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; max-width: 3.75rem">
 		    			<div class="text-center px-0 px-lg-1 py-1">
 							<span class="d-sm-block text-primary" style="font-size: 1.685rem; line-height: 1.675rem">15</span>
 							<span class="fs-sm text-muted text-uppercase">Mar</span>
 						</div>
 		    		</div>
 		    		<div class="p-2">
-		    			<div data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-		    				<h6 style="font-size: 0.95rem;" class="pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
+		    			<div class="px-2" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+		    				<h6 class="nav-heading pt-1 fs-md fw-medium ">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
 		    			</div>
 
-		    			<div class="accordion-collapse collapse" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-		    				This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+		    			<div class="accordion-collapse collapse px-2" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+		    				<p class="fs-sm mb-0">This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.</p>
 		    				<hr>
 		    				<a href="#" class="btn btn-primary btn-sm mb-2">Lihat event</a>
 		    			</div>
@@ -513,21 +515,21 @@ Homepage | EKRAF Jambi
 		  	<!-- Item -->
 		    <div class="accordion-item card card-hover">
 		    	<div class="d-flex">
-		    		<div class="fs-sm p-2 bg-secondary" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; min-width: 3.5rem">
+		    		<div class="fs-sm p-2 bg-secondary" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; max-width: 3.75rem">
 		    			<div class="text-center px-0 px-lg-1 py-1">
 							<span class="d-sm-block text-primary" style="font-size: 1.685rem; line-height: 1.675rem">27</span>
 							<span class="fs-sm text-muted text-uppercase">Mar</span>
 						</div>
 		    		</div>
 		    		<div class="p-2">
-		    			<div data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
-		    				<h6 style="font-size: 0.95rem;" class="pt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
+		    			<div class="px-2" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+		    				<h6 class="nav-heading pt-1 fs-md fw-medium ">Lorem ipsum dolor sit amet.</h6>
 		    			</div>
 
-		    			<div class="accordion-collapse collapse" id="collapseTwo" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-		    				This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.
+		    			<div class="accordion-collapse collapse px-2" id="collapseTwo" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+		    				<p class="fs-sm mb-0">This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.</p>
 		    				<hr>
-		    				<button class="btn btn-primary btn-sm mb-2">Lihat event</button>
+		    				<a href="#" class="btn btn-primary btn-sm mb-2">Lihat event</a>
 		    			</div>
 		    		</div>
 		    	</div>
