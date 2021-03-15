@@ -5,6 +5,52 @@ Homepage | EKRAF Jambi
 @endsection
 
 @section('content')
+
+	<style type="text/css">
+		.galeri-thumbnail {
+		  position: relative;
+		  width: 100%; /* The size you want */
+		}
+		.galeri-thumbnail:after {
+		  content: "";
+		  display: block;
+		  padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+		}
+
+		.galeri-thumbnail img {
+		  position: absolute; /* Take your picture out of the flow */
+		  top: 0;
+		  bottom: 0;
+		  left: 0;
+		  right: 0; /* Make the picture taking the size of it's parent */
+		  width: 100%; /* This if for the object-fit */
+		  height: 100%; /* This if for the object-fit */
+		  object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+		  object-position: center;
+		}
+
+		.member-thumbnail {
+		  position: relative;
+		  width: 100%; /* The size you want */
+		}
+		.member-thumbnail:after {
+		  content: "";
+		  display: block;
+		  padding-bottom: 59%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+		}
+
+		.member-thumbnail img {
+		  position: absolute; /* Take your picture out of the flow */
+		  top: 0;
+		  bottom: 0;
+		  left: 0;
+		  right: 0; /* Make the picture taking the size of it's parent */
+		  width: 100%; /* This if for the object-fit */
+		  height: 100%; /* This if for the object-fit */
+		  object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+		  object-position: center;
+		}
+	</style>
       
   <!-- Page content-->
   <!-- Hero-->
@@ -135,8 +181,9 @@ Homepage | EKRAF Jambi
 			        		<div class="card border-0 bg-transparent">
 			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
 			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span> -->
-					            	<div class="bg-size-cover position-relative bg-position-center bg-repeat-0" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 19vh;">
-			    					</div>
+			    					<div class="member-thumbnail">
+									  <img src="{{ asset('images/rumah_bronis_2.jpg') }}"/>
+									</div>
 					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 					            </div>
 					            <h6 class="nav-heading-title mb-0">Rumah Bronis</h6>
@@ -149,8 +196,9 @@ Homepage | EKRAF Jambi
 			        		<div class="card border-0 bg-transparent">
 			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
 			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Perabotan</span> -->
-					            	<div class="bg-size-cover position-relative bg-position-center bg-repeat-0" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 19vh;">
-			    					</div>
+					            	<div class="member-thumbnail">
+									  <img src="{{ asset('images/rumah_bronis_2.jpg') }}"/>
+									</div>
 					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 					            </div>
 					            <h6 class="nav-heading-title mb-0">Khairi Kitchen & Collection</h6>
@@ -163,8 +211,9 @@ Homepage | EKRAF Jambi
 			        		<div class="card border-0 bg-transparent">
 			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
 			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Fashion</span> -->
-					            	<div class="bg-size-cover position-relative bg-position-center bg-repeat-0" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 19vh;">
-			    					</div>
+					            	<div class="member-thumbnail">
+									  <img src="{{ asset('images/rumah_bronis_2.jpg') }}"/>
+									</div>
 					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 					            </div>
 					            <h6 class="nav-heading-title mb-0">Qolby Collection</h6>
@@ -177,8 +226,9 @@ Homepage | EKRAF Jambi
 			        		<div class="card border-0 bg-transparent">
 			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
 			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Desain</span> -->
-					            	<div class="bg-size-cover position-relative bg-position-center bg-repeat-0" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 19vh;">
-			    					</div>
+					            	<div class="member-thumbnail">
+									  <img src="{{ asset('images/rumah_bronis_2.jpg') }}"/>
+									</div>
 					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 					            </div>
 					            <h6 class="nav-heading-title mb-0">2 RA Dawing TB</h6>
@@ -342,8 +392,8 @@ Homepage | EKRAF Jambi
                 	<a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;2</a>
                 </div>
             </div>
-		    <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
-		    </div>
+		    <!-- <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
+		    </div> -->
 		    <div class="mb-2">
 	            <p class="mb-0 fs-sm text-muted">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa…&nbsp;&nbsp;<a href="#" class="fancy-link">Selengkapnya</a></p>
 	        </div>
@@ -351,11 +401,107 @@ Homepage | EKRAF Jambi
       </div>
 
       <div class="col-lg-3 order-lg-1">
-      		<!-- Galeri -->
-      		<div class="mb-5">
+      		<!-- Galeri-thumbnail -->
+      		<div class="mb-5 pt-4 pt-lg-0">
       			<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
 		          <h3 class="widget-title text-nowrap">Galeri</h3>
 		          <!-- <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p> -->
+		        </div>
+
+		        <div class="border-0 rounded-3 mb-3" style="overflow: hidden;">
+		        	<div class="row gallery g-1" style="min-width: 102%">
+					  <!-- Item -->
+					  <div class="col-4">
+					    <a href="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"/>
+							</div>
+					      <span class="gallery-caption">Gallery image caption</span>
+					    </a>
+					  </div>
+
+					  <!-- Item -->
+					  <div class="col-4">
+					    <a href="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+							</div>
+					      <span class="gallery-caption">Gallery image caption</span>
+					    </a>
+					  </div>
+
+					  <!-- Item -->
+					  <div class="col-4">
+					    <a href="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"/>
+							</div>
+					      <span class="gallery-caption">Gallery image caption</span>
+					    </a>
+					  </div>
+
+					  <!-- Item -->
+					  <div class="col-4">
+					    <a href="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"/>
+							</div>
+					      <span class="gallery-caption">Gallery image caption</span>
+					    </a>
+					  </div>
+
+					  <!-- Item -->
+					  <div class="col-4">
+					    <a href="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+							</div>
+					      <span class="gallery-caption">Gallery image caption</span>
+					    </a>
+					  </div>
+
+					  <!-- Item -->
+					  <div class="col-4">
+					    <a href="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"/>
+							</div>
+					      <span class="gallery-caption">Gallery image caption</span>
+					    </a>
+					  </div>
+
+					  <!-- Item -->
+					  <div class="col-4">
+					    <a href="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"/>
+							</div>
+					      <span class="gallery-caption">Gallery image caption</span>
+					    </a>
+					  </div>
+
+					  <!-- Item -->
+					  <div class="col-4">
+					    <a href="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
+							</div>
+					      <span class="gallery-caption">Gallery image caption</span>
+					    </a>
+					  </div>
+
+					  <!-- Item -->
+					  <div class="col-4">
+					    <a href="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"/>
+							</div>
+					      <span class="gallery-caption">Gallery image caption</span>
+					    </a>
+					  </div>
+					  
+					  <!-- Add as many columns with gallery item inside as you need -->
+					</div>
 		        </div>
 
 		        <div>
@@ -381,8 +527,7 @@ Homepage | EKRAF Jambi
 							  <i class="fab fa-youtube"></i>
 							</a>
                         </div>
-                      </div>
-		        	
+                    </div>
 		        </div>
       		</div>
   			
@@ -437,66 +582,13 @@ Homepage | EKRAF Jambi
 	              </div>
 	            </div>
 
-		        <!-- <div class="px-2">
-		        	<div class="row">
-	            		<div class="col-6 p-2">
-	            			<a href="#" style="text-decoration: none;">
-			            		<div class="card card-hover text-center" style="height: 8rem; padding: 20% 0;">
-			            			<div>
-			            				<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11</h1>
-			            				<div>
-				            				<h6 style="font-size: 15px">Wilayah</h6>
-				            			</div>
-			            			</div>
-			            		</div>
-			            	</a>
-	            		</div>
-	            		<div class="col-6 p-2">
-	            			<a href="#" style="text-decoration: none;">
-			            		<div class="card card-hover text-center" style="height: 8rem; padding: 20% 0;">
-			            			<div>
-			            				<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">17</h1>
-			            				<div>
-				            				<h6 style="font-size: 15px">Sub Sektor</h6>
-				            			</div>
-			            			</div>
-			            		</div>
-			            	</a>
-	            		</div>
-	            		<div class="col-6 p-2">
-	            			<a href="#" style="text-decoration: none;">
-			            		<div class="card card-hover text-center" style="height: 8rem; padding: 20% 0;">
-			            			<div>
-			            				<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">45</h1>
-			            				<div>
-				            				<h6 style="font-size: 15px">Usaha</h6>
-				            			</div>
-			            			</div>
-			            		</div>
-			            	</a>
-	            		</div>
-	            		<div class="col-6 p-2">
-	            			<a href="#" style="text-decoration: none;">
-			            		<div class="card card-hover text-center" style="height: 8rem; padding: 20% 0;">
-			            			<div>
-			            				<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">19</h1>
-			            				<div>
-				            				<h6 style="font-size: 15px">Produk / Jasa</h6>
-				            			</div>
-			            			</div>
-			            		</div>
-			            	</a>
-	            		</div>
-	            	</div>
-		        </div> -->
-
 		        <!-- <div style="background-color: white; border-radius: 50%; width: 105px; height: 105px;" class="position-relative">
 	          		<div class="position-absolute" style="top: 55%; left: 50%; -ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
 	          			<h1 class="display-4" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11</h1>
 	          		</div>
 	            </div> -->
 
-	            <div class="px-md-3" hidden>
+	            <!-- <div class="px-md-3">
 	            	<a href="#" style="text-decoration: none;">
 		            	<div class="card mb-3">
 			            	<div class="card-body text-center pb-3">
@@ -556,7 +648,7 @@ Homepage | EKRAF Jambi
 			            	</div>
 			            </div>
 			        </a>
-	            </div>
+	            </div> -->
       		</div>
   		</div>
       
