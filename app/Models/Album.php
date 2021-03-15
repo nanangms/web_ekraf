@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\Uuid;
-
-class Video extends Model
+class Album extends Model
 {
 	use Uuid;
-    protected $table = 'video';
-    protected $fillable = ['judul','link_video','published','uuid'];
+    use HasFactory;
+    protected $table = 'album';
+    protected $fillable = ['nama_album','published','uuid'];
 }

@@ -70,6 +70,32 @@ Tambah Berita
                                     </div>
 
                                     <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <label>Kategori<span class="text-danger">*</span></label>
+                                            <select name="kategori_id" class="form-control select" required>
+                                                <option value="">--Pilih--</option>
+                                                <?php $kategori = \App\Models\Kategori::all(); ?>
+                                                @foreach($kategori as $listkategori)
+                                                <option value="{{$listkategori->id}}">{{$listkategori->nama_kategori}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <label>Tag<span class="text-danger">*</span></label>
+                                            <?php $tag = \App\Models\Tag::all(); ?>
+                                            @foreach ($tag as $t)
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="" name="tag[]" value="{{$t->nama_tag}}">
+                                                <label class="form-check-label" for="exampleCheck1">{{$t->nama_tag}}</label>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
                                         <div class="col-md-12">
                                             <label>Publish<span class="text-danger">*</span></label><br>
                                             <input type='radio' name='published' value='Y' checked> Ya &nbsp; <input type='radio' name='published' value='N'> Tidak  <br>
@@ -78,11 +104,12 @@ Tambah Berita
                                             @endif                                  
                                         </div>
                                     </div>
+
                                     <div class=" form-group row">
-                                    <div class="col-md-12">
-                                        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Simpan</button>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Simpan</button>
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             </div>
                             

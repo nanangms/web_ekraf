@@ -50,6 +50,8 @@ class BeritaController extends Controller
                 $berita = new \App\Models\Berita;
                 $berita->judul = $request->judul;
                 $berita->published = $request->published;
+                $berita->kategori_id = $request->kategori_id;
+                $berita->tag = implode(",",$request->tag);
                 $berita->user_id = auth()->user()->id;
                 $berita->isi = $request->isi;  
                 $berita->gambar = $image_name1;     
@@ -99,6 +101,8 @@ class BeritaController extends Controller
                 
                 $berita->judul = $request->judul;
                 $berita->judul_seo       = null;
+                $berita->kategori_id = $request->kategori_id;
+                $berita->tag = implode(",",$request->tag);
                 $berita->published = $request->published;
                 $berita->user_id = auth()->user()->id;
                 $berita->isi = $request->isi;  
@@ -117,6 +121,8 @@ class BeritaController extends Controller
             try{
                 $berita->judul = $request->judul;
                 $berita->judul_seo       = null;
+                $berita->kategori_id = $request->kategori_id;
+                $berita->tag = implode(",",$request->tag);
                 $berita->published = $request->published;
                 $berita->isi = $request->isi;  
                 $berita->save();

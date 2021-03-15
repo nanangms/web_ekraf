@@ -66,6 +66,8 @@ Route::group(['middleware'=>['auth']],function(){
         Route::resource('/sektor','\App\Http\Controllers\SektorController');
         Route::resource('/kabupaten','\App\Http\Controllers\KabupatenkotaController');
         Route::resource('/badanhukum','\App\Http\Controllers\BadanhukumController');
+        Route::resource('/kategori','\App\Http\Controllers\KategoriController');
+        Route::resource('/tag','\App\Http\Controllers\TagController');
     });
 
     Route::group(['prefix'=>'setting'], function(){
@@ -100,6 +102,10 @@ Route::group(['middleware'=>['auth']],function(){
 
     Route::group(['prefix'=>'galeri'], function(){
         Route::resource('/video','\App\Http\Controllers\VideoController');
+        Route::resource('/album','\App\Http\Controllers\AlbumController');
+        Route::get('/foto/{id}', [App\Http\Controllers\FotoController::class, 'index']);
+        Route::post('/foto/create/{id}', [App\Http\Controllers\FotoController::class, 'create']);
+        Route::get('/foto/{id}/delete', [App\Http\Controllers\FotoController::class, 'delete']);
     });
 
     Route::resource('/event','\App\Http\Controllers\EventController');
@@ -114,4 +120,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/table/berita', [App\Http\Controllers\BeritaController::class, 'dataTable'])->name('table.berita');
     Route::get('/table/video', [App\Http\Controllers\VideoController::class, 'dataTable'])->name('table.video');
     Route::get('/table/event', [App\Http\Controllers\EventController::class, 'dataTable'])->name('table.event');
+    Route::get('/table/album', [App\Http\Controllers\AlbumController::class, 'dataTable'])->name('table.album');
+    Route::get('/table/kategori', [App\Http\Controllers\KategoriController::class, 'dataTable'])->name('table.kategori');
+    Route::get('/table/tag', [App\Http\Controllers\TagController::class, 'dataTable'])->name('table.tag');
+    Route::get('/table/foto/{id}', [App\Http\Controllers\FotoController::class, 'dataTable']);
 });
