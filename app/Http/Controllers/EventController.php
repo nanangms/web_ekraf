@@ -91,9 +91,16 @@ class EventController extends Controller
             'lokasi' => 'required'
         ]);
 
-        $model = Event::findOrFail($id);
+        $event = Event::findOrFail($id);
+        
+        $event->nama_event = $request->nama_event;
+        $event->event_seo       = null;
+        $event->published = $request->published;
+        $event->lokasi = $request->lokasi;  
+        $event->deskripsi = $request->deskripsi;  
+        $event->tgl_event = $request->tgl_event;  
+        $event->update();
 
-        $model->update($request->all());
     }
 
     /**

@@ -59,6 +59,33 @@ Edit Berita
                                         @endif
                                     </div>
 
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <label>Kategori<span class="text-danger">*</span></label>
+                                            <select name="kategori_id" class="form-control select" required>
+                                                <option value="">--Pilih--</option>
+                                                <?php $kategori = \App\Models\Kategori::all(); ?>
+                                                @foreach($kategori as $listkategori)
+                                                <option value="{{$listkategori->id}}" @if($listkategori->id == $berita->kategori_id) selected @endif>{{$listkategori->nama_kategori}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            <label>Tag<span class="text-danger">*</span></label>
+                                            <?php $tag = \App\Models\Tag::all(); 
+                                            $berita_tag = explode(",", $berita->tag); ?>
+                                            @foreach ($tag as $t)
+                                            <div class="form-check">
+                                                <?php $_ck = (array_search($t->nama_tag, $berita_tag) === false)? '' : 'checked';
+                                                echo "<span style='display:inline-block;'><input class=form-check-input type=checkbox value='$t->nama_tag' name=tag[] $_ck> $t->nama_tag &nbsp; &nbsp; &nbsp; </span>"; ?>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label>Publish <span class="text-danger">*</span></label><br>
                                         @if($berita->published == 'Y')
