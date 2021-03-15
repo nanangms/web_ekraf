@@ -22,7 +22,7 @@
   @include('layouts.topbar')
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar elevation-4 sidebar-dark-warning" style="background-image: url({{asset('images/bg_admin2.jpg')}});background-repeat: no-repeat; background-position:left bottom;">
+  <aside class="main-sidebar elevation-4 sidebar-dark-warning" style="background-image: url({{asset('images/bg_admin2.jpg')}});background-repeat: no-repeat; background-position:left bottom; background-color: #37384E">
     <!-- Brand Logo -->
     <a href="/dashboard" class="brand-link">
       <img src="{{asset('homepage/images/emblem-logo.png')}}" alt="Logo" class="brand-image"> 

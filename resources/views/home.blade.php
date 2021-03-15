@@ -11,7 +11,7 @@ Home
 @endsection
 
 @section('content')
-<div class="content-wrapper">
+<div class="content-wrapper" style="background-color: #F7F5ED">
   <section class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">

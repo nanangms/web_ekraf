@@ -17,10 +17,10 @@ Homepage | EKRAF Jambi
 	    <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
 	    <!-- <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li> -->
 	  </ol>
-	  <div class="carousel-inner" style="border-radius: 1rem; overflow: hidden;">
+	  <div class="carousel-inner rounded-3" style="overflow: hidden;">
 	  	<div class="carousel-item active" style="height: 18.75rem">
 	      	<div class="bg-gradient py-7">
-	      	  <div class="position-absolute top-0 start-0 w-100 h-100 bg-size-cover" style="background-image: url({{ asset('homepage/images/banner-1.jpg') }}); background-position: center;">
+	      	  <div class="position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center" style="background-image: url({{ asset('homepage/images/banner-1.jpg') }});">
 		      </div>
 	          <div class="position-relative container text-center">
 	            <h1 class="text-light pb-1">Selamat datang di website EKRAF Jambi</h1>
@@ -126,80 +126,117 @@ Homepage | EKRAF Jambi
               <h5 class="text-nowrap mb-4 me-3">Pelaku Ekraf terbaru</h5>
               <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Selengkapnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
             </div>
-        	<div class="tns-carousel-wrapper">
+        	<div class="tns-carousel-wrapper pb-5 pb-lg-0">
         		<div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 4, &quot;controls&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;300&quot;:{&quot;items&quot;:2},&quot;600&quot;:{&quot;items&quot;:3},&quot;900&quot;:{&quot;items&quot;:4}}}">
 
         		<!-- <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 4, &quot;nav&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;300&quot;:{&quot;items&quot;:2},&quot;600&quot;:{&quot;items&quot;:3},&quot;900&quot;:{&quot;items&quot;:4}}}"> -->
 				    <div>
-			        	<a class="card-hover" href="#" style="text-decoration: none;">
-			        		<h6 class="nav-heading">
-				        		<div class="card border-0 bg-transparent">
-				        			<span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span>
-				        			<div class="card-img card-img-gradient border">
-						            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 21vh; background-position: center;">
-				    					</div>
-						            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-						            </div>
-						            <div class="text-center pt-3">
-							        	Rumah Bronis
-						            </div>
-				        		</div>
-			        		</h6>
+			        	<a class="nav-heading text-center" href="#">
+			        		<div class="card border-0 bg-transparent">
+			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
+			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span> -->
+					            	<div class="bg-size-cover position-relative bg-position-center bg-repeat-0" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 19vh;">
+			    					</div>
+					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
+					            </div>
+					            <h6 class="nav-heading-title mb-0">Rumah Bronis</h6>
+	                			<span class="fs-sm fw-normal text-muted">Kuliner</span>
+			        		</div>
 				        </a>
 				    </div>
 				    <div>
-			        	<a class="card-hover" href="#" style="text-decoration: none;">
-			        		<h6 class="nav-heading">
-				        		<div class="card border-0 bg-transparent">
-				        			<span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span>
-				        			<div class="card-img card-img-gradient border">
-						            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 21vh; background-position: center;">
-				    					</div>
-						            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-						            </div>
-						            <div class="text-center pt-3">
-							        	Khairi Kitchen & Collection
-						            </div>
-				        		</div>
-			        		</h6>
+			        	<a class="nav-heading text-center" href="#">
+			        		<div class="card border-0 bg-transparent">
+			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
+			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Perabotan</span> -->
+					            	<div class="bg-size-cover position-relative bg-position-center bg-repeat-0" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 19vh;">
+			    					</div>
+					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
+					            </div>
+					            <h6 class="nav-heading-title mb-0">Khairi Kitchen & Collection</h6>
+	                			<span class="fs-sm fw-normal text-muted">Perabotan</span>
+			        		</div>
 				        </a>
 				    </div>
 				    <div>
-			        	<a class="card-hover" href="#" style="text-decoration: none;">
-			        		<h6 class="nav-heading">
-				        		<div class="card border-0 bg-transparent">
-				        			<span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span>
-				        			<div class="card-img card-img-gradient border">
-						            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 21vh; background-position: center;">
-				    					</div>
-						            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-						            </div>
-						            <div class="text-center pt-3">
-							        	Qolby Collection
-						            </div>
-				        		</div>
-			        		</h6>
+			        	<a class="nav-heading text-center" href="#">
+			        		<div class="card border-0 bg-transparent">
+			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
+			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Fashion</span> -->
+					            	<div class="bg-size-cover position-relative bg-position-center bg-repeat-0" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 19vh;">
+			    					</div>
+					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
+					            </div>
+					            <h6 class="nav-heading-title mb-0">Qolby Collection</h6>
+	                			<span class="fs-sm fw-normal text-muted">Fashion</span>
+			        		</div>
 				        </a>
 				    </div>
 				    <div>
-			        	<a class="card-hover" href="#" style="text-decoration: none;">
-			        		<h6 class="nav-heading">
-				        		<div class="card border-0 bg-transparent">
-				        			<span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span>
-				        			<div class="card-img card-img-gradient border">
-						            	<div class="bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 21vh; background-position: center;">
-				    					</div>
-						            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-						            </div>
-						            <div class="text-center pt-3">
-							        	2 RA Dawing TB
-						            </div>
-				        		</div>
-			        		</h6>
+			        	<a class="nav-heading text-center" href="#">
+			        		<div class="card border-0 bg-transparent">
+			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
+			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Desain</span> -->
+					            	<div class="bg-size-cover position-relative bg-position-center bg-repeat-0" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 19vh;">
+			    					</div>
+					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
+					            </div>
+					            <h6 class="nav-heading-title mb-0">2 RA Dawing TB</h6>
+	                			<span class="fs-sm fw-normal text-muted">Desain</span>
+			        		</div>
 				        </a>
 				    </div>
         		</div>
         	</div>
+
+        	<!-- Statistik & CTA -->
+        	<div class="row">
+	            <div class="col-lg-6">
+	            	<div class="row text-center px-2">
+	            		<div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
+	            			<div class="border rounded-3 py-4 bg-light">
+	            				<h1 class="display-6 mb-1" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11</h1>
+		        				<div>
+		            				<h6 class="mb-0" style="font-size: 14px;">Wilayah</h6>
+		            			</div>
+	            			</div>
+			            </div>
+			            <div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
+			            	<div class="border rounded-3 py-4 bg-light">
+			            		<h1 class="display-6 mb-1" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">17</h1>
+		        				<div>
+		            				<h6 class="mb-0" style="font-size: 14px">Sub Sektor</h6>
+		            			</div>
+			            	</div>
+			            </div>
+			            <div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
+			            	<div class="border rounded-3 py-4 bg-light">
+			            		<h1 class="display-6 mb-1" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">19</h1>
+		        				<div>
+		            				<h6 class="mb-0" style="font-size: 14px">Usaha</h6>
+		            			</div>
+			            	</div>
+			            </div>
+			            <div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
+			            	<div class="border rounded-3 py-4 bg-light">
+			            		<h1 class="display-6 mb-1" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">45</h1>
+		        				<div>
+		            				<h6 class="mb-0" style="font-size: 14px">Produk</h6>
+		            			</div>
+			            	</div>
+			            </div>
+	            	</div>
+		        </div>
+		        <div class="col-lg-6 mt-4 mt-lg-1">
+		        	<div class="text-center text-lg-start">
+		        		<h6 class="fw-medium">Daftarkan usaha Anda dan jadilah bagian dari komunitas Ekraf Jambi</h6>
+			        	<div>
+			        		<a class="btn btn-primary btn-sm" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar sekarang</a>
+			        		<a class="fs-sm fw-medium mx-3" style="text-decoration: none" href="#faq">Lihat cara daftar</a>
+			        	</div>
+		        	</div>
+		        </div>
+		    </div>
         </div>
     </div>
   </section>
@@ -350,14 +387,57 @@ Homepage | EKRAF Jambi
       		</div>
   			
 
-      		<!-- Statistik -->
+      		<!-- FAQ -->
+      		<span id="faq" style="position: relative; top: -120px; visibility: hidden;"></span>
       		<div class="mb-5">
       			<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
-		          <h3 class="widget-title text-nowrap">Statistik</h3>
-		          <!-- <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p> -->
+		          <h3 class="widget-title text-nowrap">FAQ</h3>
 		        </div>
 
-		        <div class="px-2">
+		        <div class="accordion" id="faq">
+	              <div class="accordion-item shadow">
+	                <h2 class="accordion-header" id="faq-heading-1">
+	                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1" aria-expanded="true" aria-controls="faq-content-1">How can I create a list of frequent destinations?</button>
+	                </h2>
+	                <div class="accordion-collapse collapse show" id="faq-content-1" aria-labelledby="faq-heading-1" data-bs-parent="#faq">
+	                  <div class="accordion-body">
+	                    <div class="fs-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="accordion-item shadow">
+	                <h2 class="accordion-header" id="faq-heading-2">
+	                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2" aria-expanded="false" aria-controls="faq-content-2">What will happen after I sign up?</button>
+	                </h2>
+	                <div class="accordion-collapse collapse" id="faq-content-2" aria-labelledby="faq-heading-2" data-bs-parent="#faq">
+	                  <div class="accordion-body">
+	                    <div class="fs-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="accordion-item shadow">
+	                <h2 class="accordion-header" id="faq-heading-3">
+	                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3" aria-expanded="false" aria-controls="faq-content-3">Do I have to confirm all bookings?</button>
+	                </h2>
+	                <div class="accordion-collapse collapse" id="faq-content-3" aria-labelledby="faq-heading-3" data-bs-parent="#faq">
+	                  <div class="accordion-body">
+	                    <div class="fs-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
+	                  </div>
+	                </div>
+	              </div>
+	              <div class="accordion-item shadow">
+	                <h2 class="accordion-header" id="faq-heading-4">
+	                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4" aria-expanded="false" aria-controls="faq-content-4">What do I get for the commission I pay?</button>
+	                </h2>
+	                <div class="accordion-collapse collapse" id="faq-content-4" aria-labelledby="faq-heading-4" data-bs-parent="#faq">
+	                  <div class="accordion-body">
+	                    <div class="fs-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+
+		        <!-- <div class="px-2">
 		        	<div class="row">
 	            		<div class="col-6 p-2">
 	            			<a href="#" style="text-decoration: none;">
@@ -408,7 +488,7 @@ Homepage | EKRAF Jambi
 			            	</a>
 	            		</div>
 	            	</div>
-		        </div>
+		        </div> -->
 
 		        <!-- <div style="background-color: white; border-radius: 50%; width: 105px; height: 105px;" class="position-relative">
 	          		<div class="position-absolute" style="top: 55%; left: 50%; -ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'App\Http\Controllers\IndexController@index');
 
+// Route::get('/akun', 'App\Http\Controllers\AkunController@index');
+
 Route::get('/login', function () {
     return view('auth.login');
 });

@@ -4,7 +4,7 @@
     <div class="modal-content border-0">
       <div class="view show" id="modal-signin-view">
         <div class="modal-header border-0 bg-dark px-4">
-          <h4 class="modal-title text-light">Sign in</h4>
+          <h4 class="modal-title text-light">Masuk</h4>
           <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="btn-close "></button>
         </div>
         <div class="modal-body px-4">
@@ -69,7 +69,7 @@
               </label>
             </div>
             <button class="btn btn-primary d-block w-100" type="submit">Daftar</button>
-            <p class="fs-sm pt-3 mb-0">Sudah punya akun? <a href='#' class='fw-medium' data-view='#modal-signin-view'>Sign in</a></p>
+            <p class="fs-sm pt-3 mb-0">Sudah punya akun? <a href='#' class='fw-medium' data-view='#modal-signin-view'>Masuk</a></p>
           </form>
         </div>
       </div>
@@ -90,7 +90,7 @@
     </a>
     <div class="d-flex align-items-center order-lg-3 ms-lg-auto">
       <a class="nav-link-style text-nowrap" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signin-view">
-        <i class="fs-xl me-2 align-middle"></i>Sign in
+        <i class="fs-xl me-2 align-middle"></i>Masuk
       </a>
       <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-btn" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar</a>
       <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-stuck-btn" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar</a>
