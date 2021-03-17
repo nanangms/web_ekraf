@@ -38,11 +38,11 @@
               @enderror
             </div>
             <button class="btn btn-primary d-block w-100" type="submit">Sign in</button>
-            <p class="fs-sm pt-3 mb-0">Belum punya akun? <a href='#' class='fw-medium' data-view='#modal-signup-view'>Daftar</a></p>
+            <p class="fs-sm pt-3 mb-0">Belum punya akun? <a href='/pendaftaran-pelaku-ekraf' class='fw-medium'>Daftar</a></p>
           </form>
         </div>
       </div>
-      <div class="view" id="modal-signup-view">
+      <!-- <div class="view" id="modal-signup-view">
         <div class="modal-header border-0 bg-dark px-4">
           <h4 class="modal-title text-light">Daftar</h4>
           <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="btn-close"></button>
@@ -72,7 +72,7 @@
             <p class="fs-sm pt-3 mb-0">Sudah punya akun? <a href='#' class='fw-medium' data-view='#modal-signin-view'>Masuk</a></p>
           </form>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -92,7 +92,7 @@
       <a class="nav-link-style text-nowrap" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signin-view">
         <i class="fs-xl me-2 align-middle"></i>Masuk
       </a>
-      <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-btn" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar</a>
+      <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-btn" href="/pendaftaran-pelaku-ekraf">Daftar</a>
       <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-stuck-btn" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar</a>
     </div>
     <div class="offcanvas offcanvas-collapse order-lg-2" id="primaryMenu">

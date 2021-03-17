@@ -5,57 +5,8 @@ Homepage | EKRAF Jambi
 @endsection
 
 @section('content')
-
-	<style type="text/css">
-		.galeri-thumbnail {
-		  position: relative;
-		  width: 100%; /* The size you want */
-		}
-		.galeri-thumbnail:after {
-		  content: "";
-		  display: block;
-		  padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
-		}
-
-		.galeri-thumbnail img {
-		  position: absolute; /* Take your picture out of the flow */
-		  top: 0;
-		  bottom: 0;
-		  left: 0;
-		  right: 0; /* Make the picture taking the size of it's parent */
-		  width: 100%; /* This if for the object-fit */
-		  height: 100%; /* This if for the object-fit */
-		  object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
-		  object-position: center;
-		}
-
-		.member-thumbnail {
-		  position: relative;
-		  width: 100%; /* The size you want */
-		}
-		.member-thumbnail:after {
-		  content: "";
-		  display: block;
-		  padding-bottom: 59%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
-		}
-
-		.member-thumbnail img {
-		  position: absolute; /* Take your picture out of the flow */
-		  top: 0;
-		  bottom: 0;
-		  left: 0;
-		  right: 0; /* Make the picture taking the size of it's parent */
-		  width: 100%; /* This if for the object-fit */
-		  height: 100%; /* This if for the object-fit */
-		  object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
-		  object-position: center;
-		}
-	</style>
       
   <!-- Page content-->
-  <!-- Hero-->
-  
-  <!-- Booking form-->
   <div class="container mt-7 mb-2">
   	<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
 	  <ol class="carousel-indicators">
@@ -245,7 +196,7 @@ Homepage | EKRAF Jambi
 	            	<div class="row text-center px-2">
 	            		<div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
 	            			<div class="border rounded-3 py-4 bg-light">
-	            				<h1 class="display-6 mb-1" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11</h1>
+	            				<h1 class="display-6 mb-1 text-gradient">11</h1>
 		        				<div>
 		            				<h6 class="mb-0" style="font-size: 14px;">Wilayah</h6>
 		            			</div>
@@ -253,7 +204,7 @@ Homepage | EKRAF Jambi
 			            </div>
 			            <div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
 			            	<div class="border rounded-3 py-4 bg-light">
-			            		<h1 class="display-6 mb-1" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">17</h1>
+			            		<h1 class="display-6 mb-1 text-gradient">17</h1>
 		        				<div>
 		            				<h6 class="mb-0" style="font-size: 14px">Sub Sektor</h6>
 		            			</div>
@@ -261,7 +212,7 @@ Homepage | EKRAF Jambi
 			            </div>
 			            <div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
 			            	<div class="border rounded-3 py-4 bg-light">
-			            		<h1 class="display-6 mb-1" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">19</h1>
+			            		<h1 class="display-6 mb-1 text-gradient">19</h1>
 		        				<div>
 		            				<h6 class="mb-0" style="font-size: 14px">Usaha</h6>
 		            			</div>
@@ -269,7 +220,7 @@ Homepage | EKRAF Jambi
 			            </div>
 			            <div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
 			            	<div class="border rounded-3 py-4 bg-light">
-			            		<h1 class="display-6 mb-1" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">45</h1>
+			            		<h1 class="display-6 mb-1 text-gradient">45</h1>
 		        				<div>
 		            				<h6 class="mb-0" style="font-size: 14px">Produk</h6>
 		            			</div>
@@ -281,7 +232,7 @@ Homepage | EKRAF Jambi
 		        	<div class="text-center text-lg-start">
 		        		<h6 class="fw-medium">Daftarkan usaha Anda dan jadilah bagian dari komunitas Ekraf Jambi</h6>
 			        	<div>
-			        		<a class="btn btn-primary btn-sm" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar sekarang</a>
+			        		<a class="btn btn-gradient btn-sm border-0" href="/pendaftaran-pelaku-ekraf">Daftar sekarang</a>
 			        		<a class="fs-sm fw-medium mx-3" style="text-decoration: none" href="#faq">Lihat cara daftar</a>
 			        	</div>
 		        	</div>
@@ -290,40 +241,7 @@ Homepage | EKRAF Jambi
         </div>
     </div>
   </section>
-
-  <!-- Features CTA-->
-  <!-- <section class="bg-gradient position-relative pt-6 pb-5 py-sm-6">
-    <div class="position-absolute top-0 start-0 w-100 h-100 bg-size-cover" style="background-image: url(img/demo/booking/bg-pattern01.png);">
-    </div>
-    <div class="position-relative zindex-5 container py-2">
-      <div class="row align-items-center">
-        <div class="col-lg-5 offset-lg-1 order-lg-2 pb-5 pb-lg-0 text-center text-lg-start">
-          <h2 class="text-light">Tentang EKRAF Jambi</h2>
-          <p class="text-light mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-        </div>
-        <div class="col-lg-6 order-lg-1">
-          <div class="row">
-            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-              <div class="px-2 text-center"><img class="bg-light rounded-circle mb-2" src="{{ asset('homepage/images/daftar-1.png') }}" alt="Daftar" width="105">
-                <p class="fs-sm fw-medium text-light mb-0 pt-1">Pendaftaran pemilik usaha sebagai pelaku Ekraf</p>
-              </div>
-            </div>
-            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-              <div class="px-2 text-center"><img class="bg-light rounded-circle mb-2" src="{{ asset('homepage/images/cari-1.png') }}" alt="Cari" width="105">
-                <p class="fs-sm fw-medium text-light mb-0 pt-1">Direktori dan pencarian data pelaku Ekraf</p>
-              </div>
-            </div>
-            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-              <div class="px-2 text-center"><img class="bg-light rounded-circle mb-2" src="{{ asset('homepage/images/event-1.png') }}" alt="Event" width="105">
-                <p class="fs-sm fw-medium text-light mb-0 pt-1">Informasi event Ekonomi kreatif</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
+  
   <!-- Berita -->
   <section class="container py-5">
   	<!-- <h3 class="mb-4 pb-3">Berita & Event Ekraf</h3> -->
@@ -582,18 +500,12 @@ Homepage | EKRAF Jambi
 	              </div>
 	            </div>
 
-		        <!-- <div style="background-color: white; border-radius: 50%; width: 105px; height: 105px;" class="position-relative">
-	          		<div class="position-absolute" style="top: 55%; left: 50%; -ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
-	          			<h1 class="display-4" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11</h1>
-	          		</div>
-	            </div> -->
-
 	            <!-- <div class="px-md-3">
 	            	<a href="#" style="text-decoration: none;">
 		            	<div class="card mb-3">
 			            	<div class="card-body text-center pb-3">
 			            		<div class="d-flex align-items-center">
-			            			<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11</h1>
+			            			<h1 class="display-5 text-gradient">11</h1>
 			                      <div class="w-100 ps-2 ms-2">
 			                        <div class="d-flex justify-content-between align-items-center">
 			                          <div class="fs-sm pe-1"><h6>Kabupaten/Kota</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
@@ -608,7 +520,7 @@ Homepage | EKRAF Jambi
 			            <div class="card mb-3">
 			            	<div class="card-body text-center pb-3">
 			            		<div class="d-flex align-items-center">
-			            			<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">17</h1>
+			            			<h1 class="display-5 text-gradient">17</h1>
 			                      <div class="w-100 ps-2 ms-2">
 			                        <div class="d-flex justify-content-between align-items-center">
 			                          <div class="fs-sm pe-1"><h6>Sub Sektor</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
@@ -623,7 +535,7 @@ Homepage | EKRAF Jambi
 			            <div class="card mb-3">
 			            	<div class="card-body text-center pb-3">
 			            		<div class="d-flex align-items-center">
-			            			<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">45</h1>
+			            			<h1 class="display-5 text-gradient">45</h1>
 			                      <div class="w-100 ps-2 ms-2">
 			                        <div class="d-flex justify-content-between align-items-center">
 			                          <div class="fs-sm pe-1"><h6>Usaha</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
@@ -638,7 +550,7 @@ Homepage | EKRAF Jambi
 			            <div class="card mb-3">
 			            	<div class="card-body text-center pb-3">
 			            		<div class="d-flex align-items-center">
-			            			<h1 class="display-5" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">19</h1>
+			            			<h1 class="display-5 text-gradient">19</h1>
 			                      <div class="w-100 ps-2 ms-2">
 			                        <div class="d-flex justify-content-between align-items-center">
 			                          <div class="fs-sm pe-1"><h6>Produk/Jasa</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
@@ -713,31 +625,5 @@ Homepage | EKRAF Jambi
     	</div>
     </div>
   </section>
-
-  <!-- Subscribe CTA-->
-  <!-- <section class="bg-gradient position-relative pt-6 pb-5 py-sm-6">
-    <div class="position-absolute top-0 start-0 w-100 h-100 bg-size-cover" style="background-image: url(img/demo/booking/bg-pattern02.png);"></div>
-    <div class="position-relative zindex-5 container pb-3 pt-sm-2">
-    	<div class="row">
-            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-              <div style="background-color: white; border-radius: 50%; width: 105px; height: 105px;" class="position-relative">
-          		<div class="position-absolute" style="top: 55%; left: 50%; -ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);">
-          			<h1 class="display-4" style="background: -webkit-radial-gradient(#BC9226, #FECB65); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">11</h1>
-          		</div>
-              </div>
-            </div>
-            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-              <div class="px-2 text-center"><img class="bg-light rounded-circle mb-2" src="{{ asset('homepage/images/cari-1.png') }}" alt="Cari" width="105">
-                <p class="fs-sm fw-medium text-light mb-0 pt-1">Direktori dan pencarian data pelaku Ekraf</p>
-              </div>
-            </div>
-            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
-              <div class="px-2 text-center"><img class="bg-light rounded-circle mb-2" src="{{ asset('homepage/images/event-1.png') }}" alt="Event" width="105">
-                <p class="fs-sm fw-medium text-light mb-0 pt-1">Informasi event Ekonomi kreatif</p>
-              </div>
-            </div>
-          </div>
-    </div>
-  </section> -->
 
 @stop
