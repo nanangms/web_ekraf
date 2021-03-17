@@ -33,4 +33,11 @@ class Berita extends Model
         }
         return asset('images/berita/'.$this->gambar);
     }
+
+    public function getThumbnailBerita(){
+        if(!$this->gambar){
+            return asset('images/berita/no-berita.jpg');
+        }
+        return asset('images/berita/thumb/'.$this->gambar);
+    }
 }

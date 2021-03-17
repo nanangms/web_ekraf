@@ -36,12 +36,10 @@ Foto : {{$album->nama_album}}
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">Tambah Foto</h3>
-
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
               </button>
-
             </div>
           </div>
           <div class="card-body">
@@ -52,14 +50,19 @@ Foto : {{$album->nama_album}}
                 <div class="col-md-12">
                   <div class=" form-group row">
                     <div class="col-md-12">
-                      <label>Gambar<span class="text-danger">*</span></label>
+                      <label>Foto<span class="text-danger">*</span></label>
                       <input type="file" class="form-control" name="gambar" onchange="readURL(this);" required />
                       @if($errors->has('gambar'))
                       <span class="text-danger">{{$errors->first('gambar')}}</span>
                       @endif
                     </div>
                   </div>
-
+                  <div class=" form-group row">
+                    <div class="col-md-12">
+                      <label>Keterangan foto (opsional)</label>
+                      <input type="text" class="form-control" name="keterangan" />
+                    </div>
+                  </div>
                   <div class=" form-group row">
                     <div class="col-md-12">
                       <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Simpan</button>
@@ -70,6 +73,12 @@ Foto : {{$album->nama_album}}
             </form>
           </div>
         </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <img id="preview_gambar" src="" style="height: 100%; width: auto;" />
+        </div>
+        
       </div>
     </div>
 
@@ -92,7 +101,8 @@ Foto : {{$album->nama_album}}
           <thead>
             <tr>
               <th>No</th>
-              <th>Gambar</th>
+              <th>Foto</th>
+              <th>Keterangan Foto</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -123,7 +133,6 @@ Foto : {{$album->nama_album}}
       reader.onload = function (e) { // Mulai pembacaan file
         $('#preview_gambar') // Tampilkan gambar yang dibaca ke area id #preview_gambar
         .attr('src', e.target.result)
-        .width(100); // Menentukan lebar gambar preview (dalam pixel)
   //.height(200); // Jika ingin menentukan lebar gambar silahkan aktifkan perintah pada baris ini
 };
 
@@ -143,6 +152,7 @@ reader.readAsDataURL(input.files[0]);
     columns: [
     {data: 'DT_RowIndex', name: 'id'},
     {data: 'gambar'},
+    {data: 'keterangan'},
     {data: 'action', name: 'action'}
     ]
   });

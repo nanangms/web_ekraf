@@ -247,78 +247,47 @@ Homepage | EKRAF Jambi
   	<!-- <h3 class="mb-4 pb-3">Berita & Event Ekraf</h3> -->
   	<div class="row">
 
-      <!-- Content-->
-      <div class="col-lg-6 order-lg-2">
-      	<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
-          <h3 class="widget-title text-nowrap">Berita & Artikel</h3>
-          <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
-        </div>
-
-        <!-- Post-->
-        <article class="py-4 mb-4 border-bottom">
-        	<h2 class="h4 nav-heading mb-2">
-        		<a href="#">Designers should always keep their users in mind</a>
-        	</h2>
-        	<div class="d-flex meta-link fs-sm align-items-center my-3">
-                <div>
-                	oleh<span class="fw-semibold ms-1"><a href="">Admin</a></span>
-                	<span class="meta-divider"></span>
-                	12 Maret 2021
-                	<span class="meta-divider"></span>
-                	<a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;2</a>
-                </div>
-            </div>
-		    <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
-		    </div>
-		    <div class="mb-2">
-	            <p class="mb-0 fs-sm text-muted">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa…&nbsp;&nbsp;<a href="#" class="fancy-link">Selengkapnya</a></p>
+        <!-- Content-->
+      	<div class="col-lg-6 order-lg-2">
+	      	<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
+	          <h3 class="widget-title text-nowrap">Berita & Artikel</h3>
+	          <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
 	        </div>
-		</article>
+	        
+	        @foreach ($berita as $berita)
+				@if($berita->published == 'Y') <!-- Tampilkan hanya yg status publish: Ya -->
+					<!-- Post-->
+					<article class="py-4 mb-4 border-bottom">
+			        	<h2 class="h4 nav-heading mb-2">
+			        		<a href="/post/{{ $berita->judul_seo }}">{{ $berita->judul }}</a>
+			        	</h2>
+			        	<div class="d-flex meta-link fs-sm align-items-center my-3">
+			                <div>
+			                	oleh<span class="fw-semibold ms-1"><a href="#">Admin</a></span>
+			                	<span class="meta-divider"></span>
+			                	{{ Date::parse($berita->created_at)->format('j F Y') }}
+			                	<span class="meta-divider"></span>
+			                	<a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;2</a>
+			                </div>
+			            </div>
 
-        <!-- Post-->
-        <article class="masonry-grid-item py-4 mb-4 border-bottom">
-        	<h2 class="h4 nav-heading mb-2">
-        		<a href="#">Designers should always keep their users in mind</a>
-        	</h2>
-        	<div class="d-flex meta-link fs-sm align-items-center my-3">
-                <div>
-                	oleh<span class="fw-semibold ms-1"><a href="">Admin</a></span>
-                	<span class="meta-divider"></span>
-                	12 Maret 2021
-                	<span class="meta-divider"></span>
-                	<a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;2</a>
-                </div>
-            </div>
-		    <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
-		    </div>
-		    <div class="mb-2">
-	            <p class="mb-0 fs-sm text-muted">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa…&nbsp;&nbsp;<a href="#" class="fancy-link">Selengkapnya</a></p>
-	        </div>
-		</article>
+			            @if($berita->gambar != '')
+					    <div class="card my-3 bg-size-cover" style="background-image: url({{ $berita->getThumbnailBerita() }}); height: 23vh; background-position: center;">
+					    </div>
+					    @endif
 
-		<!-- Post-->
-        <article class="masonry-grid-item py-4 mb-4 border-bottom">
-        	<h2 class="h4 nav-heading mb-2">
-        		<a href="#">Designers should always keep their users in mind</a>
-        	</h2>
-        	<div class="d-flex meta-link fs-sm align-items-center my-3">
-                <div>
-                	oleh<span class="fw-semibold ms-1"><a href="">Admin</a></span>
-                	<span class="meta-divider"></span>
-                	12 Maret 2021
-                	<span class="meta-divider"></span>
-                	<a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;2</a>
-                </div>
-            </div>
-		    <!-- <div class="card my-3 bg-size-cover" style="background-image: url({{ asset('images/rumah_bronis_2.jpg') }}); height: 23vh; background-position: center;">
-		    </div> -->
-		    <div class="mb-2">
-	            <p class="mb-0 fs-sm text-muted">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa…&nbsp;&nbsp;<a href="#" class="fancy-link">Selengkapnya</a></p>
-	        </div>
-		</article>
-      </div>
+					    <div class="mb-2">
+				            <div class="mb-0 fs-sm">
+				            	{{ Str::limit($berita->isi, 300, ' ...') }} &nbsp;&nbsp;
+				            	<a href="/post/{{ $berita->judul_seo }}" class="fancy-link">Selengkapnya</a>
+				            </div>
+				        </div>
+					</article>
+				@endif
+			@endforeach
+		</div>
 
-      <div class="col-lg-3 order-lg-1">
+      	<div class="col-lg-3 order-lg-1">
       		<!-- Galeri-thumbnail -->
       		<div class="mb-5 pt-4 pt-lg-0">
       			<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
@@ -328,97 +297,18 @@ Homepage | EKRAF Jambi
 
 		        <div class="border-0 rounded-3 mb-3" style="overflow: hidden;">
 		        	<div class="row gallery g-1" style="min-width: 102%">
-					  <!-- Item -->
-					  <div class="col-4">
-					    <a href="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
-					      	<div class="galeri-thumbnail">
-							  <img src="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"/>
-							</div>
-					      <span class="gallery-caption">Gallery image caption</span>
-					    </a>
-					  </div>
+					
+					  @foreach ($foto as $foto)
+					  	<div class="col-4">
+						    <a href="{{ $foto->getImageFoto() }}" class="gallery-item" data-sub-html='<h5 class="fw-light text-light">{{ $foto->keterangan }}</h5>'>
+						      	<div class="galeri-thumbnail">
+								  <img src="{{ $foto->getThumbnailFoto() }}"/>
+								</div>
+						      <!-- <span class="gallery-caption">{{ $foto->keterangan }}</span> -->
+						    </a>
+						  </div>
+					  @endforeach
 
-					  <!-- Item -->
-					  <div class="col-4">
-					    <a href="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
-					      	<div class="galeri-thumbnail">
-							  <img src="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-							</div>
-					      <span class="gallery-caption">Gallery image caption</span>
-					    </a>
-					  </div>
-
-					  <!-- Item -->
-					  <div class="col-4">
-					    <a href="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
-					      	<div class="galeri-thumbnail">
-							  <img src="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"/>
-							</div>
-					      <span class="gallery-caption">Gallery image caption</span>
-					    </a>
-					  </div>
-
-					  <!-- Item -->
-					  <div class="col-4">
-					    <a href="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
-					      	<div class="galeri-thumbnail">
-							  <img src="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"/>
-							</div>
-					      <span class="gallery-caption">Gallery image caption</span>
-					    </a>
-					  </div>
-
-					  <!-- Item -->
-					  <div class="col-4">
-					    <a href="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
-					      	<div class="galeri-thumbnail">
-							  <img src="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-							</div>
-					      <span class="gallery-caption">Gallery image caption</span>
-					    </a>
-					  </div>
-
-					  <!-- Item -->
-					  <div class="col-4">
-					    <a href="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
-					      	<div class="galeri-thumbnail">
-							  <img src="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"/>
-							</div>
-					      <span class="gallery-caption">Gallery image caption</span>
-					    </a>
-					  </div>
-
-					  <!-- Item -->
-					  <div class="col-4">
-					    <a href="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
-					      	<div class="galeri-thumbnail">
-							  <img src="https://images.unsplash.com/photo-1615752823823-f8972ae05834?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"/>
-							</div>
-					      <span class="gallery-caption">Gallery image caption</span>
-					    </a>
-					  </div>
-
-					  <!-- Item -->
-					  <div class="col-4">
-					    <a href="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
-					      	<div class="galeri-thumbnail">
-							  <img src="https://images.pexels.com/photos/1249588/pexels-photo-1249588.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"/>
-							</div>
-					      <span class="gallery-caption">Gallery image caption</span>
-					    </a>
-					  </div>
-
-					  <!-- Item -->
-					  <div class="col-4">
-					    <a href="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" class="gallery-item" data-sub-html='<h6 class="fs-sm text-light">Gallery image caption</h6>'>
-					      	<div class="galeri-thumbnail">
-							  <img src="https://images.unsplash.com/photo-1615568057392-8f933710de76?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"/>
-							</div>
-					      <span class="gallery-caption">Gallery image caption</span>
-					    </a>
-					  </div>
-					  
-					  <!-- Add as many columns with gallery item inside as you need -->
 					</div>
 		        </div>
 
@@ -458,46 +348,22 @@ Homepage | EKRAF Jambi
 		        </div>
 
 		        <div class="accordion" id="faq">
-	              <div class="accordion-item shadow">
-	                <h2 class="accordion-header" id="faq-heading-1">
-	                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1" aria-expanded="true" aria-controls="faq-content-1">How can I create a list of frequent destinations?</button>
-	                </h2>
-	                <div class="accordion-collapse collapse show" id="faq-content-1" aria-labelledby="faq-heading-1" data-bs-parent="#faq">
-	                  <div class="accordion-body">
-	                    <div class="fs-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
-	                  </div>
-	                </div>
-	              </div>
-	              <div class="accordion-item shadow">
-	                <h2 class="accordion-header" id="faq-heading-2">
-	                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2" aria-expanded="false" aria-controls="faq-content-2">What will happen after I sign up?</button>
-	                </h2>
-	                <div class="accordion-collapse collapse" id="faq-content-2" aria-labelledby="faq-heading-2" data-bs-parent="#faq">
-	                  <div class="accordion-body">
-	                    <div class="fs-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
-	                  </div>
-	                </div>
-	              </div>
-	              <div class="accordion-item shadow">
-	                <h2 class="accordion-header" id="faq-heading-3">
-	                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3" aria-expanded="false" aria-controls="faq-content-3">Do I have to confirm all bookings?</button>
-	                </h2>
-	                <div class="accordion-collapse collapse" id="faq-content-3" aria-labelledby="faq-heading-3" data-bs-parent="#faq">
-	                  <div class="accordion-body">
-	                    <div class="fs-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
-	                  </div>
-	                </div>
-	              </div>
-	              <div class="accordion-item shadow">
-	                <h2 class="accordion-header" id="faq-heading-4">
-	                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4" aria-expanded="false" aria-controls="faq-content-4">What do I get for the commission I pay?</button>
-	                </h2>
-	                <div class="accordion-collapse collapse" id="faq-content-4" aria-labelledby="faq-heading-4" data-bs-parent="#faq">
-	                  <div class="accordion-body">
-	                    <div class="fs-sm">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</div>
-	                  </div>
-	                </div>
-	              </div>
+		        	@foreach ($faq as $faq)
+		        		<div class="accordion-item shadow">
+			                <h2 class="accordion-header" id="faq-heading-{{ $faq->urutan }}">
+			                 	<button class="accordion-button @if($faq->urutan != '1') collapsed @endif" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{ $faq->urutan }}" aria-expanded="{{ $faq->urutan === '1' ? 'true' : 'false' }}" aria-controls="faq-content-{{ $faq->urutan }}">
+			                		{{ $faq->pertanyaan }}
+			                	</button>
+			                </h2>
+			                <div class="accordion-collapse collapse @if($faq->urutan == '1') show @endif" id="faq-content-{{ $faq->urutan }}" aria-labelledby="faq-heading-{{ $faq->urutan }}" data-bs-parent="#faq">
+			                  <div class="accordion-body">
+			                    <div class="fs-sm">
+			                    	{{ $faq->jawaban }}
+			                    </div>
+			                  </div>
+			                </div>
+			            </div>
+		        	@endforeach
 	            </div>
 
 	            <!-- <div class="px-md-3">

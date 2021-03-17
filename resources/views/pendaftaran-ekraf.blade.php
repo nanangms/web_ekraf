@@ -26,7 +26,7 @@
   <div class="card shadow-lg mx-0 mx-lg-7 my-3 my-lg-5 px-0 py-3 p-lg-4">
     <div class="text-center mb-4">
       <a href="/">
-        <img src="{{asset('images/LOGO_EKRAF-02.jpg')}}" width="150px">
+        <img src="{{asset('homepage/images/logo-ekraf-512p.png')}}" width="150px">
       </a>
     </div>
 
