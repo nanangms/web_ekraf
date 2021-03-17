@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'App\Http\Controllers\IndexController@index');
 
+// Route::get('/akun', 'App\Http\Controllers\AkunController@index');
+
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -34,7 +36,6 @@ Route::group(['middleware'=>['auth']],function(){
         Route::get('/{id}', [App\Http\Controllers\UserController::class, 'profil']);
         Route::post('/{id}/update', [App\Http\Controllers\UserController::class, 'update_profil']);
         Route::post('/{id}/ganti_password', [App\Http\Controllers\UserController::class, 'ganti_password_profil']);
-
     });
 
     Route::group(['prefix'=>'pendaftaran'], function(){
@@ -43,6 +44,7 @@ Route::group(['middleware'=>['auth']],function(){
         Route::get('/{id}/detail', [App\Http\Controllers\PendaftaranController::class, 'detail_pendaftaran']);
         Route::get('/verifikasi/{id}', [App\Http\Controllers\PendaftaranController::class, 'verifikasi_pendaftaran']);
     });
+    
     Route::group(['prefix'=>'pelaku_ekraf'], function(){
         Route::get('/', [App\Http\Controllers\PelakuekrafController::class, 'index']);
         Route::get('/table', [App\Http\Controllers\PelakuekrafController::class, 'dataTable'])->name('table.pelaku_ekraf');

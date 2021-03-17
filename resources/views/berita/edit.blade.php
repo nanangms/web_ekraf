@@ -47,13 +47,15 @@ Edit Berita
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Gambar</label>
+                                        <label>Gambar <span class="text-danger">*</span></label>
                                         <input type="file" class="form-control" name="gambar" onchange="readURL(this);"/>
                                         @if($errors->has('gambar'))
                                         <span class="help-block">{{$errors->first('gambar')}}</span>
                                         @endif
                                         @if($berita->gambar)
-                                        <img id="preview_gambar" style="margin-top:15px;max-width:100px;" src="/images/berita/{{$berita->gambar}}">
+                                        <div class="card mt-2" style="overflow: hidden">
+                                            <img id="preview_gambar" src="/images/berita/{{$berita->gambar}}" style="width: 100%; height: auto;" />
+                                        </div>
                                         @else
                                         <small style="color: red">Belum ada gambar yang diupload</small>
                                         @endif
@@ -129,7 +131,6 @@ Edit Berita
       reader.onload = function (e) { // Mulai pembacaan file
         $('#preview_gambar') // Tampilkan gambar yang dibaca ke area id #preview_gambar
         .attr('src', e.target.result)
-        .width(100); // Menentukan lebar gambar preview (dalam pixel)
   //.height(200); // Jika ingin menentukan lebar gambar silahkan aktifkan perintah pada baris ini
 };
 

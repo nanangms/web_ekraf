@@ -60,12 +60,14 @@ Tambah Berita
                                 <div class="col-md-4">
                                     <div class=" form-group row">
                                         <div class="col-md-12">
-                                            <label>Gambar<span class="text-danger">*</span></label>
+                                            <label>Gambar <span class="text-danger">*</span></label>
                                             <input type="file" class="form-control" name="gambar" onchange="readURL(this);" required />
                                             @if($errors->has('gambar'))
                                             <span class="text-danger">{{$errors->first('gambar')}}</span>
                                             @endif
-                                            <img id="preview_gambar" src="" width="150"/>
+                                            <div class="card mt-2" style="overflow: hidden">
+                                                <img id="preview_gambar" src="" style="width: 100%; height: auto;" />
+                                            </div>
                                         </div>
                                     </div>
 
@@ -112,11 +114,6 @@ Tambah Berita
                                     </div>
                                 </div>
                             </div>
-                            
-
-                            
-
-                            
                         </form>
                     </div>
                 </div>
@@ -142,7 +139,6 @@ Tambah Berita
       reader.onload = function (e) { // Mulai pembacaan file
         $('#preview_gambar') // Tampilkan gambar yang dibaca ke area id #preview_gambar
         .attr('src', e.target.result)
-        .width(100); // Menentukan lebar gambar preview (dalam pixel)
   //.height(200); // Jika ingin menentukan lebar gambar silahkan aktifkan perintah pada baris ini
 };
 

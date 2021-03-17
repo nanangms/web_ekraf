@@ -29,6 +29,7 @@ class FotoController extends Controller
 
         if ($request->hasFile('gambar')) {
             $foto = $request->file('gambar');
+            $keterangan = $request->keterangan;
             $image_name1 = str_replace(' ', '_', $request->judul).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
@@ -43,6 +44,7 @@ class FotoController extends Controller
             try{
                 $foto = new \App\Models\Foto;
                 $foto->gambar = $image_name1;     
+                $foto->keterangan = $keterangan;
                 $foto->album_id = $id;     
                 $foto->save();
                 
@@ -71,6 +73,9 @@ class FotoController extends Controller
         ->addColumn('action', function ($foto) {
             return '
             <button class="btn btn-danger btn-xs hapus" foto-name="'.$foto->judul.'" foto-id="'.$foto->uuid.'" title="Hapus"><i class="fas fa-trash-alt"></i></button>';
+        })
+        ->addColumn('keterangan', function ($foto) {
+            return $foto->keterangan;
         })
         ->addColumn('gambar', function ($foto) {
             return '<a href="'.$foto->getImageFoto().'" target="_blank"><img src="'.asset('images/foto/thumb/'.$foto->gambar).'" width="100px"></a>';

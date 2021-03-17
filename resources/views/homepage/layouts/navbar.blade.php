@@ -4,7 +4,7 @@
     <div class="modal-content border-0">
       <div class="view show" id="modal-signin-view">
         <div class="modal-header border-0 bg-dark px-4">
-          <h4 class="modal-title text-light">Sign in</h4>
+          <h4 class="modal-title text-light">Masuk</h4>
           <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="btn-close "></button>
         </div>
         <div class="modal-body px-4">
@@ -38,11 +38,11 @@
               @enderror
             </div>
             <button class="btn btn-primary d-block w-100" type="submit">Sign in</button>
-            <p class="fs-sm pt-3 mb-0">Belum punya akun? <a href='#' class='fw-medium' data-view='#modal-signup-view'>Daftar</a></p>
+            <p class="fs-sm pt-3 mb-0">Belum punya akun? <a href='/pendaftaran-pelaku-ekraf' class='fw-medium'>Daftar</a></p>
           </form>
         </div>
       </div>
-      <div class="view" id="modal-signup-view">
+      <!-- <div class="view" id="modal-signup-view">
         <div class="modal-header border-0 bg-dark px-4">
           <h4 class="modal-title text-light">Daftar</h4>
           <button class="btn-close btn-close-white" type="button" data-bs-dismiss="modal" aria-label="btn-close"></button>
@@ -69,10 +69,10 @@
               </label>
             </div>
             <button class="btn btn-primary d-block w-100" type="submit">Daftar</button>
-            <p class="fs-sm pt-3 mb-0">Sudah punya akun? <a href='#' class='fw-medium' data-view='#modal-signin-view'>Sign in</a></p>
+            <p class="fs-sm pt-3 mb-0">Sudah punya akun? <a href='#' class='fw-medium' data-view='#modal-signin-view'>Masuk</a></p>
           </form>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -84,20 +84,20 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand flex-shrink-0 order-lg-1 mx-auto ms-lg-0 pe-lg-2 me-lg-4" href="/">
-      <img class="navbar-floating-logo d-none d-lg-block" src="{{ asset('homepage/images/logo-ekraf.png') }}" alt="Logo ekraf" width="153">
-      <img class="navbar-stuck-logo" src="{{ asset('homepage/images/logo-ekraf.png') }}" alt="Logo ekraf" width="153">
-      <img class="d-lg-none" src="{{ asset('homepage/images/logo-ekraf.png') }}" alt="Logo ekraf" width="108">
+      <img class="navbar-floating-logo d-none d-lg-block logo-ekraf" alt="Logo ekraf">
+      <img class="navbar-stuck-logo logo-ekraf" alt="Logo ekraf">
+      <img class="d-lg-none logo-ekraf-mobile" alt="Logo ekraf">
     </a>
     <div class="d-flex align-items-center order-lg-3 ms-lg-auto">
       <a class="nav-link-style text-nowrap" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signin-view">
-        <i class="fs-xl me-2 align-middle"></i>Sign in
+        <i class="fs-xl me-2 align-middle"></i>Masuk
       </a>
-      <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-btn" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar</a>
+      <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-btn" href="/pendaftaran-pelaku-ekraf">Daftar</a>
       <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-stuck-btn" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar</a>
     </div>
     <div class="offcanvas offcanvas-collapse order-lg-2" id="primaryMenu">
       <div class="offcanvas-cap navbar-shadow">
-        <img class="d-lg-none" src="{{ asset('homepage/images/logo-ekraf.png') }}" alt="Logo ekraf" width="125">
+        <img class="d-lg-none logo-ekraf-mobile" alt="Logo ekraf">
         <button class="btn-close lead" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -110,7 +110,7 @@
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Profil Ekraf Jambi</a></li>
               <li class="dropdown">
-                <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">Galeri</a>
+                <a class="dropdown-item" href="#" data-bs-toggle="dropdown">Galeri <span style="float: right;"><i class="fas fa-angle-right"></i></span></a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="coming-soon-image.html">Foto</a></li>
                   <li><a class="dropdown-item" href="coming-soon-illustration.html">Video</a></li>

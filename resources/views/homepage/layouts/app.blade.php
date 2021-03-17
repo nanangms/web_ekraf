@@ -25,9 +25,13 @@
   <link rel="stylesheet" media="screen" href="{{ asset('homepage/vendor/simplebar/dist/simplebar.min.css') }}"/>
   <link rel="stylesheet" media="screen" href="{{ asset('homepage/vendor/tiny-slider/dist/tiny-slider.css') }}"/>
   <link rel="stylesheet" media="screen" href="{{ asset('homepage/vendor/flatpickr/dist/flatpickr.min.css') }}"/>
+  <link rel="stylesheet" media="screen" href="{{ asset('homepage/vendor/lightgallery.js/dist/css/lightgallery.min.css') }}"/>
+
   <!-- Main Theme Styles + Bootstrap-->
   <link rel="stylesheet" media="screen" href="{{ asset('homepage/css/theme.min.css') }}">
 
+  <!-- Custom CSS -->
+  <link rel="stylesheet" media="screen" href="{{ asset('homepage/css/custom.css') }}">
 
 </head>
 
@@ -67,6 +71,10 @@
   <script src="{{ asset('homepage/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
   <script src="{{ asset('homepage/vendor/flatpickr/dist/flatpickr.min.js') }}"></script>
   <script src="{{ asset('homepage/vendor/flatpickr/dist/plugins/rangePlugin.js') }}"></script>
+  <script src="{{ asset('homepage/vendor/lightgallery.js/dist/js/lightgallery.min.js') }}"></script>
+  <script src="{{ asset('homepage/vendor/lg-fullscreen.js/dist/lg-fullscreen.min.js') }}"></script>
+  <script src="{{ asset('homepage/vendor/lg-zoom.js/dist/lg-zoom.min.js') }}"></script>
+
   <!-- Main theme script-->
   <script src="{{ asset('homepage/js/theme.min.js') }}"></script>
 

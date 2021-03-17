@@ -17,4 +17,11 @@ class Foto extends Model
         }
         return asset('images/foto/'.$this->gambar);
     }
+
+    public function getThumbnailFoto(){
+        if(!$this->gambar){
+            return asset('images/foto/no-foto.jpg');
+        }
+        return asset('images/foto/thumb/'.$this->gambar);
+    }
 }
