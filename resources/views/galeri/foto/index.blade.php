@@ -31,57 +31,6 @@ Foto : {{$album->nama_album}}
 
   <!-- Main content -->
   <section class="content">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Tambah Foto</h3>
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-              </button>
-            </div>
-          </div>
-          <div class="card-body">
-            <form action="/galeri/foto/create/{{$album->id}}" class="form-horizontal" method="post" enctype="multipart/form-data">
-              {{csrf_field()}}
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class=" form-group row">
-                    <div class="col-md-12">
-                      <label>Foto<span class="text-danger">*</span></label>
-                      <input type="file" class="form-control" name="gambar" onchange="readURL(this);" required />
-                      @if($errors->has('gambar'))
-                      <span class="text-danger">{{$errors->first('gambar')}}</span>
-                      @endif
-                    </div>
-                  </div>
-                  <div class=" form-group row">
-                    <div class="col-md-12">
-                      <label>Keterangan foto (opsional)</label>
-                      <input type="text" class="form-control" name="keterangan" />
-                    </div>
-                  </div>
-                  <div class=" form-group row">
-                    <div class="col-md-12">
-                      <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Simpan</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card">
-          <img id="preview_gambar" src="" style="height: 100%; width: auto;" />
-        </div>
-        
-      </div>
-    </div>
-
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
@@ -96,6 +45,7 @@ Foto : {{$album->nama_album}}
       </div>
       <div class="card-body">
         <p align="right">
+            <button data-toggle="modal" data-target="#ShowTambah" class="btn btn-primary" title="Tambah"><i class="fa fa-plus"></i> Tambah Foto</button>
         </p>
         <table id="datatable" class="table table-bordered table-hover">
           <thead>
@@ -115,7 +65,63 @@ Foto : {{$album->nama_album}}
   </section>
 </div>
 
-@include('layouts._modal')
+<!-- MODAL Tambah  -->      
+<div class="modal fade" id="ShowTambah">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Tambah Foto</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modal-body">
+          <form action="/galeri/foto/create/{{$album->id}}" class="form-horizontal" method="post" enctype="multipart/form-data">
+              {{csrf_field()}}
+              <input type="hidden" name="nama_album" value="{{$album->nama_album}}">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class=" form-group row">
+                    <div class="col-md-12">
+                      <label>Foto<span class="text-danger">*</span></label>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <input type="file" class="form-control" name="gambar" onchange="readURL(this);" required />
+                        </div>
+                        <div class="col-md-6">
+                          <img id="preview_gambar" src="" style="width: 100px;" />
+                        </div>
+                      </div>
+                      
+                      
+                      @if($errors->has('gambar'))
+                      <span class="text-danger">{{$errors->first('gambar')}}</span>
+                      @endif
+                    </div>
+                  </div>
+                  <div class=" form-group row">
+                    <div class="col-md-12">
+                      <label>Keterangan foto (opsional)</label>
+                      <input type="text" class="form-control" name="keterangan" />
+                    </div>
+                  </div>
+                  <div class=" form-group row">
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Simpan</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+</div>
+
 @endsection
 @section('footer')
 <script src="{{asset('admin/plugins/datatables/jquery.dataTables.min.js')}}"></script>
@@ -148,7 +154,7 @@ reader.readAsDataURL(input.files[0]);
     serverSide: true,
     autoWidth: false,
     lengthChange: false,
-    ajax: "/table/foto/<?=$album->id?>",
+    ajax: "/table/foto/{{$album->id}}",
     columns: [
     {data: 'DT_RowIndex', name: 'id'},
     {data: 'gambar'},

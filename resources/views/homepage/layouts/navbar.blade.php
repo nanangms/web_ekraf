@@ -101,31 +101,34 @@
         <button class="btn-close lead" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <!-- Menu-->
+        <!-- Menu -->
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="/" data-bs-toggle="dropdown">Beranda</a>
+          <li class="nav-item @if(Request::segment(1)== '') active @endif">
+            <a class="nav-link" href="/">Beranda</a>
           </li>
-          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Informasi</a>
+          <li class="nav-item dropdown @if(Request::segment(1)== 'profil-ekraf') active @endif"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Informasi</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Profil Ekraf Jambi</a></li>
+              <li><a class="dropdown-item" href="/profil-ekraf">Profil Ekraf Jambi</a></li>
               <li class="dropdown">
                 <a class="dropdown-item" href="#" data-bs-toggle="dropdown">Galeri <span style="float: right;"><i class="fas fa-angle-right"></i></span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="coming-soon-image.html">Foto</a></li>
-                  <li><a class="dropdown-item" href="coming-soon-illustration.html">Video</a></li>
+                  <li><a class="dropdown-item" href="/galery/foto">Foto</a></li>
+                  <li><a class="dropdown-item" href="/galery/video">Video</a></li>
                 </ul>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="dropdown">Berita</a>
+          <li class="nav-item @if(Request::segment(1)== 'berita-info') active @endif">
+            <a class="nav-link" href="/berita-info">Berita</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="dropdown">Pelaku Ekraf</a>
+          <li class="nav-item @if(Request::segment(1)== 'data-pelaku-ekraf') active @endif">
+            <a class="nav-link" href="/data-pelaku-ekraf">Pelaku Ekraf</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="dropdown">Event</a>
+          <li class="nav-item @if(Request::segment(1)== 'acara') active @endif">
+            <a class="nav-link" href="/acara">Event</a>
+          </li>
+          <li class="nav-item @if(Request::segment(1)== 'faqaboutekraf') active @endif">
+            <a class="nav-link" href="/faqaboutekraf">FAQ</a>
           </li>
         </ul>
         <div class="d-lg-none mt-4">

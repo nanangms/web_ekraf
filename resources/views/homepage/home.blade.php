@@ -121,72 +121,36 @@ Homepage | EKRAF Jambi
         <div class="col-md-9 pe-md-3 pt-5 pb-2 py-lg-0">
         	<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
               <h5 class="text-nowrap mb-4 me-3">Pelaku Ekraf terbaru</h5>
-              <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Selengkapnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
+              <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="/data-pelaku-ekraf" style="text-decoration: none;">Selengkapnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
             </div>
         	<div class="tns-carousel-wrapper pb-5 pb-lg-0">
         		<div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 4, &quot;controls&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;300&quot;:{&quot;items&quot;:2},&quot;600&quot;:{&quot;items&quot;:3},&quot;900&quot;:{&quot;items&quot;:4}}}">
 
         		<!-- <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 4, &quot;nav&quot;: false, &quot;gutter&quot;: 23, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;300&quot;:{&quot;items&quot;:2},&quot;600&quot;:{&quot;items&quot;:3},&quot;900&quot;:{&quot;items&quot;:4}}}"> -->
+        		@foreach ($pelaku_ekraf as $pelaku)
 				    <div>
-			        	<a class="nav-heading text-center" href="#">
+			        	<a class="nav-heading text-center" href="/data-pelaku-ekraf/{{$pelaku->kode_pelaku_ekraf}}">
 			        		<div class="card border-0 bg-transparent">
 			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
 			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span> -->
+			        				@if($pelaku->foto_usaha != Null)
 			    					<div class="member-thumbnail">
-									  <img src="{{ asset('images/rumah_bronis_2.jpg') }}"/>
+									  <img src="{{ asset('images/foto_usaha/thumb/'.$pelaku->foto_usaha) }}"/>
 									</div>
+									@else
+									<div class="member-thumbnail">
+									  <img src="{{ asset('images/no_ekraf.jpg') }}"/>
+									</div>
+									@endif
 					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 					            </div>
-					            <h6 class="nav-heading-title mb-0">Rumah Bronis</h6>
-	                			<span class="fs-sm fw-normal text-muted">Kuliner</span>
+					            <h6 class="nav-heading-title mb-0">{{$pelaku->nama_usaha}}</h6>
+	                			<span class="fs-sm fw-normal text-muted">{{$pelaku->nama_sektor}}</span>
 			        		</div>
 				        </a>
 				    </div>
-				    <div>
-			        	<a class="nav-heading text-center" href="#">
-			        		<div class="card border-0 bg-transparent">
-			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
-			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Perabotan</span> -->
-					            	<div class="member-thumbnail">
-									  <img src="{{ asset('images/rumah_bronis_2.jpg') }}"/>
-									</div>
-					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-					            </div>
-					            <h6 class="nav-heading-title mb-0">Khairi Kitchen & Collection</h6>
-	                			<span class="fs-sm fw-normal text-muted">Perabotan</span>
-			        		</div>
-				        </a>
-				    </div>
-				    <div>
-			        	<a class="nav-heading text-center" href="#">
-			        		<div class="card border-0 bg-transparent">
-			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
-			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Fashion</span> -->
-					            	<div class="member-thumbnail">
-									  <img src="{{ asset('images/rumah_bronis_2.jpg') }}"/>
-									</div>
-					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-					            </div>
-					            <h6 class="nav-heading-title mb-0">Qolby Collection</h6>
-	                			<span class="fs-sm fw-normal text-muted">Fashion</span>
-			        		</div>
-				        </a>
-				    </div>
-				    <div>
-			        	<a class="nav-heading text-center" href="#">
-			        		<div class="card border-0 bg-transparent">
-			        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
-			        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Desain</span> -->
-					            	<div class="member-thumbnail">
-									  <img src="{{ asset('images/rumah_bronis_2.jpg') }}"/>
-									</div>
-					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
-					            </div>
-					            <h6 class="nav-heading-title mb-0">2 RA Dawing TB</h6>
-	                			<span class="fs-sm fw-normal text-muted">Desain</span>
-			        		</div>
-				        </a>
-				    </div>
+				@endforeach
+				    
         		</div>
         	</div>
 
@@ -251,7 +215,7 @@ Homepage | EKRAF Jambi
       	<div class="col-lg-6 order-lg-2">
 	      	<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
 	          <h3 class="widget-title text-nowrap">Berita & Artikel</h3>
-	          <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
+	          <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="/berita-info" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
 	        </div>
 	        
 	        @foreach ($berita as $berita)
@@ -259,13 +223,13 @@ Homepage | EKRAF Jambi
 					<!-- Post-->
 					<article class="py-4 mb-4 border-bottom">
 			        	<h2 class="h4 nav-heading mb-2">
-			        		<a href="/post/{{ $berita->judul_seo }}">{{ $berita->judul }}</a>
+			        		<a href="/berita/{{ $berita->judul_seo }}">{{ $berita->judul }}</a>
 			        	</h2>
 			        	<div class="d-flex meta-link fs-sm align-items-center my-3">
 			                <div>
 			                	oleh<span class="fw-semibold ms-1"><a href="#">Admin</a></span>
 			                	<span class="meta-divider"></span>
-			                	{{ Date::parse($berita->created_at)->format('j F Y') }}
+			                	{{ TanggalAja($berita->created_at) }}
 			                	<span class="meta-divider"></span>
 			                	<a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;2</a>
 			                </div>
@@ -278,8 +242,8 @@ Homepage | EKRAF Jambi
 
 					    <div class="mb-2">
 				            <div class="mb-0 fs-sm">
-				            	{{ Str::limit($berita->isi, 300, ' ...') }} &nbsp;&nbsp;
-				            	<a href="/post/{{ $berita->judul_seo }}" class="fancy-link">Selengkapnya</a>
+				            	{!! Str::limit($berita->isi, 300, ' ...') !!} &nbsp;&nbsp;
+				            	<a href="/berita/{{ $berita->judul_seo }}" class="fancy-link">Selengkapnya</a>
 				            </div>
 				        </div>
 					</article>

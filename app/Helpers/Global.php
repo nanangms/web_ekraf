@@ -74,6 +74,48 @@ if (! function_exists('TanggalID')) {
 	 }
 }
 
+if (! function_exists('TanggalAja')) {
+	 /**
+	 * TanggalID
+	 *
+	 * @param mixed $tanggal
+	 * @return void
+	 */
+	 function TanggalAja($tanggal) {
+	 $value = Carbon\Carbon::parse($tanggal);
+	 $parse = $value->locale('id');
+	 return $parse->translatedFormat('d F Y');
+	 }
+}
+
+if (! function_exists('nama_bulan')) {
+	 /**
+	 * TanggalID
+	 *
+	 * @param mixed $tanggal
+	 * @return void
+	 */
+	 function nama_bulan_pendek($tanggal) {
+	 $value = Carbon\Carbon::parse($tanggal);
+	 $parse = $value->locale('id');
+	 return $parse->translatedFormat('M');
+	 }
+}
+
+if (! function_exists('tglnya')) {
+	 /**
+	 * TanggalID
+	 *
+	 * @param mixed $tanggal
+	 * @return void
+	 */
+	 function tglnya($tanggal) {
+	 $value = Carbon\Carbon::parse($tanggal);
+	 $parse = $value->locale('id');
+	 return $parse->translatedFormat('d');
+	 }
+}
+
 
 function kode_acak($panjang)
 {

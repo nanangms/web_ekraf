@@ -67,7 +67,7 @@
                  <tr>
                      <td><strong>Mulai Usaha</strong></td>
                      <td>:</td>
-                     <td>{{$pendaftaran->mulai_usaha}}</td>
+                     <td>{{TanggalAja($pendaftaran->mulai_usaha)}}</td>
                  </tr>
                  <tr>
                      <td><strong>Jumlah Karyawan</strong></td>
@@ -152,5 +152,8 @@
     </div>
   </div>
 </div>
-
+@if($pendaftaran->verifikasi == 'N')
 <a href="/pendaftaran/verifikasi/{{$pendaftaran->uuid}}" class="btn btn-success btn-block">Verifikasi Sebagai Pelaku EKRAF Jambi</a>
+@else
+
+@endif

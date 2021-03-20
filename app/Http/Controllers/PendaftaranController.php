@@ -7,8 +7,10 @@ use App\Models\Pendaftaran;
 use App\Models\Kabupatenkota;
 use App\Models\Badanhukum;
 use App\Models\Sektor;
+use App\Models\User;
 use DB;
 use DataTables;
+use Illuminate\Support\Facades\Hash;
 
 class PendaftaranController extends Controller
 {
@@ -44,7 +46,6 @@ class PendaftaranController extends Controller
         ->leftjoin('kab_kota as b','a.kab_kota_id','b.id')
         ->leftjoin('sektor as c','a.sektor_id','c.id')
         ->leftjoin('badan_hukum as d','a.badan_hukum_id','d.id')
-        ->where('a.verifikasi','N')
         ->orderBy('a.id','desc')->get();
 
         return DataTables::of($pelaku)
@@ -57,6 +58,8 @@ class PendaftaranController extends Controller
             ->addColumn('verification', function ($pelaku) {
                 if($pelaku->verifikasi == 'N'){
                     return '<span class="badge badge-danger">Belum diverifikasi</span>';
+                }else{
+                    return '<span class="badge badge-success">Diverifikasi</span>';
                 }
             })
             ->addIndexColumn()
@@ -88,13 +91,13 @@ class PendaftaranController extends Controller
             'nama_usaha'=>'required',
 
             'jenis_usaha'=>'required',
-            'hasil_barang'=>'required',
-            'sifat_produk'=>'required',
-            'dibina'=>'required',
+            //'hasil_barang'=>'required',
+            //'sifat_produk'=>'required',
+            //'dibina'=>'required',
             // 'binaan'=>'required',
-            'sifat_freelance'=>'required',
-            'ada_sertifikat'=>'required',
-            'ada_komunitas'=>'required',
+            //'sifat_freelance'=>'required',
+            //'ada_sertifikat'=>'required',
+            //'ada_komunitas'=>'required',
             // 'nama_komunitas'=>'required',
 
             'mulai_usaha'=>'required',
@@ -217,10 +220,12 @@ class PendaftaranController extends Controller
             $user->verifikasi           = 'Y';
             $user->save();
 
+            \Mail::to('nanang.ms22@gmail.com')->send(new \App\Mail\PostMail($pendaftaran->kode_pelaku_ekraf, $pendaftaran->nama_lengkap));
+
             DB::commit();
             return redirect('/pendaftaran')->with('sukses','Pendaftaran berhasil diverifikasi');
         }catch (\Exception $e){
-            //dd($e);
+            dd($e);
             DB::rollback();
             return redirect()->back()->with('gagal','Data Gagal Diverifikasi');
         }

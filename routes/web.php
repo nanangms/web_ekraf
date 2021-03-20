@@ -15,7 +15,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\IndexController@index');
 
 // Route::get('/akun', 'App\Http\Controllers\AkunController@index');
-
+Route::get('/profil-ekraf', 'App\Http\Controllers\IndexController@profil_ekraf');
+Route::get('/data-pelaku-ekraf', 'App\Http\Controllers\IndexController@pelaku_ekraf');
+Route::get('/data-pelaku-ekraf/{kode}', 'App\Http\Controllers\IndexController@pelaku_ekraf_detail');
+Route::get('/galery/foto', 'App\Http\Controllers\IndexController@album');
+Route::get('/galery/foto/{seo}', 'App\Http\Controllers\IndexController@foto_album');
+Route::get('/galery/video', 'App\Http\Controllers\IndexController@video');
+Route::get('/acara', 'App\Http\Controllers\IndexController@acara');
+Route::get('/acara/{seo}', 'App\Http\Controllers\IndexController@detailacara');
+Route::get('/faqaboutekraf', 'App\Http\Controllers\IndexController@faq');
+Route::get('/berita-info', 'App\Http\Controllers\IndexController@berita');
+Route::get('/berita/{seo}', 'App\Http\Controllers\IndexController@detail_berita');
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -29,7 +39,7 @@ Route::get('/pendaftaran-pelaku-ekraf',[App\Http\Controllers\PendaftaranControll
 Route::post('/submit-pendaftaran',[App\Http\Controllers\PendaftaranController::class, 'submit_pendaftaran']);
 Route::get('/pendaftaran-berhasil',[App\Http\Controllers\PendaftaranController::class, 'pendaftaran_berhasil']);
 
-Route::group(['middleware'=>['auth']],function(){
+Route::group(['middleware'=>['auth','checkRole:Admin,Super Admin']],function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::group(['prefix'=>'profil'], function(){

@@ -94,7 +94,7 @@
                     <hr>
                     <div class="form-group mb-3">
                       <label class="form-label" for="email">Email <span class="text-danger">*</span></label></label>
-                      <input class="form-control" type="email" id="email" placeholder="Alamat email" required>
+                      <input class="form-control" type="email" id="email" name="email" placeholder="Alamat email" value="{{old('email')}}" required>
                       <div class="form-text fw-semibold text-warning">Pastikan alamat email aktif</div>
                     </div>
                     <div class="form-group mb-3">
@@ -132,7 +132,7 @@
                     <select name="kab_kota_id" class="form-select" id="kab_kota" required>
                       <option value="">[Pilihan]</option>
                       @foreach($kab as $k)
-                        <option value="{{$k->id}}">{{$k->nama_kab_kota}}</option>
+                        <option value="{{$k->id}}" {{(old('kab_kota_id') == $k->id ) ? ' selected' : ''}}>{{$k->nama_kab_kota}}</option>
                       @endforeach
                     </select>
                   </div>
@@ -141,25 +141,25 @@
                     <select name="sektor_id" class="form-select" id="sektor" required>
                       <option value="">[Pilihan]</option>
                       @foreach($sektor as $s)
-                        <option value="{{$s->id}}">{{$s->nama_sektor}}</option>
+                        <option value="{{$s->id}}" {{(old('sektor_id') == $s->id ) ? ' selected' : ''}}>{{$s->nama_sektor}}</option>
                       @endforeach
                     </select>
                   </div>
                   <div class="form-group mb-3">
                     <label for="nama_lengkap" class="form-label" for="nama_lengkap">Nama Lengkap <span class="text-danger">*</span></label>
-                    <input type="text" name="nama_lengkap" class="form-control" id="nama_lengkap" placeholder="Nama lengkap" required>
+                    <input type="text" name="nama_lengkap" class="form-control" value="{{old('nama_lengkap')}}" id="nama_lengkap" placeholder="Nama lengkap" required>
                   </div>
                   <div class="form-group mb-3">
                     <label class="form-label" for="no_ktp">No. KTP/SIM/Identitas Resmi <span class="text-danger">*</span></label>
-                    <input type="text" name="no_ktp" id="no_ktp" class="form-control" placeholder="16 Digit">
+                    <input type="text" name="no_ktp" id="no_ktp" class="form-control" placeholder="16 Digit" value="{{old('no_ktp')}}">
                   </div>
                   <div class="form-group mb-3">
                     <label class="form-label" for="alamat">Alamat Domisili <span class="text-danger">*</span></label>
-                    <input type="text" name="alamat_domisili" class="form-control" id="" placeholder="Alamat domisili sesuai KTP/SIM/Paspor">
+                    <input type="text" name="alamat_domisili" class="form-control" id="" value="{{old('alamat_domisili')}}" placeholder="Alamat domisili sesuai KTP/SIM/Paspor">
                   </div>
                   <div class="form-group mb-3">
                     <label class="form-label" for="no_hp">No.HP/WA aktif yang dapat dihubungi<span class="text-danger">*</span></label>
-                    <input type="text" name="no_hp" class="form-control" id="no_hp" placeholder="+62">
+                    <input type="text" name="no_hp" class="form-control" id="no_hp" placeholder="+62" value="{{old('no_hp')}}">
                   </div>
 
                   <div class="text-end mt-5">
@@ -175,13 +175,13 @@
                     <div class="row">
                     <div class="col-md-2">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jenis_usaha" id="jenis_usaha_barang" value="Barang"checked>
+                        <input class="form-check-input" type="radio" name="jenis_usaha" id="jenis_usaha_barang" value="Barang" @if(old('jenis_usaha')) checked @endif>
                         <label for="jenis_usaha_barang" class="form-check-label">Barang</label>
                       </div>
                     </div>
                     <div class="col-md-2">
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="jenis_usaha" id="jenis_usaha_jasa" value="Jasa">
+                        <input class="form-check-input" type="radio" name="jenis_usaha" id="jenis_usaha_jasa" value="Jasa" @if(old('jenis_usaha')) checked @endif>
                         <label for="jenis_usaha_jasa" class="form-check-label">Jasa</label>
                       </div>
                     </div>
@@ -190,7 +190,7 @@
                   <hr>
                   <div class="form-group mb-3">
                     <label class="form-label" for="nama_usaha">Nama Usaha <span class="text-danger">*</span></label>
-                    <input type="text" name="nama_usaha" class="form-control" id="nama_usaha" placeholder="Nama usaha" required>
+                    <input type="text" name="nama_usaha" class="form-control" id="nama_usaha" placeholder="Nama usaha" value="{{old('nama_usaha')}}" required>
                   </div>
                   <hr>
 
@@ -199,11 +199,11 @@
                     <div class="form-group mb-3">
                       <label class="form-label">Apakah Usaha Anda Menghasilkan Barang? <span class="text-danger">*</span></label>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="hasil_barang" id="hb1" value="Ada">
+                          <input class="form-check-input" type="radio" name="hasil_barang" id="hb1" value="Ada" @if(old('hasil_barang')) checked @endif>
                           <label class="form-check-label" for="hb1">Ya</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="hasil_barang" id="hb2" value="Tidak">
+                          <input class="form-check-input" type="radio" name="hasil_barang" id="hb2" value="Tidak" @if(old('hasil_barang')) checked @endif>
                           <label class="form-check-label" for="hb2">Tidak </label>
                         </div>
                     </div>
@@ -211,11 +211,11 @@
                     <div class="form-group mb-3">
                       <label class="form-label">Apa Sifat Produk Bisnis Anda? <span class="text-danger">*</span></label>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sifat_produk" id="sp1" value="Jasa">
+                          <input class="form-check-input" type="radio" name="sifat_produk" id="sp1" value="Jasa" @if(old('sifat_produk')) checked @endif>
                           <label class="form-check-label" for="sp1">Jasa</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sifat_produk" id="sp2" value="Barang Dan Jasa">
+                          <input class="form-check-input" type="radio" name="sifat_produk" id="sp2" value="Barang Dan Jasa" @if(old('sifat_produk')) checked @endif>
                           <label class="form-check-label" for="sp2">Barang Dan Jasa</label>
                         </div>
                     </div>
@@ -223,14 +223,14 @@
                     <div class="form-group mb-3">
                       <label class="form-label">Apakah Usaha Anda Dibina oleh Instansi Pemerintah/Swasta? <span class="text-danger">*</span></label>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="dibina" id="dibina1" value="Ya">
+                          <input class="form-check-input" type="radio" name="dibina" id="dibina1" value="Ya" @if(old('dibina')) checked @endif>
                           <label class="form-check-label" for="dibina1">Ya, Jika Ya Sebutkan:</label>
                           <div id="bina">
-                            <input type="text" name="binaan" class="form-control" placeholder="Nama Instansi Pemerintah/Swasta">
+                            <input type="text" name="binaan" class="form-control" placeholder="Nama Instansi Pemerintah/Swasta" value="{{old('binaan')}}">
                           </div>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="dibina" id="dibina2" value="Tidak">
+                          <input class="form-check-input" type="radio" name="dibina" id="dibina2" value="Tidak" @if(old('dibina')) checked @endif>
                           <label class="form-check-label" for="dibina2">Tidak</label>
                         </div>
                     </div>
@@ -238,11 +238,11 @@
                     <div class="form-group mb-3">
                       <label class="form-label">Apakah Usaha Anda bersifat Freelance/Perorangan? <span class="text-danger">*</span></label>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sifat_freelance" id="ju1" value="Ya">
+                          <input class="form-check-input" type="radio" name="sifat_freelance" id="ju1" value="Ya" @if(old('sifat_freelance')) checked @endif>
                           <label class="form-check-label" for="ju1">Ya</label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="sifat_freelance" id="ju2" value="Tidak">
+                          <input class="form-check-input" type="radio" name="sifat_freelance" id="ju2" value="Tidak" @if(old('sifat_freelance')) checked @endif>
                           <label class="form-check-label" for="ju2">Tidak</label>
                         </div>
                     </div>
@@ -250,11 +250,11 @@
                     <div class="form-group mb-3">
                       <label class="form-label">Apakah Anda Memiliki Sertifikat Khusus/ Keahlian? <span class="text-danger">*</span></label>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ada_sertifikat" id="sertifikat1" value="Ada">
+                        <input class="form-check-input" type="radio" name="ada_sertifikat" id="sertifikat1" value="Ada" @if(old('ada_sertifikat')) checked @endif>
                         <label class="form-check-label" for="sertifikat1">Ya</label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ada_sertifikat" id="sertifikat2" value="Tidak Ada">
+                        <input class="form-check-input" type="radio" name="ada_sertifikat" id="sertifikat2" value="Tidak Ada" @if(old('ada_sertifikat')) checked @endif>
                         <label class="form-check-label" for="sertifikat2">Tidak Ada</label>
                       </div>
                     </div>
@@ -262,14 +262,14 @@
                     <div class="form-group mb-3">
                       <label class="form-label">Apakah Anda tergabung dalam Satu Komunitas/Asosiasi? <span class="text-danger">*</span></label>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="ada_komunitas" id="komunitas1" value="Ada">
+                          <input class="form-check-input" type="radio" name="ada_komunitas" id="komunitas1" value="Ada" @if(old('ada_komunitas')) checked @endif>
                           <label class="form-check-label" for="komunitas1">Ya, Jika Ya Sebutkan:</label>
                           <div id="komunitas">
-                            <input type="text" name="nama_komunitas" class="form-control" placeholder="Nama Komunitas/Asosiasi">
+                            <input type="text" name="nama_komunitas" class="form-control" placeholder="Nama Komunitas/Asosiasi" value="{{old('nama_komunitas')}}">
                           </div>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="radio" name="ada_komunitas" id="komunitas2" value="Tidak Ada">
+                          <input class="form-check-input" type="radio" name="ada_komunitas" id="komunitas2" value="Tidak Ada" @if(old('ada_komunitas')) checked @endif>
                           <label class="form-check-label" for="komunitas2">Tidak Ada</label>
                         </div>
                     </div>
@@ -279,29 +279,29 @@
 
                   <div class="form-group mb-3">
                     <label class="form-label">Kapan Memulai Usaha? <span class="text-danger">*</span></label>
-                    <input type="date" name="mulai_usaha" class="form-control" placeholder="" required>
+                    <input type="date" name="mulai_usaha" class="form-control" placeholder="" required value="{{old('mulai_usaha')}}">
                   </div>
                   <hr>
                   <div class="form-group mb-3">
                     <label class="form-label">Jumlah Karyawan <span class="text-danger">*</span></label>
-                    <input type="number" name="jml_karyawan" class="form-control" id="" placeholder="Jumlah karyawan" required>
+                    <input type="number" name="jml_karyawan" class="form-control" id="" placeholder="Jumlah karyawan" required value="{{old('jml_karyawan')}}">
                   </div>
                   <hr>
                   <div class="form-group mb-3">
                     <label class="form-label" for="nama_lengkap">Alamat Tempat Usaha <span class="text-danger">*</span></label>
-                    <input type="text" name="alamat_usaha" class="form-control" id="" placeholder="" required>
+                    <input type="text" name="alamat_usaha" class="form-control" id="" placeholder="" required value="{{old('alamat_usaha')}}">
                     <div class="form-text fw-semibold text-warning">Mohon dituliskan alamat selengkap-lengkapnya</div>
                   </div>
                   <hr>
                   <div class="form-group mb-3">
                     <label class="form-label" for="nama_lengkap">Ada Legalitas Usaha? (Hak Cipta / Hak Merek / HAKI / SIUP / TDP / HO / NIB) <span class="text-danger">*</span></label>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ada_legalitas" id="legalitas1" value="Ada">
+                        <input class="form-check-input" type="radio" name="ada_legalitas" id="legalitas1" value="Ada" @if(old('ada_legalitas')) checked @endif>
                         <label class="form-check-label" for="legalitas1">Ada, Jika Ada Sebutkan:</label>
                         <div id="legalitas"><input type="text" name="nama_legalitas" class="form-control" id="" placeholder="Nama Legalitas"></div>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ada_legalitas" id="legalitas2" value="Tidak Ada">
+                        <input class="form-check-input" type="radio" name="ada_legalitas" id="legalitas2" value="Tidak Ada" @if(old('ada_legalitas')) checked @endif>
                         <label class="form-check-label" for="legalitas2">Tidak Ada</label>
                       </div>
                   </div>
@@ -311,7 +311,7 @@
                     <select name="badan_hukum_id" class="form-control" required>
                       <option value="">[Pilihan]</option>
                       @foreach($badan as $b)
-                        <option value="{{$b->id}}">{{$b->nama_badan_hukum}}</option>
+                        <option value="{{$b->id}}" {{(old('badan_hukum_id') == $b->id ) ? ' selected' : ''}}>{{$b->nama_badan_hukum}}</option>
                       @endforeach
                     </select>
                     <div class="form-text fw-semibold text-warning">Jika tidak ada, pilih "Tidak Ada"</div>

@@ -62,7 +62,7 @@
                  <tr>
                      <td><strong>Mulai Usaha</strong></td>
                      <td>:</td>
-                     <td>{{$pelaku->mulai_usaha}}</td>
+                     <td>{{TanggalAja($pelaku->mulai_usaha)}}</td>
                  </tr>
              
                  <tr>

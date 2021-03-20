@@ -38,7 +38,14 @@ class PelakuekrafController extends Controller
 
         return DataTables::of($pelaku)
             ->addColumn('action', function ($pelaku) {
-                return '<button data-toggle="modal" data-target-id="'.$pelaku->uuid.'" data-target="#ShowPelakuEkraf" class="btn btn-info btn-xs" title="Detail Pelaku Ekraf"><i class="fa fa-eye"></i></button>';
+                $detail = '<button data-toggle="modal" data-target-id="'.$pelaku->uuid.'" data-target="#ShowPelakuEkraf" class="btn btn-info btn-xs" title="Detail Pelaku Ekraf"><i class="fa fa-eye"></i></button>';
+                $hapus = '<button class="btn btn-danger btn-xs hapus" pelaku-name="'.$pelaku->nama_usaha.'" pelaku-id="'.$pelaku->uuid.'" title="Hapus"><i class="fas fa-trash-alt"></i></button>';
+                if(auth()->user()->role_id == '1'){
+                    return $detail.' '.$hapus;
+                }else{
+                    return $detail;
+                }
+                
             })
             ->addIndexColumn()
             ->rawColumns(['action'])

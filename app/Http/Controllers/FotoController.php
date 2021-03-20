@@ -30,7 +30,7 @@ class FotoController extends Controller
         if ($request->hasFile('gambar')) {
             $foto = $request->file('gambar');
             $keterangan = $request->keterangan;
-            $image_name1 = str_replace(' ', '_', $request->judul).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
+            $image_name1 = str_replace(' ', '_', $request->nama_album).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
             $ImageUpload->save(public_path('images/foto/'.$image_name1));

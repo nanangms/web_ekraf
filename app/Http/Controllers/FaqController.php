@@ -24,11 +24,14 @@ class FaqController extends Controller
         
         return DataTables::of($faq)
             ->addColumn('action', function ($faq) {
-                return '<button data-toggle="modal" data-target-id="'.$faq->uuid.'" data-target="#ShowEDIT" class="btn btn-warning btn-xs" title="Edit"><i class="fa fa-edit"></i></button>
+                return '<a href="/faq/'.$faq->uuid.'/edit" class="btn btn-warning btn-xs" title="Edit"><i class="fa fa-edit"></i></a>
                     <button title="Hapus" class="btn btn-danger btn-xs hapus" faq-name="'.$faq->pertanyaan.'" faq-id="'.$faq->uuid.'"><i class="fa fa-trash"></i></button>';
             })
+            ->addColumn('jawaban', function ($faq){
+                return $faq->jawaban;
+            })
             ->addIndexColumn()
-            ->rawColumns(['action','kontak'])
+            ->rawColumns(['action','jawaban'])
             ->make(true);
     }
 
