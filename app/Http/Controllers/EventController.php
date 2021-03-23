@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use DataTables;
 use App\Models\Event;
 use Jenssegers\Date\Date;
+use DB;
+use File;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class EventController extends Controller
 {
@@ -24,24 +27,7 @@ class EventController extends Controller
         return view('event.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $model = new Event();
-        return view('event.form', compact('model'));
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function create(Request $request)
     {
         $this->validate($request, [
             'nama_event' => 'required',
@@ -49,8 +35,52 @@ class EventController extends Controller
             'lokasi' => 'required'
         ]);
 
-        $model = Event::create($request->all());
-        return $model;
+        if ($request->hasFile('foto_banner')) {
+            $foto = $request->file('foto_banner');
+            $image_name1 = str_replace(' ', '_', $request->nama_event).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
+            // for save original image
+            $ImageUpload = Image::make($foto);
+            $ImageUpload->save(public_path('images/event/'.$image_name1));
+
+            // for save thumbnail image
+            $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
+            $ImageUpload->save(public_path('images/event/thumb/'.$image_name1));
+
+            DB::beginTransaction();
+            try{
+                $event = new \App\Models\Event;
+                $event->foto_banner = $image_name1;     
+                $event->nama_event  = $request->nama_event;
+                $event->published   = $request->published;
+                $event->lokasi      = $request->lokasi;  
+                $event->deskripsi   = $request->deskripsi;  
+                $event->tgl_event   = $request->tgl_event;   
+                $event->save();
+                
+                DB::commit();
+                return redirect('/event')->with('sukses','Data berhasil ditambah');
+            }catch (\Exception $e){
+                DB::rollback();
+                return redirect()->back()->with('gagal','Data Gagal Diinput');
+            }
+        }else{
+            DB::beginTransaction();
+            try{
+                $event = new \App\Models\Event;
+                $event->nama_event  = $request->nama_event;
+                $event->published   = $request->published;
+                $event->lokasi      = $request->lokasi;  
+                $event->deskripsi   = $request->deskripsi;  
+                $event->tgl_event   = $request->tgl_event;   
+                $event->save();
+                
+                DB::commit();
+                return redirect('/event')->with('sukses','Data berhasil ditambah');
+            }catch (\Exception $e){
+                DB::rollback();
+                return redirect()->back()->with('gagal','Data Gagal Diinput');
+            }
+        }
     }
 
     /**
@@ -72,8 +102,8 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        $model = Event::findOrFail($id);
-        return view('event.form', compact('model'));
+        $event = Event::where('uuid',$id)->firstOrFail();
+        return view('event.edit',compact(['event']));
     }
 
     /**
@@ -91,28 +121,63 @@ class EventController extends Controller
             'lokasi' => 'required'
         ]);
 
-        $event = Event::findOrFail($id);
-        
-        $event->nama_event = $request->nama_event;
-        $event->event_seo       = null;
-        $event->published = $request->published;
-        $event->lokasi = $request->lokasi;  
-        $event->deskripsi = $request->deskripsi;  
-        $event->tgl_event = $request->tgl_event;  
-        $event->update();
+        $event = Event::where('uuid',$id)->firstOrFail();
+
+        if ($request->hasFile('foto_banner')) {
+            File::delete('images/event/'.$event->foto_banner);   
+            File::delete('images/event/thumb/'.$event->foto_banner);
+            $foto = $request->file('foto_banner');
+            $image_name1 = str_replace(' ', '_', $request->nama_event).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
+            // for save original image
+            $ImageUpload = Image::make($foto);
+            $ImageUpload->save(public_path('images/event/'.$image_name1));
+
+            // for save thumbnail image
+            $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
+            $ImageUpload->save(public_path('images/event/thumb/'.$image_name1));
+
+            DB::beginTransaction();
+            try{
+                $event->foto_banner = $image_name1;     
+                $event->nama_event  = $request->nama_event;
+                $event->published   = $request->published;
+                $event->lokasi      = $request->lokasi;  
+                $event->deskripsi   = $request->deskripsi;  
+                $event->tgl_event   = $request->tgl_event;   
+                $event->save();
+                
+                DB::commit();
+                return redirect('/event')->with('sukses','Data berhasil di simpan');
+            }catch (\Exception $e){
+                DB::rollback();
+                return redirect()->back()->with('gagal','Data Gagal Disimpan');
+            }
+        }else{
+            DB::beginTransaction();
+            try{
+                $event->nama_event  = $request->nama_event;
+                $event->published   = $request->published;
+                $event->lokasi      = $request->lokasi;  
+                $event->deskripsi   = $request->deskripsi;  
+                $event->tgl_event   = $request->tgl_event;   
+                $event->save();
+                
+                DB::commit();
+                return redirect('/event')->with('sukses','Data berhasil disimpan');
+            }catch (\Exception $e){
+                DB::rollback();
+                return redirect()->back()->with('gagal','Data Gagal disimpan');
+            }
+        }
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $model = Event::findOrFail($id);
-        $model->delete();
+    public function delete($id){
+
+        $event = Event::where('uuid',$id)->firstOrFail();
+        $event->delete();
+        File::delete('images/event/'.$event->foto_banner);   
+        File::delete('images/event/thumb/'.$event->foto_banner);            
     }
 
     public function dataTable()
@@ -120,6 +185,9 @@ class EventController extends Controller
         Date::setLocale('id');
         $model = Event::query();
         return DataTables::of($model)
+        ->addColumn('foto_banner', function ($event) {
+            return '<a href="'.$event->getImageEvent().'" target="_blank"><img src="'.$event->getImageEvent().'" width="100px"></a>';
+        })
         ->addColumn('tgl_event',function($event){
             return Date::parse($event->tgl_event)->format('j F Y');
         })
@@ -127,18 +195,14 @@ class EventController extends Controller
             if($event->published == 'Y'){
                 return '<span class="badge badge-success">Aktif</span>';
             }else{
-               return '<span class="badge badge-danger">Tidak Aktif</span>'; 
-            }
-        })
-        ->addColumn('action', function ($model) {
-            return view('event._action', [
-                'model' => $model,
-                'url_edit' => route('event.edit', $model->id),
-                'url_destroy' => route('event.destroy', $model->id)
-            ]);
+             return '<span class="badge badge-danger">Tidak Aktif</span>'; 
+         }
+     })
+        ->addColumn('action', function ($event) {
+            return '<a href="/event/'.$event->uuid.'/edit" class="btn btn-warning btn-xs" title="Edit"><i class="fa fa-edit"></i></a> <button class="btn btn-danger btn-xs hapus" event-name="'.$event->judul.'" event-id="'.$event->uuid.'" title="Hapus"><i class="fas fa-trash-alt"></i></button>';
         })
         ->addIndexColumn()
-        ->rawColumns(['action','tgl_event','publish'])
+        ->rawColumns(['action','tgl_event','publish','foto_banner'])
         ->make(true);
     }
 }

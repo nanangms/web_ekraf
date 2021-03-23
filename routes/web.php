@@ -25,7 +25,7 @@ Route::get('/acara', 'App\Http\Controllers\IndexController@acara');
 Route::get('/acara/{seo}', 'App\Http\Controllers\IndexController@detailacara');
 Route::get('/faqaboutekraf', 'App\Http\Controllers\IndexController@faq');
 Route::get('/berita-info', 'App\Http\Controllers\IndexController@berita');
-Route::get('/berita/{seo}', 'App\Http\Controllers\IndexController@detail_berita');
+Route::get('/berita-info/{seo}', 'App\Http\Controllers\IndexController@detail_berita');
 Route::get('/login', function () {
     return view('auth.login');
 });
@@ -118,7 +118,21 @@ Route::group(['middleware'=>['auth','checkRole:Admin,Super Admin']],function(){
         Route::get('/foto/{id}/delete', [App\Http\Controllers\FotoController::class, 'delete']);
     });
 
-    Route::resource('/event','\App\Http\Controllers\EventController');
+    Route::group(['prefix'=>'event'], function(){
+        Route::get('/',[App\Http\Controllers\EventController::class,'index']);
+        Route::post('/tambah',[App\Http\Controllers\EventController::class,'create']);
+        Route::get('/table', [App\Http\Controllers\EventController::class,'dataTable'])->name('table.event');
+        Route::get('/{id}/delete',[App\Http\Controllers\EventController::class,'delete']);
+        Route::get('/{id}/edit',[App\Http\Controllers\EventController::class,'edit']);
+        Route::post('/{id}/update',[App\Http\Controllers\EventController::class,'update']);
+    }); 
+
+    Route::group(['prefix'=>'produk'], function(){
+        Route::get('/',[App\Http\Controllers\ProdukController::class,'index']);
+        Route::get('/table', [App\Http\Controllers\ProdukController::class,'dataTable'])->name('table.produk');
+        Route::get('/{id}/delete',[App\Http\Controllers\ProdukController::class,'delete']);
+        Route::get('/{id}/detail', [App\Http\Controllers\ProdukController::class, 'detail']);
+    }); 
 
     Route::get('/role/datatable', [App\Http\Controllers\RoleController::class, 'dataTable'])->name('table.role');
     Route::get('/role_menu/datatable', [App\Http\Controllers\RolemenuController::class, 'dataTable'])->name('table.role_menu');

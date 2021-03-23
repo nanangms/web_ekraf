@@ -11,7 +11,7 @@ Berita | EKRAF Jambi
       <!-- Post-->
       <article class="py-4 mb-4 border-bottom">
             <h2 class="h4 nav-heading mb-2">
-              <a href="/berita/{{ $berita->judul_seo }}">{{ $berita->judul }}</a>
+              <a href="/berita-info/{{ $berita->judul_seo }}">{{ $berita->judul }}</a>
             </h2>
             <div class="d-flex meta-link fs-sm align-items-center my-3">
                   <div>
@@ -31,7 +31,7 @@ Berita | EKRAF Jambi
           <div class="mb-2">
             <div class="mb-0 fs-sm">
               {!! Str::limit($berita->isi, 300, ' ...') !!} &nbsp;&nbsp;
-              <a href="/berita/{{ $berita->judul_seo }}" class="fancy-link">Selengkapnya</a>
+              <a href="/berita-info/{{ $berita->judul_seo }}" class="fancy-link">Selengkapnya</a>
             </div>
           </div>
       </article>
