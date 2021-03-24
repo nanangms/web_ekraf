@@ -17,7 +17,7 @@ class IndexController extends Controller
 
     public function index()
     {
-    	$berita = \App\Models\Berita::orderBy('created_at', 'desc')->limit(5)->get();
+    	$berita = \App\Models\Berita::orderBy('created_at', 'desc')->limit(3)->get();
 		$foto = \App\Models\Foto::orderBy('id', 'desc')->limit(9)->get();
 		$faq = \App\Models\Faq::orderBy('urutan', 'asc')->get();
 		//$pelaku_ekraf = Pelaku_ekraf::select('pelaku_ekraf.')->orderBy('id', 'desc')->limit(4)->get();
