@@ -49,8 +49,9 @@ Produk
             <tr>
               <th>No</th>
               <th>Gambar</th>
-              <th>Nama Usaha</th>
+              <th>Pelaku Usaha</th>
               <th>Nama Produk</th>
+              <th>Deskripsi</th>
               <th>Harga</th>
               <th>Aksi</th>
             </tr>
@@ -108,6 +109,7 @@ Produk
       {data: 'gambar'},
       {data: 'nama_usaha'},
       {data: 'nama_produk'},
+      {data: 'deskripsi'},
       {data: 'harga'},
       {data: 'action', name: 'action'}
       ]

@@ -110,6 +110,7 @@ Edit Berita
             </div>
         </div>
     </div>
+    </section>
 </div>
 
 @endsection

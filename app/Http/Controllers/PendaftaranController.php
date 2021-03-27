@@ -46,6 +46,7 @@ class PendaftaranController extends Controller
         ->leftjoin('kab_kota as b','a.kab_kota_id','b.id')
         ->leftjoin('sektor as c','a.sektor_id','c.id')
         ->leftjoin('badan_hukum as d','a.badan_hukum_id','d.id')
+        ->where('verifikasi','N')
         ->orderBy('a.id','desc')->get();
 
         return DataTables::of($pelaku)
@@ -170,7 +171,7 @@ class PendaftaranController extends Controller
             DB::commit();
             return redirect('/pendaftaran-berhasil')->with('sukses','Pendaftaran berhasil');
         }catch (\Exception $e){
-            dd($e);
+            //dd($e);
             DB::rollback();
             return redirect()->back()->with('gagal','Data Gagal Diinput');
         }
@@ -225,7 +226,7 @@ class PendaftaranController extends Controller
             DB::commit();
             return redirect('/pendaftaran')->with('sukses','Pendaftaran berhasil diverifikasi');
         }catch (\Exception $e){
-            dd($e);
+            //dd($e);
             DB::rollback();
             return redirect()->back()->with('gagal','Data Gagal Diverifikasi');
         }

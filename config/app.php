@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Ekraf Jambi'),
+    'name' => env('APP_NAME', 'EkrafJambi'),
 
     /*
     |--------------------------------------------------------------------------
