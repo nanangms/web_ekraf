@@ -26,9 +26,11 @@ Route::get('/acara/{seo}', 'App\Http\Controllers\IndexController@detailacara');
 Route::get('/faqaboutekraf', 'App\Http\Controllers\IndexController@faq');
 Route::get('/berita-info', 'App\Http\Controllers\IndexController@berita');
 Route::get('/berita-info/{seo}', 'App\Http\Controllers\IndexController@detail_berita');
+
 Route::get('/login', function () {
-    return view('auth.login');
+return view('auth.login');
 });
+
 Route::get('/akses_terbatas', function () {
     return view('akses_terbatas');
 });
@@ -39,14 +41,32 @@ Route::get('/pendaftaran-pelaku-ekraf',[App\Http\Controllers\PendaftaranControll
 Route::post('/submit-pendaftaran',[App\Http\Controllers\PendaftaranController::class, 'submit_pendaftaran']);
 Route::get('/pendaftaran-berhasil',[App\Http\Controllers\PendaftaranController::class, 'pendaftaran_berhasil']);
 
-Route::group(['middleware'=>['auth','checkRole:Admin,Super Admin']],function(){
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware'=>['auth','checkRole:Pelaku Ekraf']],function(){
+    Route::group(['prefix'=>'pengguna'], function(){
+        Route::get('/dashboard', [App\Http\Controllers\PenggunaController::class, 'index']);
+        Route::get('/profil-usaha', [App\Http\Controllers\PenggunaController::class, 'profil_usaha']);
+        Route::get('/produk-usaha', [App\Http\Controllers\PenggunaController::class, 'produk_usaha']);
+        Route::post('/profil-usaha/update', [App\Http\Controllers\PenggunaController::class, 'update_profil_usaha']);
+        Route::post('/kontak-usaha/update', [App\Http\Controllers\PenggunaController::class, 'kontak_profil_usaha']);
+        Route::post('/kontak-pemilik/update', [App\Http\Controllers\PenggunaController::class, 'kontak_pemilik']);
+        Route::get('/produk-usaha/datatable/{kode}', [App\Http\Controllers\PenggunaController::class, 'dataTable']);
+        Route::get('/produk-usaha/{id}/edit', [App\Http\Controllers\PenggunaController::class, 'edit_produk']);
+        Route::post('/produk-usaha/tambah', [App\Http\Controllers\PenggunaController::class, 'tambah_produk']);
+        Route::post('/produk-usaha/update/{id}', [App\Http\Controllers\PenggunaController::class, 'update_produk']);
+        Route::get('/produk-usaha/{id}/delete', [App\Http\Controllers\PenggunaController::class, 'delete_produk']);
+    });
+});
 
+Route::group(['middleware'=>['auth','checkRole:Admin,Super Admin,Pelaku Ekraf']],function(){
     Route::group(['prefix'=>'profil'], function(){
         Route::get('/{id}', [App\Http\Controllers\UserController::class, 'profil']);
         Route::post('/{id}/update', [App\Http\Controllers\UserController::class, 'update_profil']);
         Route::post('/{id}/ganti_password', [App\Http\Controllers\UserController::class, 'ganti_password_profil']);
     });
+});
+
+Route::group(['middleware'=>['auth','checkRole:Admin,Super Admin']],function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::group(['prefix'=>'pendaftaran'], function(){
         Route::get('/', [App\Http\Controllers\PendaftaranController::class, 'index']);
