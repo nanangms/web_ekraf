@@ -120,7 +120,7 @@
                   </div>
 
                   <div class="text-end">
-                    <button class="btn btn-sm btn-translucent-primary border-3 border-primary" onclick="stepper.next()">Selanjutnya <i class="fa fa-arrow-right ms-2"></i></button>
+                    <button class="btn btn-sm btn-translucent-primary border-1 border-primary" onclick="stepper.next()">Selanjutnya <i class="fa fa-arrow-right ms-2"></i></button>
                   </div>
                 </div>
 
@@ -163,8 +163,8 @@
                   </div>
 
                   <div class="text-end mt-5">
-                    <button class="btn btn-sm btn-translucent-primary border-3 border-primary" onclick="stepper.previous()"><i class="fa fa-arrow-left me-2"></i> Sebelumnya</button>
-                    <button class="btn btn-sm btn-translucent-primary border-3 border-primary" onclick="stepper.next()">Selanjutnya <i class="fa fa-arrow-right ms-2"></i></button>
+                    <button class="btn btn-sm btn-translucent-primary border-1 border-primary" onclick="stepper.previous()"><i class="fa fa-arrow-left me-2"></i> Sebelumnya</button>
+                    <button class="btn btn-sm btn-translucent-primary border-1 border-primary" onclick="stepper.next()">Selanjutnya <i class="fa fa-arrow-right ms-2"></i></button>
                   </div>
                 </div>
 
@@ -375,8 +375,8 @@
                   </div>
 
                   <div class="text-end mt-5">
-                    <button class="btn btn-sm btn-translucent-primary border-3 border-primary" onclick="stepper.previous()"><i class="fa fa-arrow-left me-2"></i> Sebelumnya</button>
-                    <button type="submit" class="btn btn-sm btn-primary border-3 border-primary">Daftar</button>
+                    <button class="btn btn-sm btn-translucent-primary border-1 border-primary" onclick="stepper.previous()"><i class="fa fa-arrow-left me-2"></i> Sebelumnya</button>
+                    <button type="submit" class="btn btn-sm btn-primary">Daftar</button>
                   </div>
                 </div>
               </form>

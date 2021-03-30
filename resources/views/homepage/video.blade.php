@@ -1,7 +1,7 @@
 @extends('homepage.layouts.app')
 
 @section('title')
-Galeri Foto | EKRAF Jambi
+Galeri Video | EKRAF Jambi
 @endsection
 
 @section('content')

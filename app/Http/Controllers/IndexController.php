@@ -17,10 +17,11 @@ class IndexController extends Controller
 
     public function index()
     {
-    	$berita = \App\Models\Berita::orderBy('created_at', 'desc')->limit(5)->get();
+    	$berita = \App\Models\Berita::orderBy('created_at', 'desc')->limit(4)->get();
 		$foto = \App\Models\Foto::orderBy('id', 'desc')->limit(9)->get();
+        $event = \App\Models\Event::orderBy('id', 'desc')->limit(4)->get();
 		$faq = \App\Models\Faq::orderBy('urutan', 'asc')->get();
-		//$pelaku_ekraf = Pelaku_ekraf::select('pelaku_ekraf.')->orderBy('id', 'desc')->limit(4)->get();
+		
 
 		$pelaku_ekraf = DB::table('pelaku_ekraf as a')
                 ->select('a.nama_usaha', 'a.foto_usaha','a.kode_pelaku_ekraf','b.nama_sektor')
@@ -29,7 +30,7 @@ class IndexController extends Controller
                 ->limit(4)
                 ->get();
             //dd($pelaku_ekraf);
-        return view('homepage.home', compact('berita','foto','faq','pelaku_ekraf'));
+        return view('homepage.home', compact('berita','foto','event','faq','pelaku_ekraf'));
     }
 
     public function faq()
@@ -86,12 +87,19 @@ class IndexController extends Controller
         return view('homepage.foto');
     }
 
+    public function video()
+    {
+        $video = \App\Models\Album::orderBy('created_at', 'desc')->get();
+        return view('homepage.video', compact('video'));
+    }
+
     public function pelaku_ekraf()
     {
         $pelaku_ekraf = DB::table('pelaku_ekraf as a')
                 ->select('a.nama_usaha', 'a.foto_usaha','a.kode_pelaku_ekraf','b.nama_sektor')
                 ->join('sektor as b', 'b.id', '=', 'a.sektor_id')
                 ->orderBy('a.id', 'desc')
+                ->limit(9)
                 ->get();
         return view('homepage.pelaku_ekraf',compact('pelaku_ekraf'));
     }
@@ -99,8 +107,10 @@ class IndexController extends Controller
     public function pelaku_ekraf_detail($kode)
     {
         $pelaku_ekraf = DB::table('pelaku_ekraf as a')
-                ->select('a.*','b.nama_sektor')
+                ->select('a.*','b.nama_sektor','c.nama_kab_kota','d.nama_badan_hukum')
                 ->join('sektor as b', 'b.id', '=', 'a.sektor_id')
+                ->join('kab_kota as c', 'c.id', '=', 'a.kab_kota_id')
+                ->join('badan_hukum as d', 'd.id', '=', 'a.badan_hukum_id')
                 ->orderBy('a.id', 'desc')
                 ->where('kode_pelaku_ekraf',$kode)
                 ->first();

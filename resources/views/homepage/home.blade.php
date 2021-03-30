@@ -7,6 +7,12 @@ Homepage | EKRAF Jambi
 @section('content')
       
   <!-- Page content-->
+  <style type="text/css">
+  	body {
+  		background-color: #fcfbf8;
+  	}
+  </style>
+  
   <div class="container mt-7 mb-2">
   	<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
 	  <ol class="carousel-indicators">
@@ -33,7 +39,7 @@ Homepage | EKRAF Jambi
 		          <h2 class="text-light">Tentang EKRAF Jambi</h2>
 		          <p class="text-light mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 		          <br>
-		          <a href="#" class="fancy-link">Selengkapnya</a>
+		          <a href="/profil-ekraf" class="fancy-link">Selengkapnya</a>
 		        </div>
 		        <div class="col-lg-6 order-lg-1 d-none d-lg-block">
 		          <div class="row">
@@ -74,7 +80,7 @@ Homepage | EKRAF Jambi
   </div>
 
   <!-- Pelaku Ekraf -->
-  <section class="container py-5 border-bottom">
+  <section class="container py-5 mb-5 border-bottom">
   	<div class="row">
   		<div class="col-md-3 ps-md-3">
   			<div class="p-3 border rounded-3 bg-secondary">
@@ -139,7 +145,7 @@ Homepage | EKRAF Jambi
 									</div>
 									@else
 									<div class="member-thumbnail">
-									  <img src="{{ asset('images/no_ekraf.jpg') }}"/>
+									  <img src="{{ asset('images/default_thumb_placeholder.jpg') }}"/>
 									</div>
 									@endif
 					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
@@ -206,23 +212,24 @@ Homepage | EKRAF Jambi
     </div>
   </section>
   
-  <!-- Berita -->
-  <section class="container py-5">
-  	<!-- <h3 class="mb-4 pb-3">Berita & Event Ekraf</h3> -->
-  	<div class="row">
+  <section class="container">
+  	<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
+		<h3 class="widget-title text-nowrap">Berita & Artikel</h3>
+		<p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="/berita-info" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
+	</div>
 
-        <!-- Content-->
-      	<div class="col-lg-6 order-lg-2">
-	      	<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
-	          <h3 class="widget-title text-nowrap">Berita & Artikel</h3>
-	          <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="/berita-info" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
-	        </div>
-	        
-	        @foreach ($berita as $berita)
-				@if($berita->published == 'Y') <!-- Tampilkan hanya yg status publish: Ya -->
-					<!-- Post-->
-					<article class="py-4 mb-4 border-bottom">
-			        	<h2 class="h4 nav-heading mb-2">
+  	<!-- Berita -->
+  	<div class="row">
+      	
+        @foreach ($berita as $berita)
+			@if($berita->published == 'Y') <!-- Tampilkan hanya yg status publish: Ya -->
+				<!-- Post-->
+				<div class="col-lg-3 mb-5 border-bottom">
+					<article class="pb-4">
+						<div class="card mb-4 bg-size-cover" style="background-image: url({{ $berita->getThumbnailBerita() }}); height: 23vh; background-position: center;">
+						</div>
+
+					    <h2 class="h4 nav-heading mb-2">
 			        		<a href="/berita-info/{{ $berita->judul_seo }}">{{ $berita->judul }}</a>
 			        	</h2>
 			        	<div class="d-flex meta-link fs-sm align-items-center my-3">
@@ -235,225 +242,199 @@ Homepage | EKRAF Jambi
 			                </div>
 			            </div>
 
-			            @if($berita->gambar != '')
-					    <div class="card my-3 bg-size-cover" style="background-image: url({{ $berita->getThumbnailBerita() }}); height: 23vh; background-position: center;">
-					    </div>
-					    @endif
-
 					    <div class="mb-2">
 				            <div class="mb-0 fs-sm">
-				            	{!! Str::limit($berita->isi, 300, ' ...') !!} &nbsp;&nbsp;
+				            	{!! Str::limit($berita->isi, 150, ' ...') !!} &nbsp;&nbsp;
 				            	<a href="/berita-info/{{ $berita->judul_seo }}" class="fancy-link">Selengkapnya</a>
 				            </div>
 				        </div>
 					</article>
-				@endif
-			@endforeach
-		</div>
-
-      	<div class="col-lg-3 order-lg-1">
-      		<!-- Galeri-thumbnail -->
-      		<div class="mb-5 pt-4 pt-lg-0">
-      			<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
-		          <h3 class="widget-title text-nowrap">Galeri</h3>
-		          <!-- <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p> -->
-		        </div>
-
-		        <div class="border-0 rounded-3 mb-3" style="overflow: hidden;">
-		        	<div class="row gallery g-1" style="min-width: 102%">
-					
-					  @foreach ($foto as $foto)
-					  	<div class="col-4">
-						    <a href="{{ $foto->getImageFoto() }}" class="gallery-item" data-sub-html='<h5 class="fw-light text-light">{{ $foto->keterangan }}</h5>'>
-						      	<div class="galeri-thumbnail">
-								  <img src="{{ $foto->getThumbnailFoto() }}"/>
-								</div>
-						      <!-- <span class="gallery-caption">{{ $foto->keterangan }}</span> -->
-						    </a>
-						  </div>
-					  @endforeach
-
-					</div>
-		        </div>
-
-		        <div>
-		        	<div class="w-100">
-                        <div class="d-flex justify-content-between align-items-center px-5 px-lg-0">
-                          <!-- Facebook -->
-							<a href="#" class="btn-social bs-facebook bs-lg">
-							  <i class="fab fa-facebook-f"></i>
-							</a>
-
-							<!-- Twitter -->
-							<a href="#" class="btn-social bs-twitter bs-lg">
-							  <i class="fab fa-twitter"></i>
-							</a>
-
-							<!-- Instagram -->
-							<a href="#" class="btn-social bs-instagram bs-lg">
-							  <i class="fab fa-instagram"></i>
-							</a>
-
-							<!-- YouTube -->
-							<a href="#" class="btn-social bs-youtube bs-lg">
-							  <i class="fab fa-youtube"></i>
-							</a>
-                        </div>
-                    </div>
-		        </div>
-      		</div>
-  			
-
-      		<!-- FAQ -->
-      		<span id="faq" style="position: relative; top: -120px; visibility: hidden;"></span>
-      		<div class="mb-5">
-      			<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
-		          <h3 class="widget-title text-nowrap">FAQ</h3>
-		        </div>
-
-		        <div class="accordion" id="faq">
-		        	@foreach ($faq as $faq)
-		        		<div class="accordion-item shadow">
-			                <h2 class="accordion-header" id="faq-heading-{{ $faq->urutan }}">
-			                 	<button class="accordion-button @if($faq->urutan != '1') collapsed @endif" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{ $faq->urutan }}" aria-expanded="{{ $faq->urutan === '1' ? 'true' : 'false' }}" aria-controls="faq-content-{{ $faq->urutan }}">
-			                		{{ $faq->pertanyaan }}
-			                	</button>
-			                </h2>
-			                <div class="accordion-collapse collapse @if($faq->urutan == '1') show @endif" id="faq-content-{{ $faq->urutan }}" aria-labelledby="faq-heading-{{ $faq->urutan }}" data-bs-parent="#faq">
-			                  <div class="accordion-body">
-			                    <div class="fs-sm">
-			                    	{{ $faq->jawaban }}
-			                    </div>
-			                  </div>
-			                </div>
-			            </div>
-		        	@endforeach
-	            </div>
-
-	            <!-- <div class="px-md-3">
-	            	<a href="#" style="text-decoration: none;">
-		            	<div class="card mb-3">
-			            	<div class="card-body text-center pb-3">
-			            		<div class="d-flex align-items-center">
-			            			<h1 class="display-5 text-gradient">11</h1>
-			                      <div class="w-100 ps-2 ms-2">
-			                        <div class="d-flex justify-content-between align-items-center">
-			                          <div class="fs-sm pe-1"><h6>Kabupaten/Kota</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
-			                        </div>
-			                      </div>
-			                    </div>
-			            	</div>
-			            </div>
-		            </a>
-
-		            <a href="#" style="text-decoration: none;">
-			            <div class="card mb-3">
-			            	<div class="card-body text-center pb-3">
-			            		<div class="d-flex align-items-center">
-			            			<h1 class="display-5 text-gradient">17</h1>
-			                      <div class="w-100 ps-2 ms-2">
-			                        <div class="d-flex justify-content-between align-items-center">
-			                          <div class="fs-sm pe-1"><h6>Sub Sektor</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
-			                        </div>
-			                      </div>
-			                    </div>
-			            	</div>
-			            </div>
-			        </a>
-
-			        <a href="#" style="text-decoration: none;">
-			            <div class="card mb-3">
-			            	<div class="card-body text-center pb-3">
-			            		<div class="d-flex align-items-center">
-			            			<h1 class="display-5 text-gradient">45</h1>
-			                      <div class="w-100 ps-2 ms-2">
-			                        <div class="d-flex justify-content-between align-items-center">
-			                          <div class="fs-sm pe-1"><h6>Usaha</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
-			                        </div>
-			                      </div>
-			                    </div>
-			            	</div>
-			            </div>
-			        </a>
-
-			        <a href="#" style="text-decoration: none;">
-			            <div class="card mb-3">
-			            	<div class="card-body text-center pb-3">
-			            		<div class="d-flex align-items-center">
-			            			<h1 class="display-5 text-gradient">19</h1>
-			                      <div class="w-100 ps-2 ms-2">
-			                        <div class="d-flex justify-content-between align-items-center">
-			                          <div class="fs-sm pe-1"><h6>Produk/Jasa</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
-			                        </div>
-			                      </div>
-			                    </div>
-			            	</div>
-			            </div>
-			        </a>
-	            </div> -->
-      		</div>
-  		</div>
-      
-      <div class="col-lg-3 order-lg-2">
-
-      	<!-- Event -->
-	    <div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
-          <h3 class="widget-title text-nowrap">Event yang akan datang</h3>
-          <!-- <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p> -->
-        </div>
-
-        <div class="accordion" id="accordionExample">
-			<!-- Item -->
-		    <div class="accordion-item card card-hover">
-		    	<div class="d-flex">
-		    		<div class="fs-sm p-2 bg-secondary" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; max-width: 3.75rem">
-		    			<div class="text-center px-0 px-lg-1 py-1">
-							<span class="d-sm-block text-primary" style="font-size: 1.685rem; line-height: 1.675rem">15</span>
-							<span class="fs-sm text-muted text-uppercase">Mar</span>
-						</div>
-		    		</div>
-		    		<div class="p-2">
-		    			<div class="px-2" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-		    				<h6 class="nav-heading pt-1 fs-md fw-medium ">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h6>
-		    			</div>
-
-		    			<div class="accordion-collapse collapse px-2" id="collapseOne" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-		    				<p class="fs-sm mb-0">This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.</p>
-		    				<hr>
-		    				<a href="#" class="btn btn-primary btn-sm mb-2">Lihat event</a>
-		    			</div>
-		    		</div>
-		    	</div>
-		  	</div>
-
-		  	<!-- Item -->
-		    <div class="accordion-item card card-hover">
-		    	<div class="d-flex">
-		    		<div class="fs-sm p-2 bg-secondary" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; max-width: 3.75rem">
-		    			<div class="text-center px-0 px-lg-1 py-1">
-							<span class="d-sm-block text-primary" style="font-size: 1.685rem; line-height: 1.675rem">27</span>
-							<span class="fs-sm text-muted text-uppercase">Mar</span>
-						</div>
-		    		</div>
-		    		<div class="p-2">
-		    			<div class="px-2" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-		    				<h6 class="nav-heading pt-1 fs-md fw-medium ">Lorem ipsum dolor sit amet.</h6>
-		    			</div>
-
-		    			<div class="accordion-collapse collapse px-2" id="collapseTwo" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-		    				<p class="fs-sm mb-0">This is the first item's accordion body. It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element.</p>
-		    				<hr>
-		    				<a href="#" class="btn btn-primary btn-sm mb-2">Lihat event</a>
-		    			</div>
-		    		</div>
-		    	</div>
-		  	</div>
-
-			<div class="pt-3" style="float: right;">
-	          <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Semua event<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
-	        </div>
-    	</div>
-    </div>
+				</div>
+			@endif
+		@endforeach
+		
+  	</div>
   </section>
+
+  <section class="container mb-5 pb-5 border-bottom">
+  	<!-- Galeri & Event -->
+  	<div class="row">
+  		<!-- Galeri -->
+      	<div class="col-lg-4 mb-5 mb-lg-0">
+      		<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
+	          <h3 class="widget-title text-nowrap">Galeri</h3>
+	          <!-- <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="#" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p> -->
+	        </div>
+
+	        <div class="border-0 rounded-3 mb-3" style="overflow: hidden;">
+	        	<div class="row gallery g-1" style="min-width: 102%">
+				
+				  @foreach ($foto as $foto)
+				  	<div class="col-4">
+					    <a href="{{ $foto->getImageFoto() }}" class="gallery-item" data-sub-html='<h5 class="fw-light text-light">{{ $foto->keterangan }}</h5>'>
+					      	<div class="galeri-thumbnail">
+							  <img src="{{ $foto->getThumbnailFoto() }}"/>
+							</div>
+					      <!-- <span class="gallery-caption">{{ $foto->keterangan }}</span> -->
+					    </a>
+					  </div>
+				  @endforeach
+
+				</div>
+	        </div>
+
+	        <!-- <div>
+	        	<div class="w-100">
+                    <div class="d-flex justify-content-between align-items-center px-5 px-lg-0">
+						<a href="#" class="btn-social bs-facebook bs-lg">
+						  <i class="fab fa-facebook-f"></i>
+						</a>
+
+						<a href="#" class="btn-social bs-twitter bs-lg">
+						  <i class="fab fa-twitter"></i>
+						</a>
+
+						<a href="#" class="btn-social bs-instagram bs-lg">
+						  <i class="fab fa-instagram"></i>
+						</a>
+
+						<a href="#" class="btn-social bs-youtube bs-lg">
+						  <i class="fab fa-youtube"></i>
+						</a>
+                    </div>
+                </div>
+	        </div> -->
+  		</div>
+
+  		<!-- Event -->
+  		<div class="col-lg-8">
+  			<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
+	          <h3 class="widget-title text-nowrap">Event yang akan datang</h3>
+	          <p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="/acara" style="text-decoration: none;">Semua event<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
+	        </div>
+
+	        <div class="accordion" id="accordionExample">
+	        	@foreach ($event as $event)
+	        		<!-- Item -->
+				    <div class="accordion-item card card-hover" style="overflow: hidden;">
+				    	<div class="d-flex">
+				    		<div class="fs-sm py-2 bg-secondary text-center" style="border-top-left-radius: 1rem; border-bottom-left-radius: 1rem; min-width: 6rem">
+				    			<div class="text-center px-0 px-lg-1 py-1">
+									<span class="d-block text-primary" style="font-size: 1.75rem;">
+										{{ tglnya($event->tgl_event) }}
+									</span>
+									<span class="text-muted text-uppercase">{{ nama_bulan_pendek($event->tgl_event) }}</span>
+								</div>
+				    		</div>
+				    		<div class="p-2">
+				    			<button class="btn px-2" data-bs-toggle="collapse" data-bs-target="#collapse{{ $event->id }}" aria-expanded="false" aria-controls="collapse{{ $event->id }}" type="button">
+				    				<h3 class="h5 nav-heading text-wrap text-start">{{ $event->nama_event }}</h3>
+				    			</button>
+
+				    			<div class="accordion-collapse collapse px-2 w-100" id="collapse{{ $event->id }}" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+				    				<p class="fs-sm mb-0">{{ $event->deskripsi }}</p>
+				    				<hr>
+				    				<a href="#" class="btn btn-primary btn-sm mb-2">Lihat event</a>
+				    			</div>
+				    		</div>
+				    	</div>
+				  	</div>
+	        	@endforeach
+				
+	    	</div>
+  		</div>
+  	</div>
+  </section>
+
+	<!-- FAQ -->
+	<section class="container">
+		<span id="faq" style="position: relative; top: -120px; visibility: hidden;"></span>
+		<div class="mb-5">
+			<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
+	          <h3 class="widget-title text-nowrap">FAQ</h3>
+	        </div>
+
+	        <div class="accordion" id="faq">
+	        	@foreach ($faq as $faq)
+	        		<div class="accordion-item shadow">
+		                <h2 class="accordion-header" id="faq-heading-{{ $faq->urutan }}">
+		                 	<button class="accordion-button @if($faq->urutan != '1') collapsed @endif" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{ $faq->urutan }}" aria-expanded="{{ $faq->urutan === '1' ? 'true' : 'false' }}" aria-controls="faq-content-{{ $faq->urutan }}">
+		                		{{ $faq->pertanyaan }}
+		                	</button>
+		                </h2>
+		                <div class="accordion-collapse collapse @if($faq->urutan == '1') show @endif" id="faq-content-{{ $faq->urutan }}" aria-labelledby="faq-heading-{{ $faq->urutan }}" data-bs-parent="#faq">
+		                  <div class="accordion-body">
+		                    <div class="fs-sm">
+		                    	{{ $faq->jawaban }}
+		                    </div>
+		                  </div>
+		                </div>
+		            </div>
+	        	@endforeach
+	        </div>
+
+        <!-- <div class="px-md-3">
+        	<a href="#" style="text-decoration: none;">
+            	<div class="card mb-3">
+	            	<div class="card-body text-center pb-3">
+	            		<div class="d-flex align-items-center">
+	            			<h1 class="display-5 text-gradient">11</h1>
+	                      <div class="w-100 ps-2 ms-2">
+	                        <div class="d-flex justify-content-between align-items-center">
+	                          <div class="fs-sm pe-1"><h6>Kabupaten/Kota</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
+	                        </div>
+	                      </div>
+	                    </div>
+	            	</div>
+	            </div>
+            </a>
+
+            <a href="#" style="text-decoration: none;">
+	            <div class="card mb-3">
+	            	<div class="card-body text-center pb-3">
+	            		<div class="d-flex align-items-center">
+	            			<h1 class="display-5 text-gradient">17</h1>
+	                      <div class="w-100 ps-2 ms-2">
+	                        <div class="d-flex justify-content-between align-items-center">
+	                          <div class="fs-sm pe-1"><h6>Sub Sektor</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
+	                        </div>
+	                      </div>
+	                    </div>
+	            	</div>
+	            </div>
+	        </a>
+
+	        <a href="#" style="text-decoration: none;">
+	            <div class="card mb-3">
+	            	<div class="card-body text-center pb-3">
+	            		<div class="d-flex align-items-center">
+	            			<h1 class="display-5 text-gradient">45</h1>
+	                      <div class="w-100 ps-2 ms-2">
+	                        <div class="d-flex justify-content-between align-items-center">
+	                          <div class="fs-sm pe-1"><h6>Usaha</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
+	                        </div>
+	                      </div>
+	                    </div>
+	            	</div>
+	            </div>
+	        </a>
+
+	        <a href="#" style="text-decoration: none;">
+	            <div class="card mb-3">
+	            	<div class="card-body text-center pb-3">
+	            		<div class="d-flex align-items-center">
+	            			<h1 class="display-5 text-gradient">19</h1>
+	                      <div class="w-100 ps-2 ms-2">
+	                        <div class="d-flex justify-content-between align-items-center">
+	                          <div class="fs-sm pe-1"><h6>Produk/Jasa</h6></div><h6><i class="fas fa-angle-right ms-2 me-1"></i></h6>
+	                        </div>
+	                      </div>
+	                    </div>
+	            	</div>
+	            </div>
+	        </a>
+        </div> -->
+		</div>
+	</section>
 
 @stop

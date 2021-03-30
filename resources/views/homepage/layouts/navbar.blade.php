@@ -78,7 +78,7 @@
 </div>
 <!-- Navbar (Floating light)-->
 <!-- Remove "navbar-sticky" class to make navigation bar scrollable with the page.-->
-<header class="header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky" data-scroll-header data-fixed-element>
+<header class="header navbar navbar-expand-lg navbar-light navbar-floating navbar-sticky @if(Request::segment(1)!= '') navbar-shadow @endif" data-scroll-header data-fixed-element>
   <div class="container px-0 px-xl-3 py-2">
     <button class="navbar-toggler ms-n2 me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#primaryMenu">
       <span class="navbar-toggler-icon"></span>
@@ -93,7 +93,7 @@
         <i class="fs-xl me-2 align-middle"></i>Masuk
       </a>
       <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-btn" href="/pendaftaran-pelaku-ekraf">Daftar</a>
-      <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-stuck-btn" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar</a>
+      <a class="btn btn-primary ms-grid-gutter d-none d-lg-inline-block navbar-stuck-btn" href="/pendaftaran-pelaku-ekraf">Daftar</a>
     </div>
     <div class="offcanvas offcanvas-collapse order-lg-2" id="primaryMenu">
       <div class="offcanvas-cap navbar-shadow">
@@ -132,7 +132,7 @@
           </li>
         </ul>
         <div class="d-lg-none mt-4">
-          <a class="btn btn-primary w-100" href="#modal-signin" data-bs-toggle="modal" data-view="#modal-signup-view">Daftar</a>
+          <a class="btn btn-primary w-100" href="/pendaftaran-pelaku-ekraf">Daftar</a>
         </div>
         
       </div>

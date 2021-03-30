@@ -36,7 +36,7 @@
 </head>
 
 <body>
-  <main class="page-wrapper" style="background-color: #fcfbf8">
+  <main class="page-wrapper">
 
     @include('homepage.layouts.navbar')
 
