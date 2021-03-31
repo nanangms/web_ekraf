@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2021 at 08:48 PM
+-- Generation Time: Mar 31, 2021 at 06:42 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -401,7 +401,8 @@ CREATE TABLE `pelaku_ekraf` (
 INSERT INTO `pelaku_ekraf` (`id`, `kode_pelaku_ekraf`, `kab_kota_id`, `sektor_id`, `badan_hukum_id`, `nama_usaha`, `siup_usaha`, `mulai_usaha`, `deskripsi`, `keahlian`, `pengalaman`, `portofolio`, `alamat_usaha`, `kode_pos`, `email_usaha`, `telepon_usaha`, `facebook_usaha`, `twitter_usaha`, `ig_usaha`, `web_usaha`, `member`, `nama_pemilik`, `nik_pemilik`, `email_pemilik`, `wa_pemilik`, `fb_pemilik`, `twitter_pemilik`, `ig_pemilik`, `linkedin_pemilik`, `telegram_pemilik`, `web_pemilik`, `foto_usaha`, `foto_pemilik`, `verifikasi`, `created_at`, `updated_at`, `uuid`) VALUES
 (1, 'TssjP', 8, 1, 4, 'asdasd', NULL, '2021-03-17', NULL, NULL, NULL, NULL, 'fasdsa', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Reguler', 'asdas', '234234', 'nanang.ms22s@gmail.com', '324324', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-13 21:33:25', '2021-03-13 21:33:25', '02e2066a-ff62-4179-aad2-d7a332728367'),
 (3, 'JTzSX', 1, 5, 4, 'Anima video', NULL, '2008-03-12', NULL, NULL, NULL, NULL, 'Jl. tempat usaha', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Reguler', 'Shuuuu', '8973242847293498', 'user@gmail.com', '+62 8546 6332 34234', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-03-20 21:59:54', '2021-03-20 21:59:54', '2cb61ae2-48d1-4bf9-b569-b5d17bfa1184'),
-(11, 'NHahm', 1, 4, 5, 'Remen Enak', '123131313', '2012-03-15', '<p>123<br></p>', NULL, NULL, NULL, 'Jl. Alamat usaha', '36146', NULL, NULL, NULL, NULL, NULL, NULL, 'Reguler', 'Haruka Nakagawa', '3433123213231232', 'haruka@gmail.com', '+62 8986 7874 54544', 'sss', NULL, NULL, NULL, NULL, NULL, 'Remen_Enak_pMUzu.jpg', 'Haruka_Nakagawa_cUbcE.jpg', NULL, '2021-03-20 22:49:42', '2021-03-26 23:17:25', 'c939fe6e-6b95-42e5-a3cf-ba4261398885');
+(11, 'NHahm', 1, 4, 5, 'Remen Enak', '123131313', '2012-03-15', '<p>123<br></p>', NULL, NULL, NULL, 'Jl. Alamat usaha', '36146', NULL, NULL, NULL, NULL, NULL, NULL, 'Reguler', 'Haruka Nakagawa', '3433123213231232', 'haruka@gmail.com', '+62 8986 7874 54544', 'sss', NULL, NULL, NULL, NULL, NULL, 'Remen_Enak_pMUzu.jpg', 'Haruka_Nakagawa_cUbcE.jpg', NULL, '2021-03-20 22:49:42', '2021-03-26 23:17:25', 'c939fe6e-6b95-42e5-a3cf-ba4261398885'),
+(12, 'cskvL', 1, 4, 6, 'Rumah Brownis Jambi', NULL, '2021-01-02', '<p style=\"text-align: justify; \">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo&nbsp;<span style=\"font-size: 1rem;\">consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></p>', '<ul><li style=\"margin: 0px; padding: 0px;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li><li style=\"margin: 0px; padding: 0px;\">Nunc vel sapien vel elit ornare facilisis.</li><li style=\"margin: 0px; padding: 0px;\">Nam id odio vel nisi ullamcorper ultricies vitae et metus.</li><li style=\"margin: 0px; padding: 0px;\">Cras imperdiet augue id tempor lobortis.</li></ul>', NULL, NULL, 'Jl. Sore Santuy No. 123', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Reguler', 'Pengusaha 1', '1234567890123456', 'pengusaha1@gmail.com', '+62 8123 4567 890', NULL, NULL, NULL, NULL, NULL, NULL, 'Rumah_Brownis_Jambi_zbneK.jpg', NULL, NULL, '2021-03-31 10:26:18', '2021-03-31 11:40:23', 'f3184627-cc86-477a-914f-4df9543f0e85');
 
 -- --------------------------------------------------------
 
@@ -451,7 +452,8 @@ CREATE TABLE `pendaftaran` (
 INSERT INTO `pendaftaran` (`id`, `kode_pelaku_ekraf`, `kab_kota_id`, `sektor_id`, `nama_lengkap`, `no_ktp`, `alamat_domisili`, `no_hp`, `email`, `jenis_usaha`, `nama_usaha`, `hasil_barang`, `sifat_produk`, `dibina`, `binaan`, `sifat_freelance`, `ada_sertifikat`, `ada_komunitas`, `nama_komunitas`, `mulai_usaha`, `jml_karyawan`, `alamat_usaha`, `ada_legalitas`, `nama_legalitas`, `badan_hukum_id`, `sistem_penjualan`, `media_online`, `sosmed`, `verifikasi`, `created_at`, `updated_at`, `uuid`) VALUES
 (1, 'TssjP', 8, 1, 'asdas', '234234', 'sfsdf', '324324', 'nanang.ms22s@gmail.com', 'Jasa', 'asdasd', 'Ada', 'Jasa', 'Ya', 'asdas', 'Ada', 'Ada', 'Ada', 'adasd', '2021-03-17', '4', 'fasdsa', 'Ada', 'asdasd', 4, 'Langsung', 'Facebook,MarketPlace', 'Facebook,Instagram', 'Y', '2021-03-13 16:28:17', '2021-03-13 21:33:24', '86551a90-6d4c-4e55-83f6-d729077a50c7'),
 (3, 'NHahm', 1, 4, 'Haruka Nakagawa', '3433123213231232', 'Jl. apaja', '+62 8986 7874 54544', 'haruka@gmail.com', 'Barang', 'Remen Enak', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2012-03-15', '6', 'Jl. Alamat usaha', 'Tidak Ada', NULL, 5, 'Langsung', 'Facebook,Instagram', 'Facebook,Instagram,Website', 'Y', '2021-03-20 21:25:15', '2021-03-20 22:49:42', '14b02bb2-8781-488c-8ad7-37a0d8fa263d'),
-(4, 'JTzSX', 1, 5, 'Shuuuu', '8973242847293498', 'Jl. domisili', '+62 8546 6332 34234', 'user@gmail.com', 'Jasa', 'Anima video', 'Ada', 'Jasa', 'Ya', 'Dinas', 'Tidak', 'Ada', 'Ada', 'komunitas video', '2008-03-12', '3', 'Jl. tempat usaha', 'Ada', 'SIUP', 4, 'Online', 'Facebook,Instagram,Website/Situs,MarketPlace', 'Facebook,Instagram,Website,Twitter', 'Y', '2021-03-20 21:32:45', '2021-03-20 21:59:54', '881172d4-8539-43d5-a45b-01776914cbe8');
+(4, 'JTzSX', 1, 5, 'Shuuuu', '8973242847293498', 'Jl. domisili', '+62 8546 6332 34234', 'user@gmail.com', 'Jasa', 'Anima video', 'Ada', 'Jasa', 'Ya', 'Dinas', 'Tidak', 'Ada', 'Ada', 'komunitas video', '2008-03-12', '3', 'Jl. tempat usaha', 'Ada', 'SIUP', 4, 'Online', 'Facebook,Instagram,Website/Situs,MarketPlace', 'Facebook,Instagram,Website,Twitter', 'Y', '2021-03-20 21:32:45', '2021-03-20 21:59:54', '881172d4-8539-43d5-a45b-01776914cbe8'),
+(5, 'cskvL', 1, 4, 'Pengusaha 1', '1234567890123456', 'Jl. Santay', '+62 8123 4567 890', 'pengusaha1@gmail.com', 'Barang', 'Rumah Brownis Jambi', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-01-02', '5', 'Jl. Sore Santuy No. 123', 'Tidak Ada', NULL, 6, 'Langsung,Online', 'Facebook,Instagram,MarketPlace', 'Facebook,Instagram', 'Y', '2021-03-31 10:25:17', '2021-03-31 10:26:18', 'a14dc1ba-5c4b-4c06-94c6-d8b730535de9');
 
 -- --------------------------------------------------------
 
@@ -635,7 +637,8 @@ INSERT INTO `users` (`id`, `kode_pelaku_ekraf`, `name`, `email`, `role_id`, `ema
 (15, NULL, 'fikri2', 'fikri@gmail.com', 1, NULL, '$2y$10$SOZWK9NsgIyKKEykfc6FB.sso.dAOFbRpxeI11OSqaD/ljdIxlnOG', NULL, NULL, NULL, '2021-03-06 13:08:31', '2021-03-08 07:41:10', 'Y', 'ee2ffcf1-f135-4230-a28d-aa874949dafe'),
 (16, NULL, 'Rizki', 'rizki@gmail.com', 1, NULL, '$2y$10$IsI2Ea.8T1fqOfnDT0gDueScHdGGBP3ytwQn/NMFtuQsE/AvfGlzO', NULL, NULL, NULL, '2021-03-06 13:10:50', '2021-03-06 13:10:50', 'Y', 'f7008b0b-465d-4a8f-a8c4-be49f0b0aede'),
 (19, 'NHahm', 'Haruka Nakagawa', 'haruka@gmail.com', 3, NULL, '$2y$10$1o1Guf/AT0PwoY52fZC1oOwf/TSX1JdmG/3aMQQOhTKGlA.ShFFK2', NULL, 'Y', 'Haruka_Nakagawa_7KF1b.png', '2021-03-20 14:25:15', '2021-03-26 02:35:37', 'Y', '94dda6cd-8a82-49a5-b01d-d977559e3561'),
-(20, 'JTzSX', 'Shuuuu', 'user@gmail.com', 3, NULL, '$2y$10$bjhbCb.rcV/30N5Wso.uL.Cq/.QRJ6qFZjmhnNZeCvhEP7Z1xKjgW', NULL, 'Y', NULL, '2021-03-20 14:32:45', '2021-03-20 14:59:54', 'Y', '197a42cb-7494-4ce5-82d2-b40ee096f9d6');
+(20, 'JTzSX', 'Shuuuu', 'user@gmail.com', 3, NULL, '$2y$10$bjhbCb.rcV/30N5Wso.uL.Cq/.QRJ6qFZjmhnNZeCvhEP7Z1xKjgW', NULL, 'Y', NULL, '2021-03-20 14:32:45', '2021-03-20 14:59:54', 'Y', '197a42cb-7494-4ce5-82d2-b40ee096f9d6'),
+(21, 'cskvL', 'Pengusaha 1', 'pengusaha1@gmail.com', 3, NULL, '$2y$10$0CEtOzQ2Kt5UetC10QKR0uSMlJTBVIhofGI./1C86CbUNamqbTyEy', NULL, 'Y', NULL, '2021-03-31 03:25:18', '2021-03-31 03:26:18', 'Y', '8d43ebcf-b6fa-4fce-930b-2b6f103e4178');
 
 -- --------------------------------------------------------
 
@@ -859,13 +862,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pelaku_ekraf`
 --
 ALTER TABLE `pelaku_ekraf`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `produk`
@@ -901,7 +904,7 @@ ALTER TABLE `tag`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `video`
