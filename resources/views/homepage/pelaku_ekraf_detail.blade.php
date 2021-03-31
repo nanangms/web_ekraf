@@ -43,8 +43,8 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 					  <div class="tab-pane fade show active" id="profil_usaha" role="tabpanel">
 					    <table class="table" width="100%" style="vertical-align: middle;">
 		                  	<tr>
-		                  		<td width="47%">Nama Usaha/Perusahaan</td>
-		                  		<td width="3%">:</td>
+		                  		<td width="45%">Nama Usaha/Perusahaan</td>
+		                  		<td width="1%">:</td>
 		                  		<td>{{$pelaku_ekraf->nama_usaha}}</td>
 		                  	</tr>
 		                  	<tr>

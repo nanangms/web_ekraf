@@ -12,10 +12,10 @@ Data Pelaku Ekraf | EKRAF Jambi
 	    <div class="col-lg-9 content pt-4 pt-lg-5 mb-2 mb-sm-0 pb-sm-5">
 	      <h2 class="mb-5">Pelaku Ekraf</h2>
 	      <!-- Blog grid-->
-	      <div class="masonry-grid overflow-hidden" data-columns="4">
+	      <div class="row">
 	      	@foreach ($pelaku_ekraf as $pelaku)
 	      		<!-- Post-->
-		        <div class="masonry-grid-item">
+		        <div class="col-lg-3 mb-5">
 		          	<a class="nav-heading text-center" href="/data-pelaku-ekraf/{{$pelaku->kode_pelaku_ekraf}}">
 		        		<div class="card border-0 bg-transparent">
 		        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
@@ -29,7 +29,6 @@ Data Pelaku Ekraf | EKRAF Jambi
 								  <img src="{{ asset('images/default_thumb_placeholder.jpg') }}"/>
 								</div>
 								@endif
-				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 				            </div>
 				            <h6 class="nav-heading-title mb-0">{{$pelaku->nama_usaha}}</h6>
 		        			<span class="fs-sm fw-normal text-muted">{{$pelaku->nama_sektor}}</span>
@@ -57,11 +56,11 @@ Data Pelaku Ekraf | EKRAF Jambi
 	    <div class="sidebar col-lg-3 pt-lg-5">
 	      <div class="offcanvas offcanvas-end offcanvas-collapse" id="blog-sidebar">
 	        <div class="offcanvas-cap navbar-shadow px-4 mb-3">
-	          <h5 class="mt-1 mb-0">Sidebar</h5>
+	          <h5 class="mt-1 mb-0">Cari pelaku Ekraf</h5>
 	          <button class="btn-close lead" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 	        </div>
 	        <div class="offcanvas-body px-4 pt-3 pt-lg-0 pe-lg-0 ps-lg-2 ps-xl-4" data-simplebar>
-	        	<h3 class="widget-title">Cari pelaku ekraf</h3>
+	        	<h3 class="widget-title d-none d-lg-block">Cari pelaku ekraf</h3>
 	        	<form>
 		  			<div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
 			          <label class="form-label" for="from-destination">Pelaku Ekraf</label>
@@ -105,6 +104,9 @@ Data Pelaku Ekraf | EKRAF Jambi
 	  </div>
 	</div>
 </div>
+
+<!-- Sidebar toggle button-->
+<button class="btn btn-primary btn-sm sidebar-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#blog-sidebar"><i class="fas fa-search me-2"></i>Cari pelaku Ekraf</button>
 
 
 @stop
