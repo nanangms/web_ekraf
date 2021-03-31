@@ -21,7 +21,10 @@ class IndexController extends Controller
 		$foto = \App\Models\Foto::orderBy('id', 'desc')->limit(9)->get();
         $event = \App\Models\Event::orderBy('id', 'desc')->limit(4)->get();
 		$faq = \App\Models\Faq::orderBy('urutan', 'asc')->get();
-		
+        $kab_kota = \App\Models\Kabupatenkota::all();
+        $sektor = \App\Models\Sektor::all();
+        $usaha = \App\Models\Pelaku_ekraf::all();
+        $produk = \App\Models\Produk::all();
 
 		$pelaku_ekraf = DB::table('pelaku_ekraf as a')
                 ->select('a.nama_usaha', 'a.foto_usaha','a.kode_pelaku_ekraf','b.nama_sektor')
@@ -30,7 +33,7 @@ class IndexController extends Controller
                 ->limit(4)
                 ->get();
             //dd($pelaku_ekraf);
-        return view('homepage.home', compact('berita','foto','event','faq','pelaku_ekraf'));
+        return view('homepage.home', compact('berita','foto','event','faq','kab_kota','sektor','usaha','produk','pelaku_ekraf'));
     }
 
     public function faq()
@@ -99,7 +102,7 @@ class IndexController extends Controller
                 ->select('a.nama_usaha', 'a.foto_usaha','a.kode_pelaku_ekraf','b.nama_sektor')
                 ->join('sektor as b', 'b.id', '=', 'a.sektor_id')
                 ->orderBy('a.id', 'desc')
-                ->limit(9)
+                ->limit(8)
                 ->get();
         return view('homepage.pelaku_ekraf',compact('pelaku_ekraf'));
     }
