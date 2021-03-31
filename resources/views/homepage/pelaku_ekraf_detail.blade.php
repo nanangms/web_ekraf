@@ -154,16 +154,16 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 				<!-- Tabs content -->
 				<div class="tab-content">
 				  <div class="tab-pane fade show active" id="deskripsi" role="tabpanel">
-				    <p>{{$pelaku_ekraf->deskripsi}}</p>
+				    {!! $pelaku_ekraf->deskripsi !!}
 				  </div>
 				  <div class="tab-pane fade" id="keahlian" role="tabpanel">
-				    <p>{{$pelaku_ekraf->keahlian}}</p>
+				    {!! $pelaku_ekraf->keahlian !!}
 				  </div>
 				  <div class="tab-pane fade" id="pengalaman" role="tabpanel">
-				    <p>{{$pelaku_ekraf->pengalaman}}</p>
+				    <p>{!! $pelaku_ekraf->pengalaman !!}</p>
 				  </div>
 				  <div class="tab-pane fade" id="portofolio" role="tabpanel">
-				    <p>{{$pelaku_ekraf->portofolio}}</p>
+				    <p>{!! $pelaku_ekraf->portofolio !!}</p>
 				  </div>
 				</div>
 	        </div>
