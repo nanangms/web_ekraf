@@ -12,4 +12,8 @@ class Pelaku_ekraf extends Model
     use HasFactory;
     protected $table = 'pelaku_ekraf';
     protected $guard = [];
+
+    public function sektor(){
+        return $this->belongsTo(Sektor::class);
+    }
 }

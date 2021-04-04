@@ -116,6 +116,20 @@ if (! function_exists('tglnya')) {
 	 }
 }
 
+if (! function_exists('tahunnya')) {
+	 /**
+	 * TanggalID
+	 *
+	 * @param mixed $tanggal
+	 * @return void
+	 */
+	 function tahunnya($tanggal) {
+	 $value = Carbon\Carbon::parse($tanggal);
+	 $parse = $value->locale('id');
+	 return $parse->translatedFormat('Y');
+	 }
+}
+
 
 function kode_acak($panjang)
 {

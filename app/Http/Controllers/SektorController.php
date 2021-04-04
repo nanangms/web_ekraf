@@ -86,9 +86,12 @@ class SektorController extends Controller
             'nama_sektor' => 'required'
         ]);
 
-        $model = Sektor::findOrFail($id);
+        $model = Sektor::where('id',$id)->first();
+        $model->nama_sektor      = $request->nama_sektor;
+        $model->seo_sektor     = null;
+        $model->update();
 
-        $model->update($request->all());
+        return $model;
     }
 
     /**

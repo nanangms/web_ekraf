@@ -324,6 +324,9 @@ Homepage | EKRAF Jambi
 										{{ tglnya($event->tgl_event) }}
 									</span>
 									<span class="text-muted text-uppercase">{{ nama_bulan_pendek($event->tgl_event) }}</span>
+									<span class="d-block text-primary" style="font-size: 1rem;">
+										{{ tahunnya($event->tgl_event) }}
+									</span>
 								</div>
 				    		</div>
 				    		<div class="p-2">

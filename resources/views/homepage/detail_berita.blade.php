@@ -36,7 +36,7 @@
         <div class="d-none d-md-block position-absolute border-start h-100" style="top: 0; left: 50%; width: 1px;"></div>
         <div class="col-md-6 ps-md-3 py-2 py-md-3">
           <div class="d-flex align-items-center justify-content-center justify-content-md-end">
-            <h6 class="text-nowrap my-2 me-3">Bagikan post ini:</h6><a class="btn-social bs-outline bs-facebook ms-2 my-2" href="#"><i class="ai-facebook"></i></a><a class="btn-social bs-outline bs-twitter ms-2 my-2" href="#"><i class="ai-twitter"></i></a><a class="btn-social bs-outline bs-google ms-2 my-2" href="#"><i class="ai-google"></i></a><a class="btn-social bs-outline bs-email ms-2 my-2" href="#"><i class="ai-mail"></i></a>
+            <h6 class="text-nowrap my-2 me-3">Bagikan post ini:</h6><a class="btn-social bs-outline bs-facebook ms-2 my-2" href="#"><i class="fa fa-facebook"></i></a><a class="btn-social bs-outline bs-twitter ms-2 my-2" href="#"><i class="ai-twitter"></i></a><a class="btn-social bs-outline bs-google ms-2 my-2" href="#"><i class="ai-google"></i></a><a class="btn-social bs-outline bs-email ms-2 my-2" href="#"><i class="ai-mail"></i></a>
           </div>
         </div>
       </div>

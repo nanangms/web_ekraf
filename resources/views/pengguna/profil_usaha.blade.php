@@ -40,7 +40,7 @@ Profil Usaha
         </div>
       </div>
       <div class="card-body">
-        <a href="" class="btn btn-info">Lihat Tampilan Utama</a>
+<!--         <a href="" class="btn btn-info">Lihat Tampilan Utama</a> -->
         <hr>
         <div class="alert alert-warning">
           Lengkapi data anda dengan benar
@@ -85,7 +85,7 @@ Profil Usaha
                   
           <span class="text-danger"><i>* Wajib diisi</i></span>
                 <div class="form-group">
-                  <label class="form-label" for="">Gambar Usaha <span class="text-danger">*</span></label>
+                  <label class="form-label" for="">Logo Usaha <span class="text-danger">*</span></label>
                   <input type="file" name="foto_usaha" id="foto_usaha" class="form-control" onchange="readURL(this);">
                   <div style="overflow: hidden">
                       <img id="preview_gambar" src="" style="width: 100px; height: auto;" />
@@ -186,16 +186,19 @@ Profil Usaha
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="form-label" for="">Facebook</label>
-                      <input type="text" name="facebook_usaha" id="facebook_usaha" class="form-control" placeholder="Facebook" value="{{$pelaku->facebook_usaha}}">
+                      <label class="form-label" for="">Link Facebook</label>
+                      <input type="text" name="facebook_usaha" id="facebook_usaha" class="form-control" placeholder="https://www.facebook.com/nama_usaha" value="{{$pelaku->facebook_usaha}}">
+                      <span class="text-info">Contoh : https://www.facebook.com/nama_usaha</span>
                     </div>
                     <div class="form-group">
-                      <label class="form-label" for="">Twitter</label>
-                      <input type="text" name="twitter_usaha" id="twitter_usaha" class="form-control" placeholder="Twitter" value="{{$pelaku->twitter_usaha}}">
+                      <label class="form-label" for="">Link Twitter</label>
+                      <input type="text" name="twitter_usaha" id="twitter_usaha" class="form-control" placeholder="https://twitter.com/nama_usaha" value="{{$pelaku->twitter_usaha}}">
+                      <span class="text-info">Contoh : https://twitter.com/nama_usaha</span>
                     </div>
                     <div class="form-group">
-                      <label class="form-label" for="">Instagram</label>
-                      <input type="text" name="ig_usaha" id="ig_usaha" class="form-control" placeholder="Instagram" value="{{$pelaku->ig_usaha}}">
+                      <label class="form-label" for="">Link Instagram</label>
+                      <input type="text" name="ig_usaha" id="ig_usaha" class="form-control" placeholder="https://www.instagram.com/nama_usaha" value="{{$pelaku->ig_usaha}}">
+                      <span class="text-info">Contoh : https://www.instagram.com/nama_usaha</span>
                     </div>
                     <div class="form-group">
                       <label class="form-label" for="">Website</label>
@@ -247,16 +250,19 @@ Profil Usaha
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="form-label" for="">Facebook</label>
+                      <label class="form-label" for="">Link Facebook</label>
                       <input type="text" name="fb_pemilik" id="fb_pemilik" class="form-control" placeholder="Facebook" value="{{$pelaku->fb_pemilik}}">
+                      <span class="text-info">Contoh : https://www.facebook.com/nama_pengguna</span>
                     </div>
                     <div class="form-group">
-                      <label class="form-label" for="">Twitter</label>
+                      <label class="form-label" for="">Link Twitter</label>
                       <input type="text" name="twitter_pemilik" id="twitter_pemilik" class="form-control" placeholder="Twitter" value="{{$pelaku->twitter_pemilik}}">
+                      <span class="text-info">Contoh : https://twitter.com/nama_pengguna</span>
                     </div>
                     <div class="form-group">
-                      <label class="form-label" for="">Instagram</label>
+                      <label class="form-label" for="">Link Instagram</label>
                       <input type="text" name="ig_pemilik" id="ig_pemilik" class="form-control" placeholder="Instagram" value="{{$pelaku->ig_pemilik}}">
+                      <span class="text-info">Contoh : https://www.instagram.com/nama_pengguna</span>
                     </div>
                     <div class="form-group">
                       <label class="form-label" for="">Website</label>

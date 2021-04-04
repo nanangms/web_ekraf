@@ -16,7 +16,8 @@
   <meta name="theme-color" content="#ffffff">
 
   <!-- CSS Libraries -->
-
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset('admin/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Template CSS -->
   <!-- <link rel="stylesheet" href="{{ asset('homepage/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('homepage/css/components.css') }}"> -->

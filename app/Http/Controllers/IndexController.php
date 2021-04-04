@@ -7,6 +7,9 @@ use Illuminate\Support\Str; // Utk motong string
 use Jenssegers\Date\Date;
 use App\Models\Pelaku_ekraf;
 use DB;
+use App\Models\Kabupatenkota;
+use App\Models\Sektor;
+
 
 class IndexController extends Controller
 {
@@ -95,25 +98,29 @@ class IndexController extends Controller
 
     public function pelaku_ekraf()
     {
-        $pelaku_ekraf = DB::table('pelaku_ekraf as a')
+        $kab = Kabupatenkota::select('kab_kota.id','kab_kota.nama_kab_kota')->get();
+        $sektor = Sektor::select('sektor.id','sektor.nama_sektor')->get();
+        $pelaku_ekrafs = DB::table('pelaku_ekraf as a')
                 ->select('a.nama_usaha', 'a.foto_usaha','a.kode_pelaku_ekraf','b.nama_sektor')
                 ->join('sektor as b', 'b.id', '=', 'a.sektor_id')
                 ->orderBy('a.id', 'desc')
-                ->limit(9)
-                ->get();
-        return view('homepage.pelaku_ekraf',compact('pelaku_ekraf'));
+                ->paginate(9);
+                //dd($pelaku_ekrafs);
+        return view('homepage.pelaku_ekraf',compact('pelaku_ekrafs','kab','sektor'));
     }
 
     public function pelaku_ekraf_detail($kode)
     {
+        $kab = Kabupatenkota::select('kab_kota.id','kab_kota.nama_kab_kota')->get();
+        $sektor = Sektor::select('sektor.id','sektor.nama_sektor')->get();
         $pelaku_ekraf = DB::table('pelaku_ekraf as a')
-                ->select('a.*','b.nama_sektor','c.nama_kab_kota','d.nama_badan_hukum')
+                ->select('a.*','b.nama_sektor','c.nama_kab_kota','d.nama_badan_hukum','b.seo_sektor','c.seo_kab_kota')
                 ->join('sektor as b', 'b.id', '=', 'a.sektor_id')
                 ->join('kab_kota as c', 'c.id', '=', 'a.kab_kota_id')
                 ->join('badan_hukum as d', 'd.id', '=', 'a.badan_hukum_id')
                 ->orderBy('a.id', 'desc')
                 ->where('kode_pelaku_ekraf',$kode)
                 ->first();
-        return view('homepage.pelaku_ekraf_detail',compact('pelaku_ekraf'));
+        return view('homepage.pelaku_ekraf_detail',compact('pelaku_ekraf','kab','sektor'));
     }
 }
