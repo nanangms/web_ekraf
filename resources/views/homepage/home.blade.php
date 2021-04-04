@@ -148,7 +148,7 @@ Homepage | EKRAF Jambi
 									  <img src="{{ asset('images/default_thumb_placeholder.jpg') }}"/>
 									</div>
 									@endif
-					            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
+					            	<!-- <span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span> -->
 					            </div>
 					            <h6 class="nav-heading-title mb-0">{{$pelaku->nama_usaha}}</h6>
 	                			<span class="fs-sm fw-normal text-muted">{{$pelaku->nama_sektor}}</span>
@@ -166,7 +166,7 @@ Homepage | EKRAF Jambi
 	            	<div class="row text-center px-2">
 	            		<div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
 	            			<div class="border rounded-3 py-4 bg-light">
-	            				<h1 class="display-6 mb-1 text-gradient">11</h1>
+	            				<h1 class="display-6 mb-1 text-gradient">{{ $kab_kota->count() }}</h1>
 		        				<div>
 		            				<h6 class="mb-0" style="font-size: 14px;">Wilayah</h6>
 		            			</div>
@@ -174,7 +174,7 @@ Homepage | EKRAF Jambi
 			            </div>
 			            <div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
 			            	<div class="border rounded-3 py-4 bg-light">
-			            		<h1 class="display-6 mb-1 text-gradient">17</h1>
+			            		<h1 class="display-6 mb-1 text-gradient">{{ $sektor->count() }}</h1>
 		        				<div>
 		            				<h6 class="mb-0" style="font-size: 14px">Sub Sektor</h6>
 		            			</div>
@@ -182,7 +182,7 @@ Homepage | EKRAF Jambi
 			            </div>
 			            <div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
 			            	<div class="border rounded-3 py-4 bg-light">
-			            		<h1 class="display-6 mb-1 text-gradient">19</h1>
+			            		<h1 class="display-6 mb-1 text-gradient">{{ $usaha->count() }}</h1>
 		        				<div>
 		            				<h6 class="mb-0" style="font-size: 14px">Usaha</h6>
 		            			</div>
@@ -190,7 +190,7 @@ Homepage | EKRAF Jambi
 			            </div>
 			            <div class="col-6 col-lg-3 align-items-center px-1 py-1 py-lg-0">
 			            	<div class="border rounded-3 py-4 bg-light">
-			            		<h1 class="display-6 mb-1 text-gradient">45</h1>
+			            		<h1 class="display-6 mb-1 text-gradient">{{ $produk->count() }}</h1>
 		        				<div>
 		            				<h6 class="mb-0" style="font-size: 14px">Produk</h6>
 		            			</div>
@@ -359,16 +359,16 @@ Homepage | EKRAF Jambi
 
 	        <div class="accordion" id="faq">
 	        	@foreach ($faq as $faq)
-	        		<div class="accordion-item shadow">
+	        		<div class="accordion-item shadow bg-white">
 		                <h2 class="accordion-header" id="faq-heading-{{ $faq->urutan }}">
 		                 	<button class="accordion-button @if($faq->urutan != '1') collapsed @endif" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-{{ $faq->urutan }}" aria-expanded="{{ $faq->urutan === '1' ? 'true' : 'false' }}" aria-controls="faq-content-{{ $faq->urutan }}">
-		                		{{ $faq->pertanyaan }}
+		                		{!! $faq->pertanyaan !!}
 		                	</button>
 		                </h2>
 		                <div class="accordion-collapse collapse @if($faq->urutan == '1') show @endif" id="faq-content-{{ $faq->urutan }}" aria-labelledby="faq-heading-{{ $faq->urutan }}" data-bs-parent="#faq">
 		                  <div class="accordion-body">
 		                    <div class="fs-sm">
-		                    	{{ $faq->jawaban }}
+		                    	{!! $faq->jawaban !!}
 		                    </div>
 		                  </div>
 		                </div>

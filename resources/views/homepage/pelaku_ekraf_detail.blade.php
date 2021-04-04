@@ -85,8 +85,8 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 					  <div class="tab-pane fade show active" id="profil_usaha" role="tabpanel">
 					    <table class="table" width="100%" style="vertical-align: middle;">
 		                  	<tr>
-		                  		<td width="47%">Nama Usaha/Perusahaan</td>
-		                  		<td width="3%">:</td>
+		                  		<td width="45%">Nama Usaha/Perusahaan</td>
+		                  		<td width="1%">:</td>
 		                  		<td>{{$pelaku_ekraf->nama_usaha}}</td>
 		                  	</tr>
 		                  	<tr>
@@ -228,16 +228,20 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 				<!-- Tabs content -->
 				<div class="tab-content">
 				  <div class="tab-pane fade show active" id="deskripsi" role="tabpanel">
+<<<<<<< HEAD
 				    <p>{!!$pelaku_ekraf->deskripsi!!}</p>
+=======
+				    {!! $pelaku_ekraf->deskripsi !!}
+>>>>>>> ed44b531df8540b8e9f487eb197267fc78089836
 				  </div>
 				  <div class="tab-pane fade" id="keahlian" role="tabpanel">
-				    <p>{{$pelaku_ekraf->keahlian}}</p>
+				    {!! $pelaku_ekraf->keahlian !!}
 				  </div>
 				  <div class="tab-pane fade" id="pengalaman" role="tabpanel">
-				    <p>{{$pelaku_ekraf->pengalaman}}</p>
+				    <p>{!! $pelaku_ekraf->pengalaman !!}</p>
 				  </div>
 				  <div class="tab-pane fade" id="portofolio" role="tabpanel">
-				    <p>{{$pelaku_ekraf->portofolio}}</p>
+				    <p>{!! $pelaku_ekraf->portofolio !!}</p>
 				  </div>
 				</div>
 	        </div>

@@ -36,7 +36,7 @@
 
 </head>
 
-<body>
+<body class="is-sidebar">
   <main class="page-wrapper">
 
     @include('homepage.layouts.navbar')
