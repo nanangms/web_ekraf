@@ -104,18 +104,12 @@ class IndexController extends Controller
         $kab = Kabupatenkota::select('kab_kota.id','kab_kota.nama_kab_kota')->get();
         $sektor = Sektor::select('sektor.id','sektor.nama_sektor')->get();
         $pelaku_ekrafs = DB::table('pelaku_ekraf as a')
-                ->select('a.nama_usaha', 'a.foto_usaha','a.kode_pelaku_ekraf','b.nama_sektor')
+                ->select('a.nama_usaha','a.kode_pelaku_ekraf', 'a.foto_usaha','a.kode_pelaku_ekraf','b.nama_sektor')
                 ->join('sektor as b', 'b.id', '=', 'a.sektor_id')
                 ->orderBy('a.id', 'desc')
-<<<<<<< HEAD
                 ->paginate(9);
                 //dd($pelaku_ekrafs);
         return view('homepage.pelaku_ekraf',compact('pelaku_ekrafs','kab','sektor'));
-=======
-                ->limit(8)
-                ->get();
-        return view('homepage.pelaku_ekraf',compact('pelaku_ekraf'));
->>>>>>> ed44b531df8540b8e9f487eb197267fc78089836
     }
 
     public function pelaku_ekraf_detail($kode)
