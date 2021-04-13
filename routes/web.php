@@ -154,6 +154,12 @@ Route::group(['middleware'=>['auth','checkRole:Admin,Super Admin']],function(){
         Route::get('/{id}/detail', [App\Http\Controllers\ProdukController::class, 'detail']);
     }); 
 
+    Route::group(['prefix'=>'laporan'], function(){
+        Route::get('/',[App\Http\Controllers\LaporanController::class,'index']);
+        Route::post('/hasil',[App\Http\Controllers\LaporanController::class,'hasil_filter']);
+        Route::get('/export-to-excel',[App\Http\Controllers\LaporanController::class,'exportLaporan']);
+    });
+
     Route::get('/role/datatable', [App\Http\Controllers\RoleController::class, 'dataTable'])->name('table.role');
     Route::get('/role_menu/datatable', [App\Http\Controllers\RolemenuController::class, 'dataTable'])->name('table.role_menu');
     Route::get('/table/sektor', [App\Http\Controllers\SektorController::class, 'dataTable'])->name('table.sektor');
