@@ -1,6 +1,6 @@
 $('body').on('click', '.modal-show', function (event) {
     event.preventDefault();
-
+    $('#modal-btn-save').removeAttr('disabled').text('Simpan');
     var me = $(this),
         url = me.attr('href'),
         title = me.attr('title');
@@ -22,7 +22,8 @@ $('body').on('click', '.modal-show', function (event) {
 
 $('#modal-btn-save').click(function (event) {
     event.preventDefault();
-
+    $('#modal-btn-save').text('Menyimpan data...'); //change button text
+    $('#modal-btn-save').attr('disabled',true); //set button disable
     var form = $('#modal-body form'),
         url = form.attr('action'),
         method = $('input[name=_method]').val() == undefined ? 'POST' : 'PUT';
@@ -60,6 +61,7 @@ $('#modal-btn-save').click(function (event) {
                         .addClass('has-error')
                         .append('<span class="text-danger">' + value + '</span>');
                 });
+                $('#modal-btn-save').removeAttr('disabled').text('Simpan');
             }
         }
     })

@@ -8,6 +8,8 @@ Event
 <link rel="stylesheet" href="{{asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
 <link rel="stylesheet" href="{{asset('admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
+<!-- summernote -->
+  <link rel="stylesheet" href="{{asset('admin/plugins/summernote/summernote-bs4.min.css')}}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
@@ -102,7 +104,8 @@ Event
 <script src="{{asset('admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <script src="{{asset('admin/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
 <script src="{{asset('admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
-
+<!-- Summernote -->
+<script src="{{asset('admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <script src="{{ asset('crud/app.js') }}"></script>
 
 <script>
@@ -121,6 +124,7 @@ reader.readAsDataURL(input.files[0]);
 
 <script>
   $(document).ready( function () {
+    $('#deskripsi').summernote()
     $('#datatable').DataTable({
       responsive: true,
       processing: true,

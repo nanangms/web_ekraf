@@ -39,8 +39,12 @@ class UserController extends Controller
         
         return DataTables::of($user)
             ->addColumn('action', function ($user) {
+            if(auth()->user()->role->nama_role == "Super Admin"){
                 return '<button data-toggle="modal" data-target-id="'.$user->uuid.'" data-target="#ShowEDIT" class="btn btn-info btn-xs" title="Edit"><i class="fa fa-edit"></i></button>
                     <button class="btn btn-danger btn-xs hapus" user-name="'.$user->name.'" user-id="'.$user->uuid.'" title="Delete"><i class="fa fa-trash"></i></button>';
+            }else{
+                return 'No Action';
+            }
             })
             ->addColumn('nama_role', function ($user) {
              

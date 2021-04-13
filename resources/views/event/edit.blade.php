@@ -92,7 +92,7 @@ Edit Event
           <div class=" form-group row">
             <div class="col-md-12">
               <label>Deskripsi</label>
-              <textarea class="form-control" name="deskripsi" rows="3">{{$event->deskripsi}}</textarea>
+              <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3">{{$event->deskripsi}}</textarea>
             </div>
           </div>
           <div class="form-group row">
@@ -140,7 +140,7 @@ reader.readAsDataURL(input.files[0]);
 </script>
 <script>
   $(document).ready(function(){
-    $('#jawaban').summernote()
+    $('#deskripsi').summernote()
   });
 </script>
 

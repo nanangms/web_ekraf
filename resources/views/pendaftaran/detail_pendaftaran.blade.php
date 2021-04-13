@@ -80,7 +80,7 @@
                      <td>{{$pendaftaran->alamat_usaha}}</td>
                  </tr>
                  <tr>
-                     <td><strong>Ada Legalitas</strong><br><span class="text-info"><i>Contoh legalitas usaha adalah: Hak Cipta/ Hak Merek/ HAKI/ SIUP/TDP/HO/NIB. </i></span></td>
+                     <td><strong>Ada Legalitas</strong></td>
                      <td>:</td>
                      <td>{{$pendaftaran->ada_legalitas}}</td>
                  </tr>

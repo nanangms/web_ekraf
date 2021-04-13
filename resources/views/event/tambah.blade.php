@@ -61,7 +61,7 @@
               <div class=" form-group row">
                 <div class="col-md-12">
                   <label>Deskripsi</label>
-                  <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                  <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"></textarea>
                 </div>
               </div>
               <div class="form-group row">
