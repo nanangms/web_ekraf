@@ -78,8 +78,8 @@ Laporan
         </form>
         <hr>
         <form class="form-horizontal" method="GET" action="{{ url('/laporan/export-to-excel') }}">
-          <input type="text" name="sektor_id" value="{{$sektor_id}}">
-          <input type="text" name="kab_kota_id" value="{{$kab_kota_id}}">
+          <input type="hidden" name="sektor_id" value="{{$sektor_id}}">
+          <input type="hidden" name="kab_kota_id" value="{{$kab_kota_id}}">
           <button type="submit" class="btn btn-success waves-effect waves-light"><i class="fa fa-glass"></i> Export to Excel</button>
           <!-- <a href="/laporan/export-to-excel/{{$sektor_id}}/{{$kab_kota_id}}" target="_blank" class="btn btn-success"><i class="fa fa-file-excel"></i> Export to Excel</a> -->
         </form>
