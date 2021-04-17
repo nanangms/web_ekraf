@@ -9,6 +9,15 @@
         </div>
         <div class="modal-body px-4">
           <p class="fs-ms text-muted">Masuk ke akun anda menggunakan email dan password yang telah terdaftar.</p>
+          @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul style="margin-bottom:0px;list-style-type: none;margin:0px;padding:0px;">
+                      @foreach ($errors->all() as $error)
+                          <li><i class="fa fa-exclamation"></i> {{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
           <form method="post" action="{{ route('login') }}" class="needs-validation" novalidate>
             @csrf
             <div class="mb-3">

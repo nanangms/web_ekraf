@@ -61,14 +61,14 @@ class LoginController extends Controller
                         return redirect()->intended('/pengguna/dashboard');
                     }
                 }else{
-                    return Redirect::to("login")->withErrors('Maaf password salah');
+                    return redirect()->back()->withErrors('Maaf password salah');
                 }
             }else{
-                return Redirect::to("login")->withErrors('Maaf akun anda belum di verifikasi');
+                return redirect()->back()->withErrors('Maaf akun anda belum di verifikasi');
             }
 
         }else{
-            return Redirect::to("login")->withErrors('Maaf email belum terdaftar');
+            return redirect()->back()->withErrors('Maaf email belum terdaftar');
         }
 
     }
