@@ -8,7 +8,7 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 <!-- Page content-->
 <div class="container mt-7 mb-2 py-lg-5">
 	<div class="content">
-		<form>
+		<form action="/pelaku-ekraf/search" method="get">
 	        <div class="d-lg-flex align-items-center bg-secondary border rounded-3 px-4 pt-3 pb-1">
 	          <div class="d-sm-flex align-items-center flex-grow-1">
 	          	<div class="me-sm-3 w-100">
@@ -16,7 +16,7 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 	        	</div>
 	        	<hr>
 	            <div class="mb-3 mb-sm-4 me-sm-3 w-100">
-	              <label class="form-label" for="nama_usaha">Pelaku Ekraf</label>
+	              <label class="form-label" for="nama_usaha">Nama Pelaku Ekraf</label>
 		          <div class="input-group">
 		          	<input type="text" class="form-control" id="nama_usaha" name="nama_usaha" placeholder="Nama usaha/pemilik usaha">
 		          </div>
@@ -24,7 +24,7 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 	            <div class="mb-3 pb-1 mb-sm-4 me-sm-3 w-100">
 	              <label class="form-label" for="kab">Wilayah</label>
 		          <select class="form-select" id="kab" name="kab">
-		            <option value="" selected disabled hidden>Kabupaten/Kota</option>
+		            <option value="0">[Semua Wilayah]</option>
 		            @foreach($kab as $k)
 			            <option value="{{$k->id}}">{{$k->nama_kab_kota}}</option>
 			        @endforeach
@@ -33,7 +33,7 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 	            <div class="mb-3 pb-1 mb-sm-4 me-sm-3 w-100">
 	            	<label class="form-label" for="sektor">Sektor</label>
 		          	<select class="form-select" id="sektor" name="sektor">
-			            <option value="" selected disabled hidden>Sektor/bidang usaha</option>
+			            <option value="0">[Semua Sektor]</option>
 			            @foreach($sektor as $s)
 			            <option value="{{$s->id}}">{{$s->nama_sektor}}</option>
 			           	@endforeach
@@ -89,12 +89,12 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 	                  	<tr>
 	                  		<td>Sektor Usaha</td>
 	                  		<td>:</td>
-	                  		<td><a href="/data-pelaku-ekraf/sektor/{{$pelaku_ekraf->seo_sektor}}">{{$pelaku_ekraf->nama_sektor}}</a></td>
+	                  		<td><a href="/pelaku-ekraf/sektor/{{$pelaku_ekraf->seo_sektor}}">{{$pelaku_ekraf->nama_sektor}}</a></td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Kota/Kabupaten</td>
 	                  		<td>:</td>
-	                  		<td><a href="/data-pelaku-ekraf/kab_kota/{{$pelaku_ekraf->seo_kab_kota}}">{{$pelaku_ekraf->nama_kab_kota}}</a></td>
+	                  		<td><a href="/pelaku-ekraf/kab-kota/{{$pelaku_ekraf->seo_kab_kota}}">{{$pelaku_ekraf->nama_kab_kota}}</a></td>
 	                  	</tr>
 	                  	<tr>
 	                  		<td>Bentuk Usaha/Perusahaan</td>
@@ -116,25 +116,23 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
                 			<td>:</td>
                 			<td>
                 				<div>
-									<a href="#" class="btn-social bs-facebook">
+									<a href="https://facebook.com/{{$pelaku_ekraf->facebook_usaha}}" class="btn-social bs-facebook" title="{{$pelaku_ekraf->fb_pemilik}}">
 									  <i class="fab fa-facebook-f"></i>
 									</a>
 
-									<a href="#" class="btn-social bs-twitter">
+									<a href="https://twitter.com/{{$pelaku_ekraf->twitter_usaha}}" class="btn-social bs-twitter" title="{{$pelaku_ekraf->twitter_usaha}}">
 									  <i class="fab fa-twitter"></i>
 									</a>
 
-									<a href="#" class="btn-social bs-instagram">
+									<a href="https://instagram.com/{{$pelaku_ekraf->ig_usaha}}" class="btn-social bs-instagram" title="{{$pelaku_ekraf->ig_usaha}}">
 									  <i class="fab fa-instagram"></i>
 									</a>
 
-									<a href="#" class="btn-social bs-telegram">
-									  <i class="fab fa-telegram"></i>
+									<a href="mailto:{{$pelaku_ekraf->email_usaha}}" class="btn-social bs-instagram" title="{{$pelaku_ekraf->ig_usaha}}">
+									  <i class="fab fa-envelope"></i>
 									</a>
 
-									<a href="#" class="btn-social bs-linkedin">
-									  <i class="fab fa-linkedin"></i>
-									</a>
+									
 			                    </div>
 			                </td>
                 		</tr>
@@ -167,23 +165,23 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 	                			<td>:</td>
 	                			<td>
 	                				<div>
-										<a href="#" class="btn-social bs-facebook">
+										<a href="https://facebook.com/{{$pelaku_ekraf->fb_pemilik}}" class="btn-social bs-facebook" target="_blank" title="{{$pelaku_ekraf->fb_pemilik}}">
 										  <i class="fab fa-facebook-f"></i>
 										</a>
 
-										<a href="#" class="btn-social bs-twitter">
+										<a href="https://twitter.com/{{$pelaku_ekraf->twitter_pemilik}}" class="btn-social bs-twitter" target="_blank" title="{{$pelaku_ekraf->twitter_pemilik}}">
 										  <i class="fab fa-twitter"></i>
 										</a>
 
-										<a href="#" class="btn-social bs-instagram">
+										<a href="https://instagram.com/{{$pelaku_ekraf->ig_pemilik}}" class="btn-social bs-instagram" target="_blank" title="{{$pelaku_ekraf->ig_pemilik}}">
 										  <i class="fab fa-instagram"></i>
 										</a>
 
-										<a href="#" class="btn-social bs-telegram">
+										<a href="https://t.me/{{$pelaku_ekraf->telegram_pemilik}}" class="btn-social bs-telegram" target="_blank" title="{{$pelaku_ekraf->telegram_pemilik}}">
 										  <i class="fab fa-telegram"></i>
 										</a>
 
-										<a href="#" class="btn-social bs-linkedin">
+										<a href="https://www.linkedin.com/{{$pelaku_ekraf->linkedin_pemilik}}" class="btn-social bs-linkedin" target="_blank" title="{{$pelaku_ekraf->linkedin_pemilik}}">
 										  <i class="fab fa-linkedin"></i>
 										</a>
 				                    </div>
@@ -239,9 +237,37 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 			</div>
         </div>
 
-        <div>
-        	<h5 class="text-nowrap mb-4 me-3">Kontak</h5>
+        <div class="mb-4 pb-3 border-bottom">
+        	<h5 class="text-nowrap mb-4 me-3">Produk Unggulan</h5>
+        	<hr>
+			<div class="masonry-grid overflow-hidden" data-columns="4">
+			  @foreach ($produk as $p)
+			  	<!-- Post-->
+		        <div class="masonry-grid-item">
+		          	<a class="nav-heading text-center" href="#">
+		        		<div class="card border-0 bg-transparent">
+		        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
+		        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span> -->
+		        				@if($p->gambar != Null)
+		    					<div class="member-thumbnail">
+								  <img src="{{ asset('images/produk/thumb/'.$p->gambar) }}"/>
+								</div>
+								@else
+								<div class="member-thumbnail">
+								  <img src="{{ asset('images/default_thumb_placeholder.jpg') }}"/>
+								</div>
+								@endif
+				            	<!-- <span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span> -->
+				            </div>
+				            <h6 class="nav-heading-title mb-0">{{$p->nama_produk}}</h6>
+		        			<span class="fs-sm fw-normal text-muted">Rp {{number_format($p->harga)}}</span>
+		        		</div>
+		        	</a>
+		        </div>
+			  @endforeach
+			</div>
         </div>
+        
     </div>
 </div>
 @stop

@@ -22,10 +22,15 @@ Route::get('/galery/foto', 'App\Http\Controllers\IndexController@album');
 Route::get('/galery/foto/{seo}', 'App\Http\Controllers\IndexController@foto_album');
 Route::get('/galery/video', 'App\Http\Controllers\IndexController@video');
 Route::get('/acara', 'App\Http\Controllers\IndexController@acara');
-Route::get('/acara/{seo}', 'App\Http\Controllers\IndexController@detailacara');
+Route::get('/acara/detail/{seo}', 'App\Http\Controllers\IndexController@detailacara');
 Route::get('/faqaboutekraf', 'App\Http\Controllers\IndexController@faq');
 Route::get('/berita-info', 'App\Http\Controllers\IndexController@berita');
-Route::get('/berita-info/{seo}', 'App\Http\Controllers\IndexController@detail_berita');
+Route::get('/berita-info/read/{seo}', 'App\Http\Controllers\IndexController@detail_berita');
+Route::get('/kontak', 'App\Http\Controllers\IndexController@kontak');
+Route::get('/syarat-dan-ketentuan', 'App\Http\Controllers\IndexController@syarat_ketentuan');
+Route::get('/pelaku-ekraf/search', 'App\Http\Controllers\IndexController@search_pelaku_ekraf');
+Route::get('/pelaku-ekraf/sektor/{seo_sektor}', 'App\Http\Controllers\IndexController@pelaku_ekraf_by_sektor');
+Route::get('/pelaku-ekraf/kab-kota/{seo_kab}', 'App\Http\Controllers\IndexController@pelaku_ekraf_by_kab');
 
 Route::get('/login', function () {
 return view('auth.login');

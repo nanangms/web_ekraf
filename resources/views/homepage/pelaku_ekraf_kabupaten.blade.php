@@ -1,7 +1,7 @@
 @extends('homepage.layouts.app')
 
 @section('title')
-Data Pelaku Ekraf | EKRAF Jambi
+Kabupaten : {{$nama_kab->nama_kab_kota}} | EKRAF Jambi
 @endsection
 
 @section('content')
@@ -47,7 +47,8 @@ Data Pelaku Ekraf | EKRAF Jambi
 	    </form>
   	</div>
 	<div class="content pt-5 mb-2 mb-sm-0 pb-sm-5">
-      	<h2 class="mb-4">Pelaku Ekraf</h2>
+      	<h2 class="mb-4">Data Pelaku Ekraf</h2>
+      	<h4>Kabupaten/Kota : {{$nama_kab->nama_kab_kota}}</h4>
       	<!-- Blog grid-->
       	<div class="masonry-grid overflow-hidden" data-columns="4">
 	      	@foreach ($pelaku_ekrafs as $pelaku_ekraf)

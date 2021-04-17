@@ -13,6 +13,14 @@ class Pelaku_ekraf extends Model
     protected $table = 'pelaku_ekraf';
     protected $guard = [];
 
+    public function getfotoPemilik(){
+        if(!$this->foto_pemilik){
+            return asset('images/profil/default.png');
+        }
+
+        return asset('images/foto_pemilik/'.$this->foto_pemilik);
+    }
+
     public function sektor(){
         return $this->belongsTo(Sektor::class);
     }

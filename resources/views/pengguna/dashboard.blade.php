@@ -49,7 +49,7 @@ Dashboard
 
                 <p class="text-muted text-center">{{auth()->user()->email}}</p>
 
-                <a href="/profil/{{auth()->user()->uuid}}" class="btn btn-primary btn-block"><i class="fa fa-edit"></i><b>Edit Akun</b></a>
+                <a href="/profil/{{auth()->user()->uuid}}" class="btn btn-primary btn-block"><i class="fa fa-edit"></i> <b>Edit Akun</b></a>
               </div>
               <!-- /.card-body -->
             </div>
@@ -62,7 +62,21 @@ Dashboard
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Nama</strong>
+
+                <div class="card-body box-profile">
+                  <div class="text-center">
+                    @if($pelaku->foto_pemilik != Null)
+                    <img class="profile-user-img img-fluid img-circle" src="{{ asset('images/foto_pemilik/thumb/'.$pelaku->foto_pemilik) }}" alt="Pemilik Usaha">
+                        
+                    @else
+                    <img class="profile-user-img img-fluid img-circle" src="{{ asset('images/foto_pemilik/thumb/default.jpg') }}" alt="Pemilik Usaha">
+                      
+                    @endif
+                    
+                  </div>
+                </div>
+
+                <strong>Nama</strong>
 
                 <p class="text-muted">
                   {{$pelaku->nama_pemilik}}
@@ -70,19 +84,19 @@ Dashboard
 
                 <hr>
 
-                <strong><i class="fas fa-map-marker-alt mr-1"></i> NIK</strong>
+                <strong>NIK</strong>
 
                 <p class="text-muted">{{$pelaku->nik_pemilik}}</p>
 
                 <hr>
 
-                <strong><i class="fas fa-pencil-alt mr-1"></i> Email</strong>
+                <strong>Email</strong>
 
                 <p class="text-muted">
                   {{$pelaku->email_pemilik}}
                 </p>
 
-                <hr>
+                
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>WA</b> <a class="float-right">{{$pelaku->wa_pemilik}}</a>

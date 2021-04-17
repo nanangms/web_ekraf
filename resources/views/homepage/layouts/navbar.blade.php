@@ -127,9 +127,9 @@
           <li class="nav-item @if(Request::segment(1)== 'acara') active @endif">
             <a class="nav-link" href="/acara">Event</a>
           </li>
-          <li class="nav-item @if(Request::segment(1)== 'faqaboutekraf') active @endif">
+          <!-- <li class="nav-item @if(Request::segment(1)== 'faqaboutekraf') active @endif">
             <a class="nav-link" href="/faqaboutekraf">FAQ</a>
-          </li>
+          </li> -->
         </ul>
         <div class="d-lg-none mt-4">
           <a class="btn btn-primary w-100" href="/pendaftaran-pelaku-ekraf">Daftar</a>

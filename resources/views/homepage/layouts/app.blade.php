@@ -33,7 +33,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" media="screen" href="{{ asset('homepage/css/custom.css') }}">
-
+  @yield('header')
 </head>
 
 <body class="is-sidebar">
@@ -49,13 +49,39 @@
   </main>
 
   <footer class="site-footer bg-dark pt-5 pb-4">
+    <div class="container d-md-flex align-items-center text-center">
+      <div style="color: white;">Connect With Us : &nbsp;&nbsp;&nbsp;</div>
+      <div>
+        <a href="https://facebook.com/" class="btn-social bs-facebook" title="">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+
+        <a href="https://twitter.com/" class="btn-social bs-twitter" title="">
+          <i class="fab fa-twitter"></i>
+        </a>
+
+        <a href="https://instagram.com/" class="btn-social bs-instagram" title="">
+          <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="mailto:" class="btn-social bs-instagram" title="">
+          <i class="fab fa-envelope"></i>
+        </a>
+     
+      </div>
+    </div>
+
     <div class="container d-md-flex justify-content-between align-items-center text-center">
       <ul class="list-inline fs-sm mb-3 order-md-2">
-        <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="#">Support</a></li>
-        <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="#">Contacts</a></li>
-        <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="#">Terms &amp; Conditions</a></li>
+        <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="/kontak">Kontak</a></li>
+        <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="/faqaboutekraf">FAQ</a></li>
+        <li class="list-inline-item my-1"><a class="nav-link-style nav-link-light" href="/syarat-dan-ketentuan">Syarat &amp; Ketentuan</a></li>
       </ul>
-      <p class="fs-sm mb-3 order-md-1"><span class="text-light opacity-50 me-1">© 2021. </span><a class="nav-link-style nav-link-light" href="#" target="_blank" rel="noopener">Digilab Mitra Integrasi</a></p>
+
+      <p class="fs-sm mb-3 order-md-1">
+        <span class="text-light opacity-50 me-1">© 2021. Ekraf Jambi. Support by:</span>
+        <a class="nav-link-style nav-link-light" href="#" target="_blank" rel="noopener">Digilab Mitra Integrasi</a>
+      </p>
     </div>
   </footer>
 
@@ -78,6 +104,6 @@
 
   <!-- Main theme script-->
   <script src="{{ asset('homepage/js/theme.min.js') }}"></script>
-
+  @yield('footer')
 </body>
 </html>

@@ -1,7 +1,7 @@
 @extends('homepage.layouts.app')
 
 @section('title')
-Data Pelaku Ekraf | EKRAF Jambi
+Pencarian Data Pelaku Ekraf | EKRAF Jambi
 @endsection
 
 @section('content')
@@ -18,7 +18,7 @@ Data Pelaku Ekraf | EKRAF Jambi
 	            <div class="mb-3 mb-sm-4 me-sm-3 w-100">
 	              <label class="form-label" for="nama_usaha">Nama Pelaku Ekraf</label>
 		          <div class="input-group">
-		          	<input type="text" class="form-control" id="nama_usaha" name="nama_usaha" placeholder="Nama usaha/pemilik usaha">
+		          	<input type="text" class="form-control" id="nama_usaha" name="nama_usaha" value="{{$key_nama}}" placeholder="Nama usaha/pemilik usaha">
 		          </div>
 	            </div>
 	            <div class="mb-3 pb-1 mb-sm-4 me-sm-3 w-100">
@@ -26,7 +26,7 @@ Data Pelaku Ekraf | EKRAF Jambi
 		          <select class="form-select" id="kab" name="kab">
 		            <option value="0">[Semua Wilayah]</option>
 		            @foreach($kab as $k)
-			            <option value="{{$k->id}}">{{$k->nama_kab_kota}}</option>
+			            <option value="{{$k->id}}" @if($k->id == $key_kab) selected @endif>{{$k->nama_kab_kota}}</option>
 			        @endforeach
 		          </select>
 	            </div>
@@ -35,7 +35,7 @@ Data Pelaku Ekraf | EKRAF Jambi
 		          	<select class="form-select" id="sektor" name="sektor">
 			            <option value="0">[Semua Sektor]</option>
 			            @foreach($sektor as $s)
-			            <option value="{{$s->id}}">{{$s->nama_sektor}}</option>
+			            <option value="{{$s->id}}" @if($s->id == $key_sektor) selected @endif>{{$s->nama_sektor}}</option>
 			           	@endforeach
 			          </select>
 	            </div>
@@ -47,8 +47,36 @@ Data Pelaku Ekraf | EKRAF Jambi
 	    </form>
   	</div>
 	<div class="content pt-5 mb-2 mb-sm-0 pb-sm-5">
-      	<h2 class="mb-4">Pelaku Ekraf</h2>
+		
+      	<h2 class="mb-4">Data Pelaku Ekraf ({{$jml_pelaku}})</h2>
+      	<div class="mb-2 mb-sm-0 pb-sm-5 row">
+			<div class="col-md-3">
+				
+			</div>
+			<div class="col-md-3">
+				
+			</div>
+			<div class="col-md-3">
+				Kabupaten/Kota : @if($nama_kab) <a href="/pelaku-ekraf/kab-kota/{{$nama_kab->seo_kab_kota}}">{{$nama_kab->nama_kab_kota}}</a> @else <a href="#">Semua Wilayah</a> @endif
+			</div>
+			<div class="col-md-3">
+				Sektor : @if($nama_sektor) <a href="/pelaku-ekraf/sektor/{{$nama_sektor->seo_sektor}}">{{$nama_sektor->nama_sektor}}</a> @else <a href="#">Semua Sektor</a> @endif
+			</div>
+		</div>
       	<!-- Blog grid-->
+      	@if(count($pelaku_ekrafs) == 0)
+      		
+			  <div class="pt-7 pb-4">
+			    <div class="text-center mb-2 pb-4">
+			      <h1 class="mb-5">
+			      	<span>Data Tidak Ditemukan</span>
+			      </h1>
+			      
+			    </div>
+			  </div>
+			
+
+      	@else
       	<div class="masonry-grid overflow-hidden" data-columns="4">
 	      	@foreach ($pelaku_ekrafs as $pelaku_ekraf)
 	      		<!-- Post-->
@@ -80,10 +108,13 @@ Data Pelaku Ekraf | EKRAF Jambi
 	  	<div class="pt-4 pb-2">
 		    <nav class="mb-4" aria-label="Page navigation">
 		      <div class="pagination justify-content-center">
-		        {{ $pelaku_ekrafs->links() }}
+		      	
+		      	{!! $pelaku_ekrafs->appends(Request::except('page'))->links() !!}
+		      
 		      </div>
 		    </nav>
 	  	</div>
+	  	@endif
     </div>
 </div>
 

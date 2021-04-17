@@ -17,8 +17,8 @@
           oleh<span class="fw-semibold ms-1"><a href="#">Admin</a></span>
           <span class="meta-divider"></span>
           {{ TanggalAja($berita->created_at) }}
-          <span class="meta-divider"></span>
-          <a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;0</a>
+          <!-- <span class="meta-divider"></span>
+          <a class="meta-link fs-xs" href="#"><i class="far fa-comment-alt me-1"></i>&nbsp;0</a> -->
         </div>
       </div>
 
@@ -36,10 +36,40 @@
         <div class="d-none d-md-block position-absolute border-start h-100" style="top: 0; left: 50%; width: 1px;"></div>
         <div class="col-md-6 ps-md-3 py-2 py-md-3">
           <div class="d-flex align-items-center justify-content-center justify-content-md-end">
-            <h6 class="text-nowrap my-2 me-3">Bagikan post ini:</h6><a class="btn-social bs-outline bs-facebook ms-2 my-2" href="#"><i class="fa fa-facebook"></i></a><a class="btn-social bs-outline bs-twitter ms-2 my-2" href="#"><i class="ai-twitter"></i></a><a class="btn-social bs-outline bs-google ms-2 my-2" href="#"><i class="ai-google"></i></a><a class="btn-social bs-outline bs-email ms-2 my-2" href="#"><i class="ai-mail"></i></a>
+            <h6 class="text-nowrap my-2 me-3">Bagikan post ini:</h6>
+            <a class="btn-social bs-outline bs-facebook ms-2 my-2" href="https://www.facebook.com/share.php?u={{url('berita-info/read/'.$berita->judul_seo)}}" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a class="btn-social bs-outline bs-twitter ms-2 my-2" href="https://twitter.com/intent/tweet?url={{url('berita-info/read/'.$berita->judul_seo)}}" target="_blank"><i class="ai-twitter"></i></a>
+            <a href="whatsapp://send?text={{url('berita-info/read/'.$berita->judul_seo)}}" data-action="share/whatsapp/share" target="_blank">Bagikan ke WhatsApp</a>
+
+            <a class="btn-social bs-outline bs-email ms-2 my-2" href="#"><i class="ai-mail"></i></a>
           </div>
         </div>
       </div>
+
+      <h3>Baca Juga</h3>
+      <hr>
+      <div class="row">
+    @foreach ($baca_juga as $b)
+      @if($b->published == 'Y') <!-- Tampilkan hanya yg status publish: Ya -->
+        <!-- Post-->
+        <div class="col-md-3 border-bottom mb-5">
+          <article class="">
+
+            <a href="/berita-info/read/{{ $b->judul_seo }}">
+              <div class="card my-2 bg-size-cover" style="background-image: url({{ $b->getThumbnailBerita() }}); height: 10vh; background-position: center;">
+              
+              </div>
+            </a>
+
+            <h5 class="h5 nav-heading">
+              <a href="/berita-info/read/{{ $b->judul_seo }}">{{ $b->judul }}</a>
+            </h5>
+          </article>
+        </div>
+       
+      @endif
+    @endforeach
+  </div>
       <!-- Prev / Next post navigation-->
       <!-- <nav class="d-flex justify-content-between pb-4 mb-5" aria-label="Entry navigation"><a class="entry-nav me-3" href="#">
           <h3 class="h5 pb-sm-2">Prev post</h3>
@@ -57,10 +87,9 @@
             <div class="entry-nav-thumb flex-shrink-0 d-none d-sm-block"><img class="rounded" src="img/blog/th05.jpg" alt="Post thumbnail"></div>
           </div></a></nav> -->
       <!-- Comments-->
-      <div class="pb-4 mb-5" id="comments">
+      <!-- <div class="pb-4 mb-5" id="comments">
         <h2 class="h5 pb-4">Belum ada komentar</h2>
         <a class="btn btn-translucent-primary border-primary border-1 d-block w-100" href="#comment-form" data-bs-toggle="collapse">Tambahkan komentar</a>
-        <!-- Comment form-->
         <div class="collapse" id="comment-form">
           <form class="needs-validation bg-light rounded-3 shadow p-4 p-lg-5 mt-4" novalidate>
             <div class="row">
@@ -86,7 +115,7 @@
             <button class="btn btn-primary" type="submit">Post comment</button>
           </form>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

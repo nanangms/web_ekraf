@@ -1,7 +1,7 @@
 @extends('homepage.layouts.app')
 
 @section('title')
-Homepage | EKRAF Jambi
+Home | EKRAF Jambi
 @endsection
 
 @section('content')
@@ -84,37 +84,30 @@ Homepage | EKRAF Jambi
   	<div class="row">
   		<div class="col-md-3 ps-md-3">
   			<div class="p-3 border rounded-3 bg-secondary">
-		  		<form>
+  				<h5>Temukan Pelaku EKRAF di Jambi</h5>
+		  		<form action="/pelaku-ekraf/search" method="get">
 		  			<div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
-			          <label class="form-label" for="from-destination">Pelaku Ekraf</label>
+			          <label class="form-label" for="from-destination">Nama Pelaku Ekraf</label>
 			          <div class="input-group">
-			          	<input type="text" class="form-control" name="" placeholder="Nama usaha/pemilik usaha">
+			          	<input type="text" class="form-control" name="nama_usaha" placeholder="Nama usaha/pemilik usaha">
 			          </div>
 			      </div>
 			      <div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
 			          <label class="form-label" for="to-destination">Wilayah</label>
-			          <select class="form-select" id="to-destination">
-			            <option value="" selected disabled hidden>Kabupaten/Kota</option>
-			            <option value="Kota Jambi">Kota Jambi</option>
-			            <option value="Kota Sungai Penuh">Kota Sungai Penuh</option>
-			            <option value="Kabupaten Batanghari">Kabupaten Batanghari</option>
-			            <option value="Kabupaten Bungo">Kabupaten Bungo</option>
-			            <option value="Kabupaten Kerinci">Kabupaten Kerinci</option>
-			            <option value="Kabupaten Merangin">Kabupaten Merangin</option>
-			            <option value="Kabupaten Muaro Jambi">Kabupaten Muaro Jambi</option>
-			            <option value="Kabupaten Sarolangun">Kabupaten Sarolangun</option>
-			            <option value="Kabupaten Tanjung Jabung Timur">Kabupaten Tanjung Jabung Timur</option>
-			            <option value="Kabupaten Tanung Jabung Barat">Kabupaten Tanung Jabung Barat</option>
-			            <option value="Kabupaten Tebo">Kabupaten Tebo</option>
+			          <select class="form-select" name="kab">
+			            <option value="">[Semua Wilayah]</option>
+			            @foreach($kab as $k)
+				            <option value="{{$k->id}}">{{$k->nama_kab_kota}}</option>
+				        @endforeach
 			          </select>
 			        </div>
 			        <div class="mb-3 pb-1 w-100 mb-sm-4 me-sm-3">
 			          <label class="form-label" for="to-destination">Sektor</label>
 			          <select class="form-select" id="to-destination">
-			            <option value="" selected disabled hidden>Sektor/bidang usaha</option>
-			            <option value="Sektor 1">Sektor 1</option>
-			            <option value="Sektor 2">Sektor 2</option>
-			            <option value="Sektor 3">Sektor 3</option>
+			            <option value="">[Semua Sektor]</option>
+			            @foreach($sektor as $s)
+			            	<option value="{{$s->id}}">{{$s->nama_sektor}}</option>
+			           	@endforeach
 			          </select>
 			        </div>
 			        <div class="text-center text-sm-start mt-2 mt-sm-4">
@@ -184,7 +177,7 @@ Homepage | EKRAF Jambi
 			            	<div class="border rounded-3 py-4 bg-light">
 			            		<h1 class="display-6 mb-1 text-gradient">{{ $usaha->count() }}</h1>
 		        				<div>
-		            				<h6 class="mb-0" style="font-size: 14px">Usaha</h6>
+		            				<h6 class="mb-0" style="font-size: 14px">Pelaku Ekraf</h6>
 		            			</div>
 			            	</div>
 			            </div>
@@ -203,7 +196,7 @@ Homepage | EKRAF Jambi
 		        		<h6 class="fw-medium">Daftarkan usaha Anda dan jadilah bagian dari komunitas Ekraf Jambi</h6>
 			        	<div>
 			        		<a class="btn btn-gradient btn-sm border-0" href="/pendaftaran-pelaku-ekraf">Daftar sekarang</a>
-			        		<a class="fs-sm fw-medium mx-3" style="text-decoration: none" href="#faq">Lihat cara daftar</a>
+			        		<a class="fs-sm fw-medium mx-3" style="text-decoration: none" href="/faqaboutekraf">Lihat cara daftar</a>
 			        	</div>
 		        	</div>
 		        </div>
@@ -226,11 +219,12 @@ Homepage | EKRAF Jambi
 				<!-- Post-->
 				<div class="col-lg-3 mb-5 border-bottom">
 					<article class="pb-4">
+						<a href="/berita-info/read/{{ $berita->judul_seo }}">
 						<div class="card mb-4 bg-size-cover" style="background-image: url({{ $berita->getThumbnailBerita() }}); height: 23vh; background-position: center;">
 						</div>
-
+						</a>
 					    <h2 class="h4 nav-heading mb-2">
-			        		<a href="/berita-info/{{ $berita->judul_seo }}">{{ $berita->judul }}</a>
+			        		<a href="/berita-info/read/{{ $berita->judul_seo }}">{{ $berita->judul }}</a>
 			        	</h2>
 			        	<div class="d-flex meta-link fs-sm align-items-center my-3">
 			                <div>
@@ -245,7 +239,7 @@ Homepage | EKRAF Jambi
 					    <div class="mb-2">
 				            <div class="mb-0 fs-sm">
 				            	{!! Str::limit($berita->isi, 150, ' ...') !!} &nbsp;&nbsp;
-				            	<a href="/berita-info/{{ $berita->judul_seo }}" class="fancy-link">Selengkapnya</a>
+				            	<a href="/berita-info/read/{{ $berita->judul_seo }}" class="fancy-link">Selengkapnya</a>
 				            </div>
 				        </div>
 					</article>
@@ -335,9 +329,18 @@ Homepage | EKRAF Jambi
 				    			</button>
 
 				    			<div class="accordion-collapse collapse px-2 w-100" id="collapse{{ $event->id }}" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-				    				<p class="fs-sm mb-0">{{ $event->deskripsi }}</p>
+				    				@if($event->foto_banner != Null)
+			    					
+									  <img src="{{ asset('images/event/thumb/'.$event->foto_banner) }}" width="100%" />
+									
+									@else
+									
+									  <img src="{{ asset('images/default_thumb_placeholder.jpg') }}" width="100%"/>
+									
+									@endif
+				    				<!-- <p class="fs-sm mb-0">{{ $event->deskripsi }}</p> -->
 				    				<hr>
-				    				<a href="#" class="btn btn-primary btn-sm mb-2">Lihat event</a>
+				    				<a href="/acara/detail/{{$event->event_seo}}" class="btn btn-primary btn-sm mb-2">Lihat detail event</a>
 				    			</div>
 				    		</div>
 				    	</div>
@@ -348,9 +351,45 @@ Homepage | EKRAF Jambi
   		</div>
   	</div>
   </section>
+  <section class="container">
+  	<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
+		<h3 class="widget-title text-nowrap">Video</h3>
+		<p class="fs-sm fw-medium ps-md-4"><a class="text-nowrap" href="/galery/video" style="text-decoration: none;">Lainnya<i class="fas fa-angle-right align-middle fs-lg ms-2"></i></a></p>
+	</div>
 
+  	<!-- Berita -->
+  	<div class="row">
+ 
+				<!-- Post-->
+				<div class="col-lg-6 mb-5 border-bottom">
+					<article class="pb-4">
+						<a href="/berita-info/read/{{ $berita->judul_seo }}">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/bkIxCPtqFws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</a>
+					    <h2 class="h4 nav-heading mb-2">
+			        		<a href="#">Baselang Ekraf: Mak Comblangin Desain Interior Kopi Broyat dan Produk Blimey Kito Bareng Mbak Tanty</a>
+			        	</h2>
+			        	
+					</article>
+				</div>
+
+				<!-- Post-->
+				<div class="col-lg-6 mb-5 border-bottom">
+					<article class="pb-4">
+						<a href="/berita-info/read/{{ $berita->judul_seo }}">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/bkIxCPtqFws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+						</a>
+					    <h2 class="h4 nav-heading mb-2">
+			        		<a href="#">Baselang Ekraf: Mak Comblangin Desain Interior Kopi Broyat dan Produk Blimey Kito Bareng Mbak Tanty</a>
+			        	</h2>
+			        	
+					</article>
+				</div>
+		
+  	</div>
+  </section>
 	<!-- FAQ -->
-	<section class="container">
+	<!--<section class="container">
 		<span id="faq" style="position: relative; top: -120px; visibility: hidden;"></span>
 		<div class="mb-5">
 			<div class="d-flex flex-wrap flex-md-nowrap justify-content-between">
@@ -376,7 +415,7 @@ Homepage | EKRAF Jambi
 	        	@endforeach
 	        </div>
 
-        <!-- <div class="px-md-3">
+         <div class="px-md-3">
         	<a href="#" style="text-decoration: none;">
             	<div class="card mb-3">
 	            	<div class="card-body text-center pb-3">
@@ -436,8 +475,8 @@ Homepage | EKRAF Jambi
 	            	</div>
 	            </div>
 	        </a>
-        </div> -->
+        </div> 
 		</div>
-	</section>
+	</section>-->
 
 @stop
