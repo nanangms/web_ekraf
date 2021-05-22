@@ -26,8 +26,8 @@ Home | EKRAF Jambi
 	      	  <div class="position-absolute top-0 start-0 w-100 h-100 bg-size-cover bg-position-center" style="background-image: url({{ asset('homepage/images/banner-1.jpg') }});">
 		      </div>
 	          <div class="position-relative container text-center">
-	            <h1 class="text-light pb-1">Selamat datang di website EKRAF Jambi</h1>
-	            <p class="fs-lg text-light">Makes it easier to experience the world.</p>
+	            <h1 class="text-light pb-1">Selamat Datang di website <br> Komite Ekonomi Kreatif Jambi</h1>
+	            <p class="fs-lg text-light">Lawan Efek Resesi dengan Ekonomi Kreatif.</p>
 	          </div>
 	        </div>
 	    </div>
@@ -36,7 +36,7 @@ Home | EKRAF Jambi
 		    <div style="margin: 0; padding: 0 10vw;">
 		      <div class="row align-items-center">
 		        <div class="col-lg-5 offset-lg-1 order-lg-2 text-center text-lg-start">
-		          <h2 class="text-light">Tentang EKRAF Jambi</h2>
+		          <h2 class="text-light">Tentang Komite Ekonomi Kreatif Jambi</h2>
 		          <p class="text-light mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
 		          <br>
 		          <a href="/profil-ekraf" class="fancy-link">Selengkapnya</a>
@@ -45,17 +45,17 @@ Home | EKRAF Jambi
 		          <div class="row">
 		            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
 		              <div class="px-3 text-center"><img class="bg-light rounded-circle mb-2 daftar-img" alt="Daftar">
-		                <p class="fs-sm fw-medium text-light mb-0 pt-1">Pendaftaran pemilik usaha sebagai pelaku Ekraf</p>
+		                <p class="fs-sm fw-medium text-light mb-0 pt-1">Pendaftaran pelaku Ekraf Provinsi Jambi</p>
 		              </div>
 		            </div>
 		            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
 		              <div class="px-3 text-center"><img class="bg-light rounded-circle mb-2 cari-img" alt="Cari">
-		                <p class="fs-sm fw-medium text-light mb-0 pt-1">Direktori dan pencarian data pelaku Ekraf</p>
+		                <p class="fs-sm fw-medium text-light mb-0 pt-1">Direktori pelaku Ekraf Provinsi Jambi</p>
 		              </div>
 		            </div>
 		            <div class="col-sm-4 mb-2 pb-4 mb-sm-0 pb-sm-0">
 		              <div class="px-3 text-center"><img class="bg-light rounded-circle mb-2 event-img" alt="Event">
-		                <p class="fs-sm fw-medium text-light mb-0 pt-1">Informasi event Ekonomi kreatif</p>
+		                <p class="fs-sm fw-medium text-light mb-0 pt-1">Informasi event Ekonomi Kreatif</p>
 		              </div>
 		            </div>
 		          </div>
@@ -193,7 +193,7 @@ Home | EKRAF Jambi
 		        </div>
 		        <div class="col-lg-6 mt-4 mt-lg-1">
 		        	<div class="text-center text-lg-start">
-		        		<h6 class="fw-medium">Daftarkan usaha Anda dan jadilah bagian dari komunitas Ekraf Jambi</h6>
+		        		<h6 class="fw-medium">Daftarkan usaha Anda dan jadilah bagian dari Ekonomi Kreatif Jambi</h6>
 			        	<div>
 			        		<a class="btn btn-gradient btn-sm border-0" href="/pendaftaran-pelaku-ekraf">Daftar sekarang</a>
 			        		<a class="fs-sm fw-medium mx-3" style="text-decoration: none" href="/faqaboutekraf">Lihat cara daftar</a>

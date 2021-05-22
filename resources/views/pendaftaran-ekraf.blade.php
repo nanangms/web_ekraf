@@ -36,9 +36,9 @@
         <div>
           Salam EKRAF! <br><br>
 
-          Formulir ini diperuntukkan sebagai database Komite Ekonomi Kreatif Provinsi Jambi untuk mendata Pelaku Ekonomi Kreatif/ UMKM di Provinsi Jambi, baik di bidang jasa ataupun produk. <br> <br>
+          Formulir ini diperuntukkan sebagai database Komite Ekonomi Kreatif Provinsi Jambi untuk mendata Pelaku Ekonomi Kreatif/ UMKM di Provinsi Jambi, baik di bidang jasa maupun produk. <br> <br>
 
-          Komite Ekraf Jambi lahir dari SK Gubernur Jambi Nomor: 230/KEP. GUB/PSDA-1.1/2020.
+          Komite Ekraf Jambi lahir berdasarkan SK Gubernur Jambi Nomor: 230/KEP. GUB/PSDA-1.1/2020.
         </div>
 
         <hr>
@@ -90,7 +90,7 @@
                 <div id="account-part" class="content" role="tabpanel" aria-labelledby="account-part-trigger">
                   <div class="mt-4">
                     <h4>Informasi Akun</h4>
-                    <p>Digunakan untuk masuk kedalam aplikasi</p>
+                    <p>Digunakan untuk login kedalam aplikasi</p>
                     <hr>
                     <div class="form-group mb-3">
                       <label class="form-label" for="email">Email <span class="text-danger">*</span></label></label>
@@ -290,7 +290,7 @@
                   <div class="form-group mb-3">
                     <label class="form-label" for="nama_lengkap">Alamat Tempat Usaha <span class="text-danger">*</span></label>
                     <input type="text" name="alamat_usaha" class="form-control" id="" placeholder="" required value="{{old('alamat_usaha')}}">
-                    <div class="form-text fw-semibold text-warning">Mohon dituliskan alamat selengkap-lengkapnya</div>
+                    <div class="form-text fw-semibold text-warning">Mohon dituliskan alamat selengkapnya</div>
                   </div>
                   <hr>
                   <div class="form-group mb-3">
