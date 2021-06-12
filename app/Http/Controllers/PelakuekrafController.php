@@ -65,4 +65,10 @@ class PelakuekrafController extends Controller
         ->orderBy('a.id','desc')->first();
         return view('pelaku_ekraf.detail',compact(['pelaku']));
     }
+
+    public function delete($id){
+        $pelaku = Pelaku_ekraf::where('uuid',$id)->firstOrFail();
+        $pelaku->delete();
+        return redirect('/pelaku_ekraf')->with('hapus','Data Berhasil dihapus');
+    }
 }

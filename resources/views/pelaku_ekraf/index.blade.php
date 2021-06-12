@@ -124,9 +124,9 @@ Pelaku Ekraf
     $('body').on('click', '.hapus', function (event) {
         event.preventDefault();
 
-        var user_name = $(this).attr('user-name'),
-            title = user_name.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toUpperCase();});
-            user_id = $(this).attr('user-id');
+        var pelaku_name = $(this).attr('pelaku-name'),
+            title = pelaku_name.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toUpperCase();});
+            pelaku_id = $(this).attr('pelaku-id');
         swal({
             title: "Anda Yakin?",
             text: "Mau Menghapus Data : "+ title +"?",
@@ -137,7 +137,7 @@ Pelaku Ekraf
         .then((result) => {
             if (result) {
                 $.ajax({
-                    url: "/user/"+user_id+"/delete",
+                    url: "/pelaku_ekraf/"+pelaku_id+"/delete",
 
                     success: function (response) {
                         $('#datatable').DataTable().ajax.reload();
