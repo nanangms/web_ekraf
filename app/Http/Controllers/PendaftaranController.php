@@ -221,7 +221,7 @@ class PendaftaranController extends Controller
             $user->verifikasi           = 'Y';
             $user->save();
 
-            \Mail::to('nanang.ms22@gmail.com')->send(new \App\Mail\PostMail($pendaftaran->kode_pelaku_ekraf, $pendaftaran->nama_lengkap));
+            \Mail::to($pendaftaran->email)->send(new \App\Mail\PostMail($pendaftaran->kode_pelaku_ekraf, $pendaftaran->nama_lengkap));
 
             DB::commit();
             return redirect('/pendaftaran')->with('sukses','Pendaftaran berhasil diverifikasi');

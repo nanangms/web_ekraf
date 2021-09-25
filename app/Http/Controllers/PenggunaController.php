@@ -86,11 +86,11 @@ class PenggunaController extends Controller
             $image_name1 = str_replace(' ', '_', $request->nama_usaha).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
-            $ImageUpload->save(public_path('images/foto_usaha/'.$image_name1));
+            $ImageUpload->save('images/foto_usaha/'.$image_name1);
 
             // for save thumbnail image
             $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $ImageUpload->save(public_path('images/foto_usaha/thumb/'.$image_name1));
+            $ImageUpload->save('images/foto_usaha/thumb/'.$image_name1);
 
 
             DB::beginTransaction();

@@ -72,6 +72,7 @@ Route::group(['middleware'=>['auth','checkRole:Admin,Super Admin,Pelaku Ekraf']]
 
 Route::group(['middleware'=>['auth','checkRole:Admin,Super Admin']],function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index']);
 
     Route::group(['prefix'=>'pendaftaran'], function(){
         Route::get('/', [App\Http\Controllers\PendaftaranController::class, 'index']);

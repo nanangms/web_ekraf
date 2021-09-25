@@ -426,6 +426,8 @@
       buttons: false,
   });
 
+  @elseif(session()->has('info'))
+    swal("{{ session('info') }}");
   @endif
 </script>
 <script>
