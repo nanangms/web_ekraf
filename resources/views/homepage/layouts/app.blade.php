@@ -65,7 +65,7 @@
         </a>
 
         <a href="mailto:" class="btn-social bs-instagram" title="">
-          <i class="fab fa-envelope"></i>
+          <i class="fa fa-envelope"></i>
         </a>
      
       </div>
@@ -79,7 +79,7 @@
       </ul>
 
       <p class="fs-sm mb-3 order-md-1">
-        <span class="text-light opacity-50 me-1">© 2021. Ekraf Jambi. Support by:</span>
+        <span class="text-light opacity-50 me-1">© 2021. Komite Ekraf Jambi. Developed by:</span>
         <a class="nav-link-style nav-link-light" href="#" target="_blank" rel="noopener">Digilab Mitra Integrasi</a>
       </p>
     </div>

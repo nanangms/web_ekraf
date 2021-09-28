@@ -128,8 +128,8 @@ Profil Pelaku Ekraf : {{$pelaku_ekraf->nama_usaha}} | EKRAF Jambi
 									  <i class="fab fa-instagram"></i>
 									</a>
 
-									<a href="mailto:{{$pelaku_ekraf->email_usaha}}" class="btn-social bs-instagram" title="{{$pelaku_ekraf->ig_usaha}}">
-									  <i class="fab fa-envelope"></i>
+									<a href="mailto:{{$pelaku_ekraf->email_usaha}}" class="btn-social bs-instagram" title="{{$pelaku_ekraf->email_usaha}}">
+									  <i class="fa fa-envelope"></i>
 									</a>
 
 									

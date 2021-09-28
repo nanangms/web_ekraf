@@ -155,7 +155,7 @@ class UserController extends Controller
 
             $image_resize = Image::make($foto->getRealPath());
             $image_resize->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $image_resize->save(public_path('images/profil/'.$image_name1));
+            $image_resize->save('images/profil/'.$image_name1);
 
             DB::beginTransaction();
             try{

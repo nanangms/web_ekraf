@@ -69,7 +69,7 @@ Sektor : {{$nama_sektor->nama_sektor}} | EKRAF Jambi
 								@endif
 				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 				            </div>
-				            <h6 class="nav-heading-title mb-0">{{$pelaku_ekraf->nama_usaha}}</h6>
+				            <h6 class="nav-heading-title mb-0">{{Str::limit($pelaku_ekraf->nama_usaha, 25, ' ...')}}</h6>
 		        			<span class="fs-sm fw-normal text-muted">{{$pelaku_ekraf->nama_sektor}}</span>
 		        		</div>
 		        	</a>

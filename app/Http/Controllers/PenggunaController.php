@@ -178,11 +178,11 @@ class PenggunaController extends Controller
             $image_name1 = str_replace(' ', '_', $request->nama_pemilik).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
-            $ImageUpload->save(public_path('images/foto_pemilik/'.$image_name1));
+            $ImageUpload->save('images/foto_pemilik/'.$image_name1);
 
             // for save thumbnail image
             $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $ImageUpload->save(public_path('images/foto_pemilik/thumb/'.$image_name1));
+            $ImageUpload->save('images/foto_pemilik/thumb/'.$image_name1);
 
 
             DB::beginTransaction();
@@ -270,11 +270,11 @@ class PenggunaController extends Controller
             $image_name1 = str_replace(' ', '_', $request->nama_produk).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
-            $ImageUpload->save(public_path('images/produk/'.$image_name1));
+            $ImageUpload->save('images/produk/'.$image_name1);
 
             // for save thumbnail image
             $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $ImageUpload->save(public_path('images/produk/thumb/'.$image_name1));
+            $ImageUpload->save('images/produk/thumb/'.$image_name1);
 
             DB::beginTransaction();
             try{
@@ -327,11 +327,11 @@ class PenggunaController extends Controller
             $image_name1 = str_replace(' ', '_', $request->nama_produk).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
-            $ImageUpload->save(public_path('images/produk/'.$image_name1));
+            $ImageUpload->save('images/produk/'.$image_name1);
 
             // for save thumbnail image
             $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $ImageUpload->save(public_path('images/produk/thumb/'.$image_name1));
+            $ImageUpload->save('images/produk/thumb/'.$image_name1);
 
             DB::beginTransaction();
             try{

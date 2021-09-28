@@ -56,7 +56,6 @@ Data Pelaku Ekraf | EKRAF Jambi
 		          	<a class="nav-heading text-center" href="/data-pelaku-ekraf/{{$pelaku_ekraf->kode_pelaku_ekraf}}">
 		        		<div class="card border-0 bg-transparent">
 		        			<div class="card-hover card-img card-img-gradient border-0 shadow mb-3">
-		        				<!-- <span class="badge badge-floating badge-floating-end bg-primary fs-sm py-2 px-3">Kuliner</span> -->
 		        				@if($pelaku_ekraf->foto_usaha != Null)
 		    					<div class="member-thumbnail">
 								  <img src="{{ asset('images/foto_usaha/thumb/'.$pelaku_ekraf->foto_usaha) }}"/>
@@ -68,7 +67,7 @@ Data Pelaku Ekraf | EKRAF Jambi
 								@endif
 				            	<span class="card-floating-text text-light fw-medium">Lihat detail usaha<i class="fas fa-angle-right align-middle fs-lg ms-3"></i></span>
 				            </div>
-				            <h6 class="nav-heading-title mb-0">{{$pelaku_ekraf->nama_usaha}}</h6>
+				            <h6 class="nav-heading-title mb-0">{{Str::limit($pelaku_ekraf->nama_usaha, 25, ' ...')}}</h6>
 		        			<span class="fs-sm fw-normal text-muted">{{$pelaku_ekraf->nama_sektor}}</span>
 		        		</div>
 		        	</a>

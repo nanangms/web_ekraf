@@ -10,6 +10,7 @@ use DB;
 use App\Models\Kabupatenkota;
 use App\Models\Sektor;
 use App\Models\Produk;
+use App\Models\Event;
 
 
 class IndexController extends Controller
@@ -23,13 +24,15 @@ class IndexController extends Controller
     {
     	$berita = \App\Models\Berita::orderBy('created_at', 'desc')->limit(4)->get();
 		$foto = \App\Models\Foto::orderBy('id', 'desc')->limit(9)->get();
-        $event = \App\Models\Event::orderBy('id', 'desc')->limit(4)->get();
+        $event = \App\Models\Event::where('published','Y')->orderBy('id', 'desc')->limit(4)->get();
+        $jmlevent = Event::where('published','Y')->count();
 		$faq = \App\Models\Faq::orderBy('urutan', 'asc')->get();
         $kab_kota = \App\Models\Kabupatenkota::all();
         $kab = Kabupatenkota::select('kab_kota.id','kab_kota.nama_kab_kota')->get();
         $sektor = \App\Models\Sektor::all();
         $usaha = \App\Models\Pelaku_ekraf::all();
         $produk = \App\Models\Produk::all();
+        $video = \App\Models\Video::where('published','Y')->orderBy('id', 'desc')->limit(2)->get();
 
 		$pelaku_ekraf = DB::table('pelaku_ekraf as a')
                 ->select('a.nama_usaha', 'a.foto_usaha','a.kode_pelaku_ekraf','b.nama_sektor')
@@ -38,7 +41,7 @@ class IndexController extends Controller
                 ->limit(4)
                 ->get();
             //dd($pelaku_ekraf);
-        return view('homepage.home', compact('berita','foto','event','faq','kab_kota','kab','sektor','usaha','produk','pelaku_ekraf'));
+        return view('homepage.home', compact('berita','foto','event','faq','kab_kota','kab','sektor','usaha','produk','pelaku_ekraf','jmlevent','video'));
     }
 
     public function faq()
@@ -91,8 +94,8 @@ class IndexController extends Controller
                 ->where('published','Y')
                 ->orderBy('created_at', 'desc')
                 ->get();
-    	//$event = \App\Models\Event::where('published','Y')orderBy('created_at', 'desc')->get();
-        return view('homepage.event', compact('event'));
+    	$jmlevent = Event::where('published','Y')->count();
+        return view('homepage.event', compact('event','jmlevent'));
     }
 
     public function album()

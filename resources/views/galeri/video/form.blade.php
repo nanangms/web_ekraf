@@ -18,7 +18,7 @@
 
     <div class="form-group">
         <label>Publish</label><br>
-        <input type='radio' name='published' value='Y' checked id="published"> Ya &nbsp; <input type='radio' name='published' value='N' id="published"> Tidak 
+        <input type='radio' name='published' value='Y' @if($model->published == 'Y') checked @endif id="published"> Ya &nbsp; <input type='radio' name='published' value='N' @if($model->published == 'N') checked @endif id="published"> Tidak 
 
     </div>
 

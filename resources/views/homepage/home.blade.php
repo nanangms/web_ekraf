@@ -27,7 +27,7 @@ Home | EKRAF Jambi
 		      </div>
 	          <div class="position-relative container text-center">
 	            <h1 class="text-light pb-1">Selamat Datang di website <br> Komite Ekonomi Kreatif Jambi</h1>
-	            <p class="fs-lg text-light">Lawan Efek Resesi dengan Ekonomi Kreatif.</p>
+	            <p class="fs-lg text-light">Lawan Dampak COVID 19 dengan Ekonomi Kreatif.</p>
 	          </div>
 	        </div>
 	    </div>
@@ -36,10 +36,9 @@ Home | EKRAF Jambi
 		    <div style="margin: 0; padding: 0 10vw;">
 		      <div class="row align-items-center">
 		        <div class="col-lg-5 offset-lg-1 order-lg-2 text-center text-lg-start">
-		          <h2 class="text-light">Tentang Komite Ekonomi Kreatif Jambi</h2>
-		          <p class="text-light mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-		          <br>
-		          <a href="/profil-ekraf" class="fancy-link">Selengkapnya</a>
+		          <h3 class="text-light">Tentang Komite Ekonomi Kreatif Jambi</h3>
+		          <p class="text-light mb-0">Komite Ekonomi Kreatif Jambi merupakan lembaga non struktural di Provinsi Jambi yang membantu Pemerintah Daerah di bidang Pengembangan dan Penerapan Ekonomi Kreatif.</p>
+		          <a href="/profil-ekraf">Selengkapnya</a>
 		        </div>
 		        <div class="col-lg-6 order-lg-1 d-none d-lg-block">
 		          <div class="row">
@@ -262,7 +261,9 @@ Home | EKRAF Jambi
 
 	        <div class="border-0 rounded-3 mb-3" style="overflow: hidden;">
 	        	<div class="row gallery g-1" style="min-width: 102%">
-				
+				@if(count($foto) != 0)
+					<div class="alert alert-danger"><center>Tidak ada Foto</center></div>
+				@else
 				  @foreach ($foto as $foto)
 				  	<div class="col-4">
 					    <a href="{{ $foto->getImageFoto() }}" class="gallery-item" data-sub-html='<h5 class="fw-light text-light">{{ $foto->keterangan }}</h5>'>
@@ -273,7 +274,7 @@ Home | EKRAF Jambi
 					    </a>
 					  </div>
 				  @endforeach
-
+				 @endif
 				</div>
 	        </div>
 
@@ -308,6 +309,9 @@ Home | EKRAF Jambi
 	        </div>
 
 	        <div class="accordion" id="accordionExample">
+	        	@if($jmlevent == 0)
+					<div class="alert alert-danger"><center>Event Tidak ditemukan</center></div>
+				@else
 	        	@foreach ($event as $event)
 	        		<!-- Item -->
 				    <div class="accordion-item card card-hover" style="overflow: hidden;">
@@ -346,7 +350,7 @@ Home | EKRAF Jambi
 				    	</div>
 				  	</div>
 	        	@endforeach
-				
+				@endif
 	    	</div>
   		</div>
   	</div>
@@ -359,32 +363,20 @@ Home | EKRAF Jambi
 
   	<!-- Berita -->
   	<div class="row">
- 
-				<!-- Post-->
-				<div class="col-lg-6 mb-5 border-bottom">
-					<article class="pb-4">
-						<a href="/berita-info/read/{{ $berita->judul_seo }}">
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/bkIxCPtqFws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</a>
-					    <h2 class="h4 nav-heading mb-2">
-			        		<a href="#">Baselang Ekraf: Mak Comblangin Desain Interior Kopi Broyat dan Produk Blimey Kito Bareng Mbak Tanty</a>
-			        	</h2>
-			        	
-					</article>
-				</div>
-
-				<!-- Post-->
-				<div class="col-lg-6 mb-5 border-bottom">
-					<article class="pb-4">
-						<a href="/berita-info/read/{{ $berita->judul_seo }}">
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/bkIxCPtqFws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</a>
-					    <h2 class="h4 nav-heading mb-2">
-			        		<a href="#">Baselang Ekraf: Mak Comblangin Desain Interior Kopi Broyat dan Produk Blimey Kito Bareng Mbak Tanty</a>
-			        	</h2>
-			        	
-					</article>
-				</div>
+    	@foreach ($video as $v)
+		<!-- Post-->
+		<div class="col-lg-6 mb-5 border-bottom">
+			<article class="pb-4">
+				
+				<iframe width="560" height="315" src="{{$v->link_video}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				
+			    <h2 class="h4 nav-heading mb-2">
+	        		<a href="{{$v->link_video}}" target="_blank">{{$v->judul}}</a>
+	        	</h2>
+	        	
+			</article>
+		</div>
+		@endforeach
 		
   	</div>
   </section>

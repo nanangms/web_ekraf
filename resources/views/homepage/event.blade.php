@@ -6,10 +6,12 @@ Event | EKRAF Jambi
 
 @section('content')
 <div class="container mt-7 mb-2 pt-4 pt-lg-5">
-
-  <h2 class="mb-4">Event</h2>
-  <div class="row">
-<div class="accordion" id="accordionExample">
+<h2 class="mb-4">Event</h2>
+	<div class="row">
+		<div class="accordion" id="accordionExample">
+			@if($jmlevent == 0)
+				<div class="alert alert-danger"><center>Event Tidak ditemukan</center></div>
+			@else
 	        	@foreach ($event as $event)
 	        		<!-- Item -->
 				    <div class="accordion-item card card-hover" style="overflow: hidden;">
@@ -48,7 +50,7 @@ Event | EKRAF Jambi
 				    	</div>
 				  	</div>
 	        	@endforeach
-				
+			@endif
 	    	</div>
 	    </div>
 	</div>

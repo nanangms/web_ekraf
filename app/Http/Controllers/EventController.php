@@ -40,11 +40,11 @@ class EventController extends Controller
             $image_name1 = str_replace(' ', '_', $request->nama_event).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
-            $ImageUpload->save(public_path('images/event/'.$image_name1));
+            $ImageUpload->save('images/event/'.$image_name1);
 
             // for save thumbnail image
             $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $ImageUpload->save(public_path('images/event/thumb/'.$image_name1));
+            $ImageUpload->save('images/event/thumb/'.$image_name1);
 
             DB::beginTransaction();
             try{
@@ -130,11 +130,11 @@ class EventController extends Controller
             $image_name1 = str_replace(' ', '_', $request->nama_event).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
-            $ImageUpload->save(public_path('images/event/'.$image_name1));
+            $ImageUpload->save('images/event/'.$image_name1);
 
             // for save thumbnail image
             $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $ImageUpload->save(public_path('images/event/thumb/'.$image_name1));
+            $ImageUpload->save('images/event/thumb/'.$image_name1);
 
             DB::beginTransaction();
             try{

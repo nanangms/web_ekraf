@@ -33,11 +33,11 @@ class FotoController extends Controller
             $image_name1 = str_replace(' ', '_', $request->nama_album).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
-            $ImageUpload->save(public_path('images/foto/'.$image_name1));
+            $ImageUpload->save('images/foto/'.$image_name1);
 
             // for save thumbnail image
             $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $ImageUpload->save(public_path('images/foto/thumb/'.$image_name1));
+            $ImageUpload->save('images/foto/thumb/'.$image_name1);
 
 
             DB::beginTransaction();

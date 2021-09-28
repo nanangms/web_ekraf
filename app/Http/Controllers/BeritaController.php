@@ -38,11 +38,11 @@ class BeritaController extends Controller
             $image_name1 = str_replace(' ', '_', $request->judul).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
-            $ImageUpload->save(public_path('images/berita/'.$image_name1));
+            $ImageUpload->save('images/berita/'.$image_name1);
 
             // for save thumbnail image
             $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $ImageUpload->save(public_path('images/berita/thumb/'.$image_name1));
+            $ImageUpload->save('images/berita/thumb/'.$image_name1);
 
 
             DB::beginTransaction();
@@ -89,11 +89,11 @@ class BeritaController extends Controller
             $image_name1 = str_replace(' ', '_', $request->judul).'_'.kode_acak(5).'.'.$foto->getClientOriginalExtension();
             // for save original image
             $ImageUpload = Image::make($foto);
-            $ImageUpload->save(public_path('images/berita/'.$image_name1));
+            $ImageUpload->save('images/berita/'.$image_name1);
 
             // for save thumbnail image
             $ImageUpload->resize(500, null, function ($constraint) {$constraint->aspectRatio(); });
-            $ImageUpload->save(public_path('images/berita/thumb/'.$image_name1));
+            $ImageUpload->save('images/berita/thumb/'.$image_name1);
 
 
             DB::beginTransaction();
